@@ -3,16 +3,31 @@ package view;
 /**
  * <h1>The Interface IView.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Hugo
  * @version 1.0
  */
 public interface IView {
 
-    /**
-     * Display message.
-     *
-     * @param message
-     *            the message
-     */
-    void displayMessage(String message);
+	/**
+	 * Show the map
+	 * @param model
+	 */
+   public void showMap(IModel model);
+    
+   /**
+    * remove the squares
+    */
+   public void removeSquares();
+    
+   /**
+    * remove the pawns
+    */
+   public void removePawns();
+
+   /**
+    * remove a pawn 
+    * @param pawn
+    */
+   public void removePawn(IPawn pawn);
+    
 }

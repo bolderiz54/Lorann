@@ -6,39 +6,85 @@ import java.util.List;
 /**
  * <h1>The Interface IModel.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Hugo
  * @version 1.0
  */
 public interface IModel {
 
-    /**
-     * Gets the example by id.
-     *
-     * @param id
-     *            the id
-     * @return the example by id
-     * @throws SQLException
-     *             the SQL exception
-     */
-    Example getExampleById(int id) throws SQLException;
-
-    /**
-     * Gets the example by name.
-     *
-     * @param name
-     *            the name
-     * @return the example by name
-     * @throws SQLException
-     *             the SQL exception
-     */
-    Example getExampleByName(String name) throws SQLException;
-
-    /**
-     * Gets the all examples.
-     *
-     * @return the all examples
-     * @throws SQLException
-     *             the SQL exception
-     */
-    List<Example> getAllExamples() throws SQLException;
+/**
+ * 
+ * @param level (int)
+ * @return true if the entity is alive
+ */
+   public boolean loadLevel(int level);
+   
+   /**
+    * Reset the level
+    */
+   public void resetLevel();
+   
+   /**
+    * Unload the level
+    */
+   public void unloadLevel();
+   
+   /**
+    * 
+    * @return all the entity in the map
+    */
+   public IEntity[][] getMap();
+   
+   /**
+    * get the Width of the map
+    * @return the size of the width (int)
+    */
+   public int getWidth();
+   
+   /**
+    * set the width
+    * @param Width
+    */
+   private void setWidth(int width);
+   
+   /**
+    * get the height of the map
+    * @return the size of the height
+    */
+   public int getHeight();
+  
+   /**
+    * set the height of the map
+    * @param height
+    */
+   private void setHeight(int height);
+   
+   /**
+    * get the player
+    */
+   public Player getPlayer();
+   
+   /**
+    *  This is to get a Monster
+    * @param monsterNumber
+    * @return the number of the monster
+    */
+   public Monster getMonster(int monsterNumber);
+   
+   /**
+    *  get an Entity
+    * @param x  The movements of the Entity
+    * @param y The movements of the Entity
+    * @return  an entity at the right coordinates
+    */
+   public IEntity getOnMap(int x, int y);
+   
+   /**
+    * Generate the spell
+    */
+   public void generateSpell();
+   
+   /**
+    * Destroy the spell
+    */
+   public void destroySpell();
 }
