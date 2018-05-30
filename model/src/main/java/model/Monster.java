@@ -24,7 +24,7 @@ public class Monster extends Being implements IMonster {
 	 * @param behaviour
 	 */
 	public Monster(String imagePath, IMonster behaviour) {
-		
+		super(imagePath);
 	}
 	
 	/**
@@ -33,25 +33,7 @@ public class Monster extends Being implements IMonster {
 	@Override
 	public void move(IPawn player, IModel model) {
 		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public int getX() {
-		return super.g
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Point getPosition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Image getImage() {

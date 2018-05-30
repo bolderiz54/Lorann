@@ -9,6 +9,11 @@ package model;
 public abstract class Being extends Mobile implements IBeing {
 	
 	/**
+	 * True or false if the being is alive or not
+	 */
+	private Boolean alive = true;
+	
+	/**
 	 * Instantiate being
 	 * @param imagePath
 	 */
@@ -16,11 +21,6 @@ public abstract class Being extends Mobile implements IBeing {
 		super(imagePath);
 		// TODO Auto-generated constructor stub
 	}
-
-	/**
-	 * True or false if the being is alive or not
-	 */
-	private Boolean alive = true;
 
 	@Override
 	public boolean isAlive() {

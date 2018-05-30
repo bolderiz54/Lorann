@@ -19,6 +19,15 @@ public class Player extends Being implements IPlayer {
 	private Direction animationDirection;
 	
 	/**
+	 * Instantiate the player
+	 * @param imagePath
+	 */
+	public Player(String imagePath) {
+		super(imagePath);
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
 	 * This method allows the player to move
 	 */
 	@Override
