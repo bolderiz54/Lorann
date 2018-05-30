@@ -8,6 +8,6 @@ private boolean repelled();
 
 public Spell() {
 	
-}
+	}
 
 }

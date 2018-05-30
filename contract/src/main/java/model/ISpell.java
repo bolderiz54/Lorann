@@ -23,4 +23,5 @@ public interface ISpell {
 	public boolean isRepelled();
 	
 
+	
 }
