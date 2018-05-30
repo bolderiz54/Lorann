@@ -10,19 +10,47 @@ public class Interact implements KeyListener{
 	private List<Character> keyCharPressed;
 	
 	public boolean isKeyPressed(int keyCode) {
-		return false;
+		int index = Collections.binarySearch(this.getKeyCodePressed(), keyCode);
+		if (index >= 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public boolean isKeyPressed(char keyChar) {
-		return false;
+		int index = Collections.binarySearch(this.getKeyCharPressed(), keyChar);
+		if (index >= 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public void keyPressed(KeyEvent event) {
-		
+		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
+		if (index < 0) {
+			this.getKeyCodePressed().add(event.getKeyCode());
+			Collections.sort(this.getKeyCodePressed());
+		}
+		index = Collections.binarySearch(this.getKeyCharPressed(), event.getKeyChar());
+		if (index < 0) {
+			this.getKeyCharPressed().add(event.getKeyChar());
+			Collections.sort(this.getKeyCharPressed());
+		}
 	}
 	
 	public void keyReleased(KeyEvent event) {
-		
+		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
+		if (index >= 0) {
+			this.getKeyCodePressed().remove(index);
+		}
+		index = Collections.binarySearch(this.getKeyCharPressed(), event.getKeyChar());
+		if (index >= 0) {
+			this.getKeyCharPressed().remove(index);
+		}
 	}
 	
 	public void keyTyped(KeyEvent event) {
