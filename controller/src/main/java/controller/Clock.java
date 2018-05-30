@@ -6,13 +6,13 @@ public class Clock {
 	 * the number of tick is the number of time that the game looped
 	 */
 	private int ticksPerSecond = 15;
-	private int tickDuration;
+	private long tickDuration;
 	
 	/**
 	 * this Clock instantiate the object Clock
 	 */
 	public Clock() {
-		
+		tickDuration = 1000/ticksPerSecond;
 	}
 	
 	/**
@@ -20,13 +20,14 @@ public class Clock {
 	 * @param ticksPerSecond
 	 */
 	public Clock(int ticksPerSecond) {
-		
+		this.ticksPerSecond=ticksPerSecond;
+		tickDuration = 1000/ticksPerSecond;
 	}
 	
 	/**
 	 * Sleep is a method that is used between 2 frames
 	 */
 	public void sleep() {
-		
+		Thread.sleep(tickDuration);
 	}
 }
