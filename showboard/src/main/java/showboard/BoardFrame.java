@@ -93,6 +93,8 @@ public class BoardFrame extends JFrame implements IBoard {
         this.getBoardPanel().addSquare(square, x, y);
     }
 
+    
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#addPawn(fr.exia.showboard.IPawn)
@@ -102,6 +104,16 @@ public class BoardFrame extends JFrame implements IBoard {
         this.getBoardPanel().addPawn(pawn);
     }
 
+    public void removePawns() {
+    	
+    }
+    
+    
+    public void removePawns(IPawn pawn) {
+    	
+    }
+    
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#getObserver()
