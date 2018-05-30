@@ -6,9 +6,17 @@ import java.util.List;
 
 public class Interact implements KeyListener{
 	
+	/**
+	 * List of the key pressed
+	 */
 	private List<Integer> keyCodePressed;
 	private List<Character> keyCharPressed;
 	
+	/**
+	 * Test key pressed or not with a boolean
+	 * @param keyCode
+	 * @return
+	 */
 	public boolean isKeyPressed(int keyCode) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), keyCode);
 		if (index >= 0) {
@@ -19,6 +27,11 @@ public class Interact implements KeyListener{
 		}
 	}
 	
+	/**
+	 * Test key pressed or not with a boolean
+	 * @param keyChar
+	 * @return
+	 */
 	public boolean isKeyPressed(char keyChar) {
 		int index = Collections.binarySearch(this.getKeyCharPressed(), keyChar);
 		if (index >= 0) {
@@ -29,6 +42,9 @@ public class Interact implements KeyListener{
 		}
 	}
 	
+	/**
+	 * if key pressed the keycode and keychar are stocked in a list
+	 */
 	public void keyPressed(KeyEvent event) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
 		if (index < 0) {
@@ -42,6 +58,9 @@ public class Interact implements KeyListener{
 		}
 	}
 	
+	/**
+	 * when the key is released we remove the keycode and the keychar from the list
+	 */
 	public void keyReleased(KeyEvent event) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
 		if (index >= 0) {
@@ -54,13 +73,21 @@ public class Interact implements KeyListener{
 	}
 	
 	public void keyTyped(KeyEvent event) {
-		
+
 	}
 	
+	/**
+	 * list of the keycode
+	 * @return
+	 */
 	public List<Integer> getKeyCodePressed(){
 		return keyCodePressed;
 	}
 	
+	/**
+	 * list of the keychar
+	 * @return
+	 */
 	public List<Character> getKeyCharPressed(){
 		return keyCharPressed;
 	}
