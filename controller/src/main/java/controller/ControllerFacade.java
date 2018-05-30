@@ -34,5 +34,23 @@ public class ControllerFacade implements IController {
  	private Order getOrder() {
  		
  	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getModel() {
+		// TODO Auto-generated method stub
+		
+	}
  
 }
