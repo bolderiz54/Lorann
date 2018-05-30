@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <h1> Contains the methods needed to make a sprite <h1>
+ * 
+ * @author Vincent Linck
+ * @version 1.0
+ *
+ */
 public class Sprite {
 	
 	/**
