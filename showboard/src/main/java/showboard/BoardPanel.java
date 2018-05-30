@@ -147,6 +147,14 @@ class BoardPanel extends JPanel implements Observer {
         this.getPawns().add(pawn);
     }
 
+    
+    public void removePawn(IPawn pawn) {
+    	int index = pawns.indexOf(pawn);
+    	if (index >= 0) {
+    		pawns.remove(index);
+    	}
+    }
+    
     /**
      * Gets the image XY.
      *
