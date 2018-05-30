@@ -26,8 +26,9 @@ public class Clock {
 	
 	/**
 	 * Sleep is a method that is used between 2 frames
+	 * @throws InterruptedException 
 	 */
-	public void sleep() {
+	public void sleep() throws InterruptedException {
 		Thread.sleep(tickDuration);
 	}
 }
