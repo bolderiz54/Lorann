@@ -55,3 +55,4 @@ public class Entity implements IEntity, ISquare {
 	}
 
 }
+
