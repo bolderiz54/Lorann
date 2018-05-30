@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 /**
  * <h1> This class allows an entity to move <h1>
  * 
@@ -41,6 +43,14 @@ public class Mobile extends Entity implements IPawn {
 	 * @param y
 	 */
 	protected void setY(int y) {
+		
+	}
+	
+	/**
+	 * set the x and the y positions
+	 * @param position
+	 */
+	public void setPosition(Point position) {
 		
 	}
 	
