@@ -32,6 +32,7 @@ public class ControllerFacade implements IController {
  	}
  	
  	private Order getOrder() {
+		return order;
  		
  	}
 
