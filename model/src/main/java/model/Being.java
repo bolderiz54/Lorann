@@ -18,8 +18,8 @@ public abstract class Being extends Mobile implements IBeing {
 	 * Instantiate being
 	 * @param imagePath
 	 */
-	public Being(String imagePath) {
-		super(imagePath);
+	public Being(String imagePath, Permeability permeability) {
+		super(imagePath, permeability);
 		// TODO Auto-generated constructor stub
 	}
 

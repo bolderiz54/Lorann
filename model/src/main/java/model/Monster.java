@@ -1,8 +1,5 @@
 package model;
 
-import java.awt.Image;
-import java.awt.Point;
-
 import showboard.IPawn;
 
 /**
@@ -23,8 +20,10 @@ public class Monster extends Being implements IMonster {
 	 * @param imagePath
 	 * @param behaviour
 	 */
-	public Monster(String imagePath, IMonster behaviour) {
-		super(imagePath);
+	public Monster(String imagePath, IMonster behavior) {
+		super(imagePath, Permeability.KILLING);
+		
+		this.behavior = behavior;
 	}
 	
 	/**
@@ -32,13 +31,7 @@ public class Monster extends Being implements IMonster {
 	 */
 	@Override
 	public void move(IPawn player, IModel model) {
-		// TODO Auto-generated method stub
-
-
-	@Override
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		this.behavior.move(player, model);
 	}
 
 }

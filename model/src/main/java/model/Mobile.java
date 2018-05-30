@@ -27,8 +27,8 @@ public class Mobile extends Entity implements IPawn {
 	 * instantiate a mobile entity
 	 * @param imagePath
 	 */
-	public Mobile(String imagePath) {
-		super(imagePath);
+	public Mobile(String imagePath, Permeability permeability) {
+		super(imagePath, permeability);
 		
 	}
 	

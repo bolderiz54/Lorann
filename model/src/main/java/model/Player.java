@@ -23,7 +23,7 @@ public class Player extends Being implements IPlayer {
 	 * @param imagePath
 	 */
 	public Player(String imagePath) {
-		super(imagePath);
+		super(imagePath, Permeability.PENETRABLE);
 		// TODO Auto-generated constructor stub
 	}
 	

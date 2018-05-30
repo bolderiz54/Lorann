@@ -13,7 +13,7 @@ private Direction direction;
 
 
 public Spell() {
-	super(imagesPath[1]);
+	super(imagesPath[1], Permeability.SPELLING);
 	}
 @Override
 public void move() {
