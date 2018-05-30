@@ -5,6 +5,7 @@ import java.awt.Point;
 import model.IEntity;
 import model.IModel;
 import model.IPlayer;
+import model.Permeability;
 
 public class CollisionManager {
 	
@@ -50,10 +51,26 @@ public class CollisionManager {
 		}
 		
 		IEntity entity = model.getOnMap(position.x, position.y);
-		
 		Permeability permeability = entity.getPermeability();
+		switch (permeability) {
 		
-		switch (permeability):
+		case BLOCKING:
+			
+			break;
+		case PENETRABLE:
+			
+			break;
+		case COLLECTABLE:
+			
+			break;
+		case KILLING:
+			
+			break;
+		case SPELLING:
+			
+			break;
+		}
+			
 			
 		return false;
 		
