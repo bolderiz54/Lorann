@@ -1,13 +1,10 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.List;
-
 /**
  * <h1>The Interface IModel.</h1>
  *
  * @author Hugo
- * @version 1.0
+ * @version 1.1
  */
 public interface IModel extends IScore {
 
@@ -44,7 +41,7 @@ public interface IModel extends IScore {
     * set the width
     * @param Width
     */
-   private void setWidth(int width);
+   public void setWidth(int width);
    
    /**
     * get the height of the map
@@ -56,19 +53,19 @@ public interface IModel extends IScore {
     * set the height of the map
     * @param height
     */
-   private void setHeight(int height);
+   public void setHeight(int height);
    
    /**
     * get the player
     */
-   public Player getPlayer();
+   public IPlayer getPlayer();
    
    /**
     *  This is to get a Monster
     * @param monsterNumber
     * @return the number of the monster
     */
-   public Monster getMonster(int monsterNumber);
+   public IMonster getMonster(int monsterNumber);
    
    /**
     * The method check if the spell exist or not 
@@ -99,4 +96,12 @@ public interface IModel extends IScore {
     * Destroy the spell
     */
    public void destroySpell();
+   
+   /**
+    * remove an entity from the map
+    * @param x
+    * @param y
+    */
+   public void removeSquare(int x, int y);
+   
 }
