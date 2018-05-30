@@ -6,8 +6,17 @@ package model;
  * @version 1.0
  *
  */
-public abstract class Being implements IBeing {
+public abstract class Being extends Mobile implements IBeing {
 	
+	/**
+	 * Instantiate being
+	 * @param imagePath
+	 */
+	public Being(String imagePath) {
+		super(imagePath);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * True or false if the being is alive or not
 	 */
