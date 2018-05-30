@@ -71,6 +71,18 @@ public interface IModel {
    public Monster getMonster(int monsterNumber);
    
    /**
+    * The method check if the spell exist or not 
+    * @return true if the spell exist
+    */
+   public boolean isSpellExist();
+   
+   /**
+    * The method get the spell
+    * @return
+    */
+   public ISpell getSpell();
+   
+   /**
     *  get an Entity
     * @param x  The movements of the Entity
     * @param y The movements of the Entity

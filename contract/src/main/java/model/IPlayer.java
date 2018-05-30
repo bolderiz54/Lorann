@@ -2,7 +2,7 @@ package model;
 
 /**
  * The interface IPlayer
- * @author Hugo-
+ * @author Hugo
  *
  */
 public interface IPlayer extends IBeing{
@@ -13,5 +13,17 @@ public interface IPlayer extends IBeing{
 	 * @param y (int)
 	 */
 	public void move(int x, int y);
+	
+	/**
+	 * get the direction
+	 * @return
+	 */
+	public Direction getDirection();
+	
+	/**
+	 * set the direction
+	 * @param direction
+	 */
+	public void setDirection(Direction direction);
 
 }

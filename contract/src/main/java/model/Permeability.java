@@ -10,6 +10,8 @@ public enum Permeability {
 	
 	BLOCKING,
 	PENETRABLE,
-	COLLECTABLE;
+	COLLECTABLE,
+	KILLING,
+	SPELLING;
 
 }
