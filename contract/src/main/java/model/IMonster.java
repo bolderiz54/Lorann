@@ -1,5 +1,7 @@
 package model;
 
+import showboard.IPawn;
+
 /**
  * <h1>The Interface IMonster.</h1>
  *  
@@ -15,4 +17,5 @@ public interface IMonster extends IBeing{
 	 * @param model
 	 */
 	public void move(IPawn player, IModel model);
+	
 }
