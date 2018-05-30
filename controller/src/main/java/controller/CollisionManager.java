@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import model.IEntity;
 import model.IModel;
+import model.IPlayer;
 
 public class CollisionManager {
 	
@@ -13,7 +14,7 @@ public class CollisionManager {
 		this.model = model;
 	}
 	
-	public boolean wallCollision(IPlayer player, Object order) {
+	public boolean wallCollision(IPlayer player, Order order) {
 		Point position = player.getPosition();
 		switch (order) {
 		case ORD_M_UP:
@@ -47,7 +48,13 @@ public class CollisionManager {
 		default:
 			break;
 		}
+		
 		IEntity entity = model.getOnMap(position.x, position.y);
+		
+		Permeability permeability = entity.getPermeability();
+		
+		switch (permeability):
+			
 		return false;
 		
 	}
