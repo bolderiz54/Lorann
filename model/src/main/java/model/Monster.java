@@ -13,14 +13,14 @@ public class Monster extends Being implements IMonster {
 	/**
 	 * The behavior that have the monster
 	 */
-	private IMonster behavior;
+	private IAIMonster behavior;
 	
 	/**
 	 * Instantiate a monster with a custom image and a custom behavior
 	 * @param imagePath
 	 * @param behaviour
 	 */
-	public Monster(String imagePath, IMonster behavior) {
+	public Monster(String imagePath, IAIMonster behavior) {
 		super(imagePath, Permeability.KILLING);
 		
 		this.behavior = behavior;
@@ -31,7 +31,7 @@ public class Monster extends Being implements IMonster {
 	 */
 	@Override
 	public void move(IPawn player, IModel model) {
-		this.behavior.move(player, model);
+		this.behavior.move(player, model, this);
 	}
 
 }
