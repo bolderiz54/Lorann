@@ -34,4 +34,3 @@ public class Monster extends Being implements IMonster {
 	}
 
 }
-

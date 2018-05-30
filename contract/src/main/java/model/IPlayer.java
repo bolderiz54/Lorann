@@ -5,7 +5,7 @@ package model;
  * @author Hugo
  *
  */
-public interface IPlayer extends IBeing{
+public interface IPlayer extends IBeing {
 	
 	/**
 	 * Move the player at the right coordinate

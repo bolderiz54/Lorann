@@ -1,4 +1,7 @@
 package model;
+
+import showboard.IPawn;
+
 /**
  * <h1>The Interface IBeing.</h1>
  * 
@@ -6,7 +9,7 @@ package model;
  * @version 1.0
  */
 
-public interface IBeing {
+public interface IBeing extends IPawn {
 	
 	/**
 	 * The method isAlive is a boolean to know if the entity is alive

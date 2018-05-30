@@ -1,11 +1,13 @@
 package model;
 
+import showboard.IPawn;
+
 /**
  * The interface ISpell
  * @author Hugo
  *
  */
-public interface ISpell {
+public interface ISpell extends IPawn {
 	
 	/**
 	 * this method allow the movement

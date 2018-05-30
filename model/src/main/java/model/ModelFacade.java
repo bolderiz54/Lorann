@@ -14,6 +14,11 @@ import model.dao.ExampleDAO;
 public final class ModelFacade implements IModel {
 
 	/**
+	 * Link to the view
+	 */
+	private IView view;
+	
+	/**
 	 * The number of the level which will be loaded
 	 */
 	private int levelNumber = 1;
@@ -48,8 +53,9 @@ public final class ModelFacade implements IModel {
      * 
      * @param map's width
      * @param map's height
+     * @param view
      */
-    public ModelFacade(final int width, final int height) {
+    public ModelFacade(final int width, final int height, final IView view) {
         super();
     }
 
