@@ -1,10 +1,12 @@
 package model;
 
+import java.awt.Image;
+
 /**
- * <h1> Contains the methods needed to make a sprite <h1>
+ * <h1> Contains the methods needed to make a sprite </h1>
  * 
  * @author Vincent Linck
- * @version 1.0
+ * @version 1.1
  *
  */
 public class Sprite {
@@ -40,6 +42,14 @@ public class Sprite {
 	 */
 	public void setImagePath(String imagePath) {
 		
+	}
+	
+	/**
+	 * get the image
+	 * @return
+	 */
+	public Image getImage() {
+		return image;
 	}
 
 }

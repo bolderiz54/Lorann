@@ -13,10 +13,4 @@ public interface IEntity {
 	 */
 	public Permeability getPermeability();
 	
-	/**
-	 * set the permeability to an entity
-	 * @param permeability
-	 */
-	public void setPermeability(Permeability permeability);
-
 }
