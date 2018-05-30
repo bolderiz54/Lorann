@@ -1,6 +1,7 @@
 package model;
 
 /**
+ * <h1> This class describe how is made a Being <h1>
  * 
  * @author Vincent Linck
  * @version 1.0
