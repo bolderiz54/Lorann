@@ -7,7 +7,6 @@ import showboard.IPawn;
  * 
  * @author Vincent Linck
  * @version 1.0
- *
  */
 public class Monster extends Being implements IMonster {
 
