@@ -18,6 +18,9 @@ public class ControllerFacade implements IController {
  private IView view;
  private IModel model;
  private CollisionManager collisionManager;
+ private Clock clock;
+ private Order order;
+ private Interact interact;
  
  /**
   * PUT HERE THE COMMENT
@@ -26,6 +29,10 @@ public class ControllerFacade implements IController {
   */
  	public ControllerFacade(IView view, IModel model) {
  	
+ 	}
+ 	
+ 	private Order getOrder() {
+ 		
  	}
  
 }
