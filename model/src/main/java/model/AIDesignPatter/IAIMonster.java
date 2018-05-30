@@ -1,5 +1,7 @@
-package model;
+package model.AIDesignPatter;
 
+import model.IModel;
+import model.Monster;
 import showboard.IPawn;
 
 public interface IAIMonster {

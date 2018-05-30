@@ -1,5 +1,6 @@
 package model;
 
+import model.AIDesignPatter.IAIMonster;
 import showboard.IPawn;
 
 /**
