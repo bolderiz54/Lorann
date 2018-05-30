@@ -24,29 +24,30 @@ public class CollisionManager {
 			position.x += 1;
 			break;
 		case ORD_M_RIGHT:
-			position.x -= 1;
+			position.x += 1;
 			break;
 		case ORD_M_DOWN_R:
 			position.y += 1;
-			position.x -= 1;
+			position.x += 1;
 			break;
 		case ORD_M_DOWN:
 			position.y += 1;
 			break;
 		case ORD_M_DOWN_L:
 			position.y +=1;
-			position.x +=1;
+			position.x -=1;
 			break;
 		case ORD_M_LEFT:
-			position.x += 1;
+			position.x -= 1;
 			break;
 		case ORD_M_UP_L:
 			position.y -= 1;
 			position.x -= 1;
 			break;
 		default:
-				
+			break;
 		}
+		IEntity entity = model.getOnMap(position.x, position.y);
 		return false;
 		
 	}
