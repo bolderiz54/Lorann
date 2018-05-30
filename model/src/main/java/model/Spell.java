@@ -89,6 +89,7 @@ public void reverse() {
         break;
     }
 	
+	
 }
 @Override
 public boolean isRepelled() {
