@@ -9,7 +9,7 @@ import java.util.List;
  * @author Hugo
  * @version 1.0
  */
-public interface IModel {
+public interface IModel extends IScore {
 
 /**
  * 

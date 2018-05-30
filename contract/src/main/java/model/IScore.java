@@ -7,7 +7,7 @@ package model;
  * @version 1.0
  */
 
-public interface IScore extends IModel {
+public interface IScore {
 	
 	/**
 	 * get the score
