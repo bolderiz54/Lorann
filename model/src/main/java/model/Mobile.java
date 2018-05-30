@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * <h1> This class allows an entity to move <h1>
+ * 
+ * @author Vincent Linck
+ * @version 1.0
+ *
+ */
 public class Mobile extends Entity implements IPawn {
 
 	/**
