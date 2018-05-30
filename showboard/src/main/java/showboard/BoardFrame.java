@@ -110,7 +110,7 @@ public class BoardFrame extends JFrame implements IBoard {
     }
     
     
-    public void removePawns(IPawn pawn) {
+    public void removePawn(IPawn pawn) {
     	this.getBoardPanel().removePawn(pawn);
     }
     
