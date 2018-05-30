@@ -1,7 +1,7 @@
 package model;
 
 /**
- * <h1> This class describe the structure of the player <h1>
+ * <h1> This class describe the structure of the player </h1>
  * 
  * @author Vincent Linck
  * @version 1.0

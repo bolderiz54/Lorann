@@ -5,7 +5,7 @@ import java.awt.Image;
 import showboard.ISquare;
 
 /**
- * <h1> This class contains the methods to give life to an entity <h1>
+ * <h1> This class contains the methods to give life to an entity </h1>
  * 
  * @author Vincent Linck
  * @version 1.0

@@ -1,7 +1,7 @@
 package model;
 
 /**
- * <h1> This class describe how is made a Being <h1>
+ * <h1> This class describe how is made a Being </h1>
  * 
  * @author Vincent Linck
  * @version 1.0
@@ -20,12 +20,10 @@ public abstract class Being extends Mobile implements IBeing {
 	 */
 	public Being(String imagePath, Permeability permeability) {
 		super(imagePath, permeability);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean isAlive() {
-		// TODO Auto-generated method stub
 		return alive;
 	}
 
