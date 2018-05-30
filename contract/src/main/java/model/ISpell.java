@@ -1,13 +1,13 @@
 package model;
 
-import showboard.IPawn;
+import java.awt.Point;
 
 /**
  * The interface ISpell
  * @author Hugo
  *
  */
-public interface ISpell extends IPawn {
+public interface ISpell {
 	
 	/**
 	 * this method allow the movement
@@ -24,6 +24,26 @@ public interface ISpell extends IPawn {
 	 */
 	public boolean isRepelled();
 	
+	/**
+     * Gets the x position.
+     *
+     * @return the x
+     */
+    int getX();
 
+    /**
+     * Gets the y position.
+     *
+     * @return the y
+     */
+    int getY();
+
+    /**
+     * Gets the position Point(int x, int y).
+     *
+     * @return the position
+     * @see Point
+     */
+    Point getPosition();
 	
 }
