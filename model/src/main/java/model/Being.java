@@ -16,18 +16,18 @@ public abstract class Being implements IBeing {
 	@Override
 	public boolean isAlive() {
 		// TODO Auto-generated method stub
-		return false;
+		return alive;
 	}
 
 	@Override
 	public void die() {
-		// TODO Auto-generated method stub
+		alive=false;
 		
 	}
 
 	@Override
 	public void reserruct() {
-		// TODO Auto-generated method stub
+		alive=true;
 		
 	}
 
