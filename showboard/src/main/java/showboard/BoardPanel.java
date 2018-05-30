@@ -148,6 +148,10 @@ class BoardPanel extends JPanel implements Observer {
     }
 
     
+    public void removePawns() {
+    	pawns.clear();
+    }
+    
     public void removePawn(IPawn pawn) {
     	int index = pawns.indexOf(pawn);
     	if (index >= 0) {
