@@ -13,6 +13,11 @@ import view.IView;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
+
+	/**
+	 * Link to the view
+	 */
+	private IView view;
 	
 	/**
 	 * The number of the level which will be loaded
@@ -44,6 +49,8 @@ public final class ModelFacade implements IModel {
 	 */
 	private Score score;
 	
+	private Factory factory;
+	
     /**
      * Instantiates a new model facade.
      * 
@@ -51,8 +58,9 @@ public final class ModelFacade implements IModel {
      * @param map's height
      * @param view
      */
-    public ModelFacade(final int width, final int height) {
-        
+    public ModelFacade(final int width, final int height, final IView view) {
+        score = new Score();
+        factory = new Factory();
     }
 
     /**
@@ -161,7 +169,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public int getHeight() {
-		return 0;
+		return height;
 	}
 
 	/**
@@ -170,7 +178,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void setHeight(int height) {
-		
+		this.height = height;
 	}
 
 	/**
@@ -178,7 +186,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public Player getPlayer() {
-		return null;
+		return getPlayer();
 	}
 
 	/**
@@ -187,8 +195,8 @@ public final class ModelFacade implements IModel {
      * @return the number of the monster
 	 */
 	@Override
-	public Monster getMonster(int monsterNumber) {
-		return null;
+	public IMonster getMonster(int monsterNumber) {
+		return this.factory.getMonster(monsterNumber);
 	}
 
 	/**
@@ -197,7 +205,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public boolean isSpellExist() {
-		return false;
+		return this.factory.isSpellExist();
 	}
 
 	/**
