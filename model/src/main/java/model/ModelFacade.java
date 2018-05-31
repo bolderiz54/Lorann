@@ -13,11 +13,6 @@ import view.IView;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
-
-	/**
-	 * Link to the view
-	 */
-	private IView view;
 	
 	/**
 	 * The number of the level which will be loaded
@@ -56,7 +51,7 @@ public final class ModelFacade implements IModel {
      * @param map's height
      * @param view
      */
-    public ModelFacade(final int width, final int height, final IView view) {
+    public ModelFacade(final int width, final int height) {
         
     }
 
