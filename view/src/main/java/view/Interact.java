@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * This class allows to interact with the player
  * 
  * @author Gauthier
  * @version 1.0

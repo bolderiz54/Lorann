@@ -3,6 +3,7 @@ package view;
 import java.util.List;
 
 /**
+ * It describe how to interact with the player
  * 
  * @author Gauthier
  * @version 1.0
