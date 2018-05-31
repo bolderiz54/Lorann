@@ -145,7 +145,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public Map getMap() {
-		return null;
+		return this.map;
 	}
 
 	/**
@@ -228,6 +228,17 @@ public final class ModelFacade implements IModel {
 	@Override
 	public IEntity getOnMap(int x, int y) {
 		return this.getMap().getOnMap(x, y);
+	}
+	
+	/**
+	 * set an Entity on the map
+	 * @param entity
+	 * @param x
+	 * @param y
+	 */
+	@Override
+	public void setOnMap(EntityType entity, int x, int y) {
+		this.getMap().setOnMap(this.factory.getEntity(entity), x, y);
 	}
 
 	/**

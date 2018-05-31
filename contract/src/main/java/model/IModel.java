@@ -88,6 +88,14 @@ public interface IModel extends IScore {
    public IEntity getOnMap(int x, int y);
    
    /**
+    * set an Entity on the map
+    * @param entity
+    * @param x
+    * @param y
+    */
+   public void setOnMap(EntityType entity, int x, int y);
+   
+   /**
     * Generate the spell
     */
    public void generateSpell();
