@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Rectangle;
+import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 import model.IModel;
@@ -22,6 +23,8 @@ public class ViewFacade implements IView, Runnable {
 	private static final int squareSize = 32;
 	
 	private IModel model;
+	
+	private IInteract interact;
     /**
      * Instantiates a new view facade.
      */
@@ -29,6 +32,7 @@ public class ViewFacade implements IView, Runnable {
         boardframe = new BoardFrame("Lorann");
         this.model = model;
         new Rectangle(0,0, this.model.getWidth(), this.model.getHeight());
+        interact = new Interact();
     }
 
     /*
@@ -53,6 +57,10 @@ public class ViewFacade implements IView, Runnable {
     	
     }
     
+    public IInteract getInteract() {
+    	return interact;
+    }
+    
     public final void run() {
     	boardframe.setDimension(new Dimension(this.model.getWidth(), this.model.getHeight()));
     	boardframe.setDisplayFrame(this.view);
@@ -64,7 +72,8 @@ public class ViewFacade implements IView, Runnable {
         	}
     	}
     	//boardframe.addPawn(IPawn pawn);
-    	boardframe.addKeyListener();
+    	boardframe.addKeyListener((KeyListener) interact);
+    	boardframe.
     }
 
 

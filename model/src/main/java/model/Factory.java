@@ -24,7 +24,7 @@ public class Factory {
 	private Entity horizontal_bone;
 	private Entity vertical_bone;
 	/**
-	 * instantiate
+	 * instantiate some monsters, a player and the Entity
 	 */
 	public Factory() {
 		player = new Player();
@@ -44,11 +44,39 @@ public class Factory {
 		
 		
 	}
-	
+	/**
+	 * get the type of the entity
+	 * @param entityType
+	 * @return the entity
+	 */
 	public IEntity getEntity(EntityType entityType) {
-		return ent
+		switch (entityType) {
+		
+		case ENT_GROUND : return ground;
+		
+		case ENT_BONE_H : return horizontal_bone;
+				
+		case ENT_BONE_V : return vertical_bone;
+				
+		case ENT_BONE : return bone;
+				
+		case ENT_CRYSTAL : return crystal_ball;
+				
+		case ENT_GATE_O : return gate_o;
+				
+		case ENT_GATE_C : return gate_c;
+				
+		case ENT_PURSE : return purse;
+		
+		}
+		return null;
 	}
 	
+	/**
+	 * get the monster according to the right monster
+	 * @param monsterNumber
+	 * @return the monster
+	 */
 	public IMonster getMonster(int monsterNumber) {
 		switch (monsterNumber) {
 		
@@ -65,10 +93,17 @@ public class Factory {
 		
 	}
 	
+	/**
+	 * get the player 
+	 * @return the player
+	 */
 	public IPlayer getPlayer() {
 		return player;
 	}
 	
+	/**
+	 * generate the spell
+	 */
 	public void generateSpell() {
 		if(!isSpellExist()) {
 			spell = new Spell();
@@ -77,6 +112,10 @@ public class Factory {
 		
 	}
 	
+	/**
+	 * check if the spell exist
+	 * @return true or false
+	 */
 	public boolean isSpellExist() {
 		if(this.spell == null) {
 			return false;
@@ -86,10 +125,17 @@ public class Factory {
 		}
 	}
 	
+	/**
+	 * get the spell
+	 * @return the spell
+	 */
 	public ISpell getSpell() {
 		return this.spell;
 	}
 	
+	/**
+	 * Destroy the spell
+	 */
 	public void destroySpell() {
 		this.spell = null;
 	}
