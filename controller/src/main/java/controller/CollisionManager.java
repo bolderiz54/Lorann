@@ -2,10 +2,14 @@ package controller;
 
 import java.awt.Point;
 
+import javax.swing.text.html.parser.Entity;
+
+import model.IBeing;
 import model.IEntity;
 import model.IModel;
 import model.IPlayer;
 import model.Permeability;
+import showboard.IPawn;
 
 public class CollisionManager {
 	
@@ -65,16 +69,56 @@ public class CollisionManager {
 		case KILLING:
 			player.die();
 			return true;
-		case SPELLING:
-			model.destroySpell();
-			return true;
 		default:
 			return false;
 		}
 			
 	}
 
-	public boolean crossCollision(IEntity entity1, IEntity entity2) {
-		return false;
+	public void crossCollision(IPawn entity1, IPawn entity2) {
+		Point position1 = entity1.getPosition();
+		Point position2 = entity2.getPosition();
+		if (position1 == position2) {
+			switch (Entity.class.getName()) {
+			case "Monster":
+				switch (Entity.class.getName()) {
+				case "Player":
+					IBeing player = (IBeing) entity2;
+					player.die();
+					break;
+				case "Spell":
+					IBeing monster = (IBeing) entity1;
+					monster.die();
+					model.destroySpell();
+					break;
+				}
+				break;
+				
+			case "Player":
+				switch (Entity.class.getName()) {
+				case "Monster":
+					IBeing player = (IBeing) entity1;
+					player.die();
+					break;
+				case "Spell":
+					model.destroySpell();
+					break;
+				}
+				break;
+				
+			case "Spell":
+				switch (Entity.class.getName()) {
+				case "Monster":
+					IBeing monster = (IBeing) entity2;
+					monster.die();
+					model.destroySpell();
+					break;
+				case "Player":
+					model.destroySpell();
+					break;
+				}
+				break;
+			}
+		}
 	}
 }
