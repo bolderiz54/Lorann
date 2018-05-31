@@ -11,7 +11,7 @@ import model.dao.ExampleDAO;
  * @author Vincent Linck
  * @version 1.0
  */
-public final class ModelFacade implements IModel {
+public final class ModelFacadeOLD implements IModel {
 	
 	/**
 	 * The number of the level which will be loaded
