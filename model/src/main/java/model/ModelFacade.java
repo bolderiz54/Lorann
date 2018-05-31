@@ -235,15 +235,14 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void generateSpell() {
-		
+		this.factory.generateSpell();
 	}
-
 	/**
 	 * destroy the spell
 	 */
 	@Override
 	public void destroySpell() {
-		
+		this.factory.destroySpell();
 	}
 
 	@Override
