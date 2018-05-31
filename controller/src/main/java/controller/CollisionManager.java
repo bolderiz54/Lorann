@@ -76,6 +76,5 @@ public class CollisionManager {
 
 	public boolean crossCollision(IEntity entity1, IEntity entity2) {
 		return false;
-		
 	}
 }
