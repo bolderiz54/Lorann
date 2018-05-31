@@ -1,9 +1,10 @@
 package model;
 
-import java.awt.Point;
-
-import javax.swing.text.Element;
-
+/**
+ * 
+ * @author Hugo
+ *
+ */
 public class Spell extends Mobile implements ISpell {
 
 private int animationStep=0;
@@ -15,6 +16,10 @@ private Direction direction;
 public Spell() {
 	super(imagesPath[1], Permeability.SPELLING);
 	}
+
+/**
+ * this method move and change the images of the Fireball
+ */
 @Override
 public void move() {
 	switch (direction) {
@@ -58,6 +63,10 @@ public void move() {
 	getSprite().setImagePath(imagesPath[animationStep]);
 	
 }
+
+/**
+ * This method reverse the direction of the spell
+ */
 @Override
 public void reverse() {
 	switch (direction) {
@@ -91,6 +100,10 @@ public void reverse() {
 	
 	
 }
+
+/**
+ * this method return a boolean to watch if the spell is repel or not
+ */
 @Override
 public boolean isRepelled() {
 	return repelled;
