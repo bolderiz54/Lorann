@@ -11,11 +11,6 @@ import showboard.IPawn;
 public interface IView {
     
    /**
-    * remove the squares
-    */
-   public void removeSquares();
-    
-   /**
     * remove the pawns
     */
    public void removePawns();
