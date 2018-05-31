@@ -14,7 +14,7 @@ private Direction direction;
 
 
 public Spell() {
-	super(imagesPath[1], Permeability.SPELLING);
+	super(imagesPath[0], Permeability.SPELLING);
 	}
 
 /**

@@ -33,7 +33,7 @@ public class Player extends Being implements IPlayer {
 	 * @param imagePath
 	 */
 	public Player() {
-		super("", Permeability.PENETRABLE);
+		super(imagesPath[0], Permeability.PENETRABLE);
 		this.setDirection(Direction.DIR_UP);
 		this.animationDirection = Direction.DIR_UP;
 	}
