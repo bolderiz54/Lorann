@@ -232,6 +232,9 @@ public final class ModelFacade implements IModel {
 		
 	}
 
+	/**
+	 * remove a square from the map
+	 */
 	@Override
 	public void removeSquare(int x, int y) {
 		// TODO Auto-generated method stub
