@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.ExampleDAO;
-import view.IView;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -13,11 +12,6 @@ import view.IView;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
-
-	/**
-	 * Link to the view
-	 */
-	private IView view;
 	
 	/**
 	 * The number of the level which will be loaded
