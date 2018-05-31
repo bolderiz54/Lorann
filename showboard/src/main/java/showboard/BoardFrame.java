@@ -94,8 +94,6 @@ public class BoardFrame extends JFrame implements IBoard {
     }
 
     
-    
-    public 
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#addPawn(fr.exia.showboard.IPawn)

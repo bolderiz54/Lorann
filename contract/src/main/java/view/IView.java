@@ -1,5 +1,7 @@
 package view;
 
+import showboard.IPawn;
+
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -7,12 +9,6 @@ package view;
  * @version 1.0
  */
 public interface IView {
-
-	/**
-	 * Show the map
-	 * @param model
-	 */
-   public void showMap(IModel model);
     
    /**
     * remove the squares
@@ -29,5 +25,7 @@ public interface IView {
     * @param pawn
     */
    public void removePawn(IPawn pawn);
+
+   public void displayMessage(String message);
     
 }
