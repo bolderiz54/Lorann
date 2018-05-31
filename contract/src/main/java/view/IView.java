@@ -27,5 +27,11 @@ public interface IView {
    public void removePawn(IPawn pawn);
 
    public void displayMessage(String message);
+   
+   /**
+    * get the interact
+    * @return interact
+    */
+   public IInteract getInteract();
     
 }
