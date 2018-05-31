@@ -1,10 +1,7 @@
 package controller;
 
-import java.sql.SQLException;
-import java.util.List;
-
-import model.Example;
 import model.IModel;
+import view.IInteract;
 import view.IView;
 
 /**
@@ -20,7 +17,7 @@ public class ControllerFacade implements IController {
  private CollisionManager collisionManager;
  private Clock clock;
  private Order order;
- private Interact interact;
+ private IInteract interact;
  
  /**
   * PUT HERE THE COMMENT
