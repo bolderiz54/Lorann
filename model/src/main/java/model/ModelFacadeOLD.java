@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.ExampleDAO;
+import view.IView;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -48,9 +49,8 @@ public final class ModelFacadeOLD implements IModel {
      * 
      * @param map's width
      * @param map's height
-     * @param view
      */
-    public ModelFacade(final int width, final int height, final IView view) {
+    public void ModelFacade(final int width, final int height) {
         
     }
 
