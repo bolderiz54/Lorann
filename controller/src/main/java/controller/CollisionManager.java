@@ -55,25 +55,23 @@ public class CollisionManager {
 		switch (permeability) {
 		
 		case BLOCKING:
-			
-			break;
+			return false;
 		case PENETRABLE:
-			
-			break;
+			return true;
 		case COLLECTABLE:
-			
-			break;
+			model.removeSquare(position.x, position.y);
+			model.addScore(250);
+			return true;
 		case KILLING:
-			
-			break;
+			player.die();
+			return true;
 		case SPELLING:
-			
-			break;
+			model.destroySpell();
+			return true;
+		default:
+			return false;
 		}
 			
-			
-		return false;
-		
 	}
 
 	public boolean crossCollision(IEntity entity1, IEntity entity2) {
