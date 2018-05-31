@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 import showboard.IPawn;
 
 /**
@@ -9,7 +11,7 @@ import showboard.IPawn;
  * @version 1.0
  */
 
-public interface IMonster extends IBeing{
+public interface IMonster extends IBeing {
 	
 	/**
 	 * The method move allow the monsters to move
@@ -17,5 +19,28 @@ public interface IMonster extends IBeing{
 	 * @param model
 	 */
 	public void move(IPawn player, IModel model);
+	
+	/**
+	 *
+     * Gets the x position.
+     *
+     * @return the x
+     */
+    public int getX();
+
+    /**
+     * Gets the y position.
+     *
+     * @return the y
+     */
+    public int getY();
+
+    /**
+     * Gets the position Point(int x, int y).
+     *
+     * @return the position
+     * @see Point
+     */
+    public Point getPosition();
 	
 }

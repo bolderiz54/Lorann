@@ -1,8 +1,6 @@
 package model;
 
-import java.awt.Image;
-import java.awt.Point;
-
+import model.AIDesignPatter.IAIMonster;
 import showboard.IPawn;
 
 /**
@@ -16,15 +14,17 @@ public class Monster extends Being implements IMonster {
 	/**
 	 * The behavior that have the monster
 	 */
-	private IMonster behavior;
+	private IAIMonster behavior;
 	
 	/**
 	 * Instantiate a monster with a custom image and a custom behavior
 	 * @param imagePath
 	 * @param behaviour
 	 */
-	public Monster(String imagePath, IMonster behaviour) {
+	public Monster(String imagePath, IAIMonster behavior) {
+		super(imagePath, Permeability.KILLING);
 		
+		this.behavior = behavior;
 	}
 	
 	/**
@@ -32,31 +32,7 @@ public class Monster extends Being implements IMonster {
 	 */
 	@Override
 	public void move(IPawn player, IModel model) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int getX() {
-		return super.g
-	}
-
-	@Override
-	public int getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public Point getPosition() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		this.behavior.move(player, model, this);
 	}
 
 }

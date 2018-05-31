@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.ExampleDAO;
+import view.IView;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -56,7 +57,7 @@ public final class ModelFacade implements IModel {
      * @param view
      */
     public ModelFacade(final int width, final int height, final IView view) {
-        super();
+        
     }
 
     /**
@@ -233,6 +234,12 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void destroySpell() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeSquare(int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

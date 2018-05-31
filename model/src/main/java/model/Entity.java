@@ -5,7 +5,7 @@ import java.awt.Image;
 import showboard.ISquare;
 
 /**
- * <h1> This class contains the methods to give life to an entity <h1>
+ * <h1> This class contains the methods to give life to an entity </h1>
  * 
  * @author Vincent Linck
  * @version 1.0
@@ -14,11 +14,23 @@ import showboard.ISquare;
 public class Entity implements IEntity, ISquare {
 
 	/**
+	 * The sprite of the entity
+	 */
+	private Sprite sprite;
+	
+	/**
+	 * The permeability of the entity
+	 */
+	private Permeability permeability;
+	
+	/**
 	 * Instatiat an object Entity with an image (path)
 	 * @param imagePath
 	 */
-	public Entity(String imagePath) {
-		
+	public Entity(String imagePath, Permeability permeability) {
+		this.sprite = new Sprite(imagePath);
+		this.getSprite().loadImage();
+		this.setPermeability(permeability);
 	}
 
 	/**
@@ -27,8 +39,7 @@ public class Entity implements IEntity, ISquare {
 	 */
 	@Override
 	public Image getImage() {
-		// TODO Auto-generated method stub
-		return null;
+		return sprite.getImage();
 	}
 
 	/**
@@ -37,8 +48,7 @@ public class Entity implements IEntity, ISquare {
 	 */
 	@Override
 	public Sprite getSprite() {
-		// TODO Auto-generated method stub
-		return null;
+		return sprite;
 	}
 
 	/**
@@ -47,18 +57,15 @@ public class Entity implements IEntity, ISquare {
 	 */
 	@Override
 	public Permeability getPermeability() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.permeability;
 	}
 
 	/**
 	 * set the permeability
 	 * @param permeability
 	 */
-	@Override
-	public void setPermeability(Permeability permeability) {
-		// TODO Auto-generated method stub
-		
+	protected void setPermeability(Permeability permeability) {
+		this.permeability = permeability;
 	}
 
 }
