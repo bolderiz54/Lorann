@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Point;
+import java.io.IOException;
 
 /**
  * The interface IPlayer
@@ -13,6 +14,7 @@ public interface IPlayer extends IBeing {
 	 * Move the player at the right coordinate
 	 * @param x (int)
 	 * @param y (int)
+	 * @throws IOException 
 	 */
 	public void move(int x, int y);
 	

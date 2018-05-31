@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Image;
+import java.io.IOException;
 
 import showboard.ISquare;
 
@@ -36,9 +37,10 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * get the image
 	 * @return Image
+	 * @throws IOException 
 	 */
 	@Override
-	public Image getImage() {
+	public Image getImage() throws IOException {
 		return sprite.getImage();
 	}
 
