@@ -63,6 +63,8 @@ public class ViewFacade implements IView, Runnable {
         		boardframe.addSquare(this.model.getOnMap(x, y), x, y);
         	}
     	}
+    	//boardframe.addPawn(IPawn pawn);
+    	boardframe.addKeyListener();
     }
 
 
