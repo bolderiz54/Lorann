@@ -32,7 +32,7 @@ public final class ModelFacade implements IModel {
 	/**
 	 * The map that the game use
 	 */
-	private IEntity[][] map;
+	private Map map;
 	
 	/**
 	 * the width of the map
@@ -61,6 +61,9 @@ public final class ModelFacade implements IModel {
     public ModelFacade(final int width, final int height, final IView view) {
         score = new Score();
         factory = new Factory();
+        this.width = width;
+        this.height = height;
+        map = new Map(this.width, this.height);
     }
 
     /**
@@ -141,7 +144,7 @@ public final class ModelFacade implements IModel {
 	 * @return all the entity in the map
 	 */
 	@Override
-	public IEntity[][] getMap() {
+	public Map getMap() {
 		return null;
 	}
 
@@ -224,7 +227,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public IEntity getOnMap(int x, int y) {
-		return null;
+		return this.getMap().getOnMap(x, y);
 	}
 
 	/**
@@ -245,7 +248,7 @@ public final class ModelFacade implements IModel {
 
 	@Override
 	public void removeSquare(int x, int y) {
-		
+		this.getMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
 	}
 
 }

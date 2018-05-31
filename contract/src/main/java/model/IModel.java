@@ -29,7 +29,7 @@ public interface IModel extends IScore {
     * 
     * @return all the entity in the map
     */
-   public IEntity[][] getMap();
+   public Map getMap();
    
    /**
     * get the Width of the map
