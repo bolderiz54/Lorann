@@ -9,7 +9,7 @@ public class Spell extends Mobile implements ISpell {
 
 private int animationStep=0;
 private boolean repelled=false;
-private static String imagesPath[] = {"spell1", "spell2", "spell2", "spell3", "spell3", "spell4", "spell5", "spell6"};
+private static String imagesPath[] = {"spell_1", "spell_2", "spell_2", "spell_4", "spell_5"};
 private Direction direction;
 
 

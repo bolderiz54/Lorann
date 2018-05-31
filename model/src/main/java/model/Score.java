@@ -3,7 +3,7 @@ package model;
 /**
  * <h1>The class Score contains the methods and the data to manipulate a score counter.</h1>
  * 
- * @author Vincent Linck
+ * @author Hugo
  * @version 1.0
  */
 public class Score implements IScore {
@@ -18,9 +18,8 @@ public class Score implements IScore {
 	 * @return the score
 	 */
 	@Override
-	public int getScore() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getScore() {	
+		return score;
 	}
 
 	/**
@@ -29,7 +28,7 @@ public class Score implements IScore {
 	 */
 	@Override
 	public void addScore(int points) {
-		// TODO Auto-generated method stub
+		this.setScore(this.getScore() + points);
 		
 	}
 
@@ -39,7 +38,7 @@ public class Score implements IScore {
 	 */
 	@Override
 	public void setScore(int points) {
-		// TODO Auto-generated method stub
+		this.score=points;
 		
 	}
 
