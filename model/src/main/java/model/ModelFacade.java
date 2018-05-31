@@ -9,15 +9,10 @@ import view.IView;
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
  *
- * @author Vincent Linck
+ * @author Hugo
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
-
-	/**
-	 * Link to the view
-	 */
-	private IView view;
 	
 	/**
 	 * The number of the level which will be loaded
@@ -27,7 +22,7 @@ public final class ModelFacade implements IModel {
 	/**
 	 * The level loaded from the database
 	 */
-	private int[][] loadedLevel;
+	private String[][] loadedLevel;
 	
 	/**
 	 * The map that the game use
@@ -56,7 +51,7 @@ public final class ModelFacade implements IModel {
      * @param map's height
      * @param view
      */
-    public ModelFacade(final int width, final int height, final IView view) {
+    public ModelFacade(final int width, final int height) {
         
     }
 
@@ -66,8 +61,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public int getScore() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.score.getScore();
 	}
 
 	/**
@@ -76,7 +70,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void addScore(int points) {
-		// TODO Auto-generated method stub
+		this.score.addScore(points);
 		
 	}
 
@@ -86,8 +80,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void setScore(int points) {
-		// TODO Auto-generated method stub
-		
+		this.score.setScore(points);
 	}
 
 	/**
@@ -97,8 +90,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public boolean loadLevel(int level) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	/**
@@ -106,8 +98,26 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void resetLevel() {
-		// TODO Auto-generated method stub
-		
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				switch (this.loadedLevel[y][x]) {
+				case "bone_v" :
+				break;
+				case "bone_h" :
+				break;
+				case "bone" :
+				break;
+				case "crystal" : 
+				break;
+				case "gate_c" : 
+				break;
+				case "gate_o" : 
+				break;
+				case "purse" :
+				break;
+				}
+			}
+		}	
 	}
 
 	/**
@@ -115,7 +125,6 @@ public final class ModelFacade implements IModel {
      */
 	@Override
 	public void unloadLevel() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -125,7 +134,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public IEntity[][] getMap() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -135,8 +143,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
+		return width;
 	}
 
 	/**
@@ -145,7 +152,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void setWidth(int width) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -155,7 +161,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -165,7 +170,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void setHeight(int height) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -174,7 +178,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public Player getPlayer() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -185,7 +188,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public Monster getMonster(int monsterNumber) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -195,7 +197,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public boolean isSpellExist() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -204,7 +205,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public ISpell getSpell() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -216,7 +216,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public IEntity getOnMap(int x, int y) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -225,7 +224,6 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void generateSpell() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -234,13 +232,11 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void destroySpell() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void removeSquare(int x, int y) {
-		// TODO Auto-generated method stub
 		
 	}
 
