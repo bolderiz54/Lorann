@@ -94,7 +94,6 @@ public final class ModelFacade implements IModel {
 	 * @param level (int)
 	 * @return true if the entity is alive
 	 */
-	@Override
 	public boolean loadLevel(int level) {
 		for (int y = 0; y < this.height; y++) {
 			for (int x = 0; x < this.width; x++) {
