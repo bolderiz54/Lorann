@@ -6,10 +6,9 @@ import java.util.Observer;
 /**
  * This class describe how to use a map
  * 
- * @author vince
+ * @author Vincent Linck
  * @version 1.1
  */
-@SuppressWarnings("deprecation")
 public class LorannMap extends Observable {
 	
 	/**
@@ -44,10 +43,17 @@ public class LorannMap extends Observable {
 	/**
      * Sets the mobile has changed.
      */
-    @SuppressWarnings("deprecation")
 	public final void setMobileHasChanged() {
         this.setChanged();
         this.notifyObservers();
+    }
+    
+    /**
+     * add an observer
+     */
+    @Override
+    public void addObserver(Observer observer) {
+    	super.addObserver(observer);
     }
 
 }

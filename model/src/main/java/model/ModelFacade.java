@@ -2,6 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Observer;
 
 import model.dao.ExampleDAO;
 import view.IView;
@@ -139,12 +140,8 @@ public final class ModelFacade implements IModel {
 		
 	}
 
-	/**
-	 * 
-	 * @return all the entity in the map
-	 */
 	@Override
-	public LorannMap getMap() {
+	public LorannMap getLorannMap() {
 		return this.map;
 	}
 
@@ -259,6 +256,12 @@ public final class ModelFacade implements IModel {
 	@Override
 	public void removeSquare(int x, int y) {
 		this.getMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
+	}
+
+	@Override
+	public void addObserver(Observer observer) {
+		this.getLorannMap().addObserver(observer);
+		
 	}
 
 }

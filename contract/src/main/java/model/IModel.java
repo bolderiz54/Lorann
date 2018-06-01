@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Observer;
+
 /**
  * <h1>The Interface IModel.</h1>
  *
@@ -26,10 +28,10 @@ public interface IModel extends IScore {
    public void unloadLevel();
    
    /**
-    * 
+    * get the map
     * @return all the entity in the map
     */
-   public Map getMap();
+   public LorannMap getLorannMap();
    
    /**
     * get the Width of the map
@@ -111,5 +113,11 @@ public interface IModel extends IScore {
     * @param y
     */
    public void removeSquare(int x, int y);
+   
+   /**
+    * Add an observer to the map
+    * @param observer
+    */
+   public void addObserver(Observer observer);
    
 }

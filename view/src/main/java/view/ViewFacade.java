@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyListener;
 
@@ -44,17 +45,12 @@ public class ViewFacade implements IView, Runnable {
         JOptionPane.showMessageDialog(null, message);
     }
     
-    
-    public void removeSquares() {
-    	
-    }
-    
     public void removePawns() {
-    	
+    	this.boardframe.removePawns();
     }
     
     public void removePawn(IPawn pawn) {
-    	
+    	this.boardframe.removePawn(pawn);
     }
     
     public IInteract getInteract() {
@@ -72,8 +68,14 @@ public class ViewFacade implements IView, Runnable {
         	}
     	}
     	//boardframe.addPawn(IPawn pawn);
+    	/*
+    	 * Envoie la touche appuyé grâce à KeyListener
+    	 */
     	boardframe.addKeyListener((KeyListener) interact);
-    	boardframe.
+    	this.model.addObserver(this.boardframe.getObserver());
+    	boardframe.setFocusable(true);
+    	boardframe.requestFocus();
+    	boardframe.setVisible(true);
     }
 
 
