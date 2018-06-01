@@ -21,10 +21,22 @@ public class LorannMap extends Observable {
 		map = new IEntity[height][width];
 	}
 	
+	/**
+	 * Get an entity on the map
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public IEntity getOnMap(int x, int y) {
 		return map[y][x];
 	}
 	
+	/**
+	 * Set an entity on the map
+	 * @param entity
+	 * @param x
+	 * @param y
+	 */
 	public void setOnMap(IEntity entity, int x, int y) {
 		map[y][x] = entity;
 	}
