@@ -8,7 +8,6 @@ public class Rook implements IAIMonster {
 
 	@Override
 	public void move(IPawn player, IModel model, Monster monster) {
-		// TODO Auto-generated method stub
 		
 	}
 

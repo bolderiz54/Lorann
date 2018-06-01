@@ -17,6 +17,11 @@ public class Monster extends Being implements IMonster {
 	private IAIMonster behavior;
 	
 	/**
+	 * The direction of the monster
+	 */
+	private Direction direction;
+	
+	/**
 	 * Instantiate a monster with a custom image and a custom behavior
 	 * @param imagePath
 	 * @param behaviour
@@ -25,6 +30,13 @@ public class Monster extends Being implements IMonster {
 		super(imagePath, Permeability.KILLING);
 		
 		this.behavior = behavior;
+		
+		if (this.behavior.getClass().getName() == "Bishop") {
+			this.setDirection(Direction.DIR_UP_LEFT);
+		}
+		else {
+			this.setDirection(Direction.DIR_UP);
+		}
 	}
 	
 	/**
@@ -33,6 +45,22 @@ public class Monster extends Being implements IMonster {
 	@Override
 	public void move(IPawn player, IModel model) {
 		this.behavior.move(player, model, this);
+	}
+
+	/**
+	 * get the direction
+	 * @return
+	 */
+	public Direction getDirection() {
+		return direction;
+	}
+
+	/**
+	 * set the direction
+	 * @param direction
+	 */
+	public void setDirection(Direction direction) {
+		this.direction = direction;
 	}
 
 }

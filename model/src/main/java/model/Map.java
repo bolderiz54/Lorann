@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Observable;
+import java.util.Observer;
 
 /**
  * This class describe how to use a map
@@ -30,9 +31,16 @@ public class Map extends Observable {
 	/**
      * Sets the mobile has changed.
      */
-    public final void setMobileHasChanged() {
+    @SuppressWarnings("deprecation")
+	public final void setMobileHasChanged() {
         this.setChanged();
         this.notifyObservers();
+    }
+    
+    @SuppressWarnings("deprecation")
+	@Override
+    public void addObserver(Observer observer) {
+    	super.addObserver(observer);
     }
 
 }
