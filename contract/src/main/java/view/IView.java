@@ -20,6 +20,12 @@ public interface IView {
     * @param pawn
     */
    public void removePawn(IPawn pawn);
+   
+   /**
+    * add a Pawn
+    * @param pawn
+    */
+   public void addPawn(IPawn pawn);
 
    /**
     * Display a message

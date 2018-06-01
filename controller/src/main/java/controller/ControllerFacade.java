@@ -1,6 +1,7 @@
 package controller;
 
 import model.IModel;
+import showboard.IPawn;
 import view.IInteract;
 import view.IView;
 
@@ -26,7 +27,7 @@ public class ControllerFacade implements IController {
   */
  	public ControllerFacade(IView view, IModel model) {
  		this.view = view;
- 		this.model = view;
+ 		this.model = model;
  	}
  	
  	@SuppressWarnings("unused")
@@ -37,8 +38,8 @@ public class ControllerFacade implements IController {
 
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-		
+		model.loadLevel(0);
+		view.addPawn((IPawn) this.model.getPlayer());
 	}
 
 	@Override
