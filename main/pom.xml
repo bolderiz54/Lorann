@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>fr.exia</groupId>
-    <artifactId>lorann</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <artifactId>lorann</artifactId>
   </parent>
   <artifactId>main</artifactId>
-  <name>lorann.main</name>
+  <name>boulderdash.main</name>
   <dependencies>
     <dependency>
       <groupId>fr.exia</groupId>

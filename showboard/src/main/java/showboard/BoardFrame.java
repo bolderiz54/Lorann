@@ -15,8 +15,8 @@ import javax.swing.JFrame;
  * As the BoardPanel is a private class, BoardPanel is a Facade.
  * </p>
  *
- * @author Anne-Emilie DIET
- * @version 3.0
+ * @author Anne-Emilie DIET and Benjamin ZANARDO
+ * @version 3.1
  * @see JFrame
  * @see BoardPanel
  * @see Dimension
@@ -93,6 +93,7 @@ public class BoardFrame extends JFrame implements IBoard {
         this.getBoardPanel().addSquare(square, x, y);
     }
 
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#addPawn(fr.exia.showboard.IPawn)
@@ -102,6 +103,16 @@ public class BoardFrame extends JFrame implements IBoard {
         this.getBoardPanel().addPawn(pawn);
     }
 
+    public void removePawns() {
+    	this.getBoardPanel().removePawns();
+    }
+    
+    
+    public void removePawn(IPawn pawn) {
+    	this.getBoardPanel().removePawn(pawn);
+    }
+    
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#getObserver()
