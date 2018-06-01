@@ -5,7 +5,7 @@ public interface IEntity {
 	/**
 	 * get the sprite
 	 */
-	public Sprite getSprite();
+	public ISprite getSprite();
 	
 	/**
 	 * get the permeability of an entity 

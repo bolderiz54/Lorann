@@ -38,5 +38,17 @@ public class ControllerFacade implements IController {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public IView getView() {
+		return view;
+		
+	}
+
+	@Override
+	public IModel getModel() {
+		return model;
+		
+	}
  
 }

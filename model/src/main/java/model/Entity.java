@@ -17,7 +17,7 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * The sprite of the entity
 	 */
-	private Sprite sprite;
+	private ISprite sprite;
 	
 	/**
 	 * The permeability of the entity
@@ -27,10 +27,9 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * Instatiat an object Entity with an image (path)
 	 * @param imagePath
-	 * @throws IOException 
 	 */
 	public Entity(String imagePath, Permeability permeability) {
-		this.sprite = new Sprite(imagePath);
+		this.sprite = (ISprite) new Sprite(imagePath);
 		this.getSprite().loadImage();
 		this.setPermeability(permeability);
 	}
@@ -38,7 +37,6 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * get the image
 	 * @return Image
-	 * @throws IOException 
 	 */
 	@Override
 	public Image getImage() {
@@ -50,7 +48,7 @@ public class Entity implements IEntity, ISquare {
 	 * @return Sprite
 	 */
 	@Override
-	public Sprite getSprite() {
+	public ISprite getSprite() {
 		return this.sprite;
 	}
 

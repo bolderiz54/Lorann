@@ -35,7 +35,6 @@ public class Sprite {
 	
 	/**
 	 * load the image thanks to the image path
-	 * @throws IOException 
 	 */
 	public void loadImage() {
 		try {

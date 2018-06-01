@@ -8,7 +8,6 @@ import java.util.Observer;
  * @author Hugo
  * @version 1.0
  */
-@SuppressWarnings("deprecation")
 public final class ModelFacade implements IModel {
 	
 	/**
@@ -25,7 +24,7 @@ public final class ModelFacade implements IModel {
 	/**
 	 * The map that the game use
 	 */
-	private LorannMap map;
+	private ILorannMap map;
 	
 	/**
 	 * the width of the map
@@ -58,7 +57,7 @@ public final class ModelFacade implements IModel {
         factory = new Factory();
         this.width = width;
         this.height = height;
-        map = new LorannMap(this.width, this.height);
+        map = (ILorannMap) new LorannMap(this.width, this.height);
     }
 
     /**
@@ -135,7 +134,7 @@ public final class ModelFacade implements IModel {
 	}
 
 	@Override
-	public LorannMap getLorannMap() {
+	public ILorannMap getLorannMap() {
 		return this.map;
 	}
 

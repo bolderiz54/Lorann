@@ -31,7 +31,7 @@ public interface IModel extends IScore {
     * get the map
     * @return all the entity in the map
     */
-   public LorannMap getLorannMap();
+   public ILorannMap getLorannMap();
    
    /**
     * get the Width of the map

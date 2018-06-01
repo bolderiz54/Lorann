@@ -1,5 +1,8 @@
 package controller;
 
+import model.IModel;
+import view.IView;
+
 /**
  * <h1>The Interface IController.</h1>
  * 
@@ -16,11 +19,11 @@ public interface IController {
 	/** 
 	 * The method getView get the view sent to the controller
 	 */
-	public void getView();
+	public IView getView();
 	
 	/** 
 	 * The method getModel get the model sent to the controller
 	 */
-	public void getModel();
+	public IModel getModel();
 
 }
