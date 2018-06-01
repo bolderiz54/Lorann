@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
+
 import model.IModel;
 import showboard.BoardFrame;
 import showboard.IPawn;

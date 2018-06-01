@@ -1,7 +1,5 @@
 package main;
 
-import java.sql.SQLException;
-
 import controller.ControllerFacade;
 import model.ModelFacade;
 import view.ViewFacade;
@@ -21,13 +19,11 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade(0, 0));
+    	final ModelFacade model = new ModelFacade(20, 12);
+    	final ViewFacade view = new ViewFacade(model);
+        final ControllerFacade controller = new ControllerFacade(view, model);
 
-        try {
-            controller.start();
-        } catch (final SQLException exception) {
-            exception.printStackTrace();
-        }
+        controller.start();
     }
 
 }

@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Observer;
 
 /**
@@ -10,11 +8,13 @@ import java.util.Observer;
  * @author Hugo
  * @version 1.0
  */
+@SuppressWarnings("deprecation")
 public final class ModelFacade implements IModel {
 	
 	/**
 	 * The number of the level which will be loaded
 	 */
+	@SuppressWarnings("unused")
 	private int levelNumber = 1;
 	
 	/**
@@ -42,6 +42,9 @@ public final class ModelFacade implements IModel {
 	 */
 	private Score score;
 	
+	/**
+	 * the factory that is use to generate entities
+	 */
 	private Factory factory;
 	
     /**
@@ -249,7 +252,6 @@ public final class ModelFacade implements IModel {
 		this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void addObserver(Observer observer) {
 		this.getLorannMap().addObserver(observer);
