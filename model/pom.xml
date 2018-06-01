@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>model</artifactId>
-  <name>boulderdash.model</name>
+  <name>lorann.model</name>
   <dependencies>
     <dependency>
       <groupId>fr.exia</groupId>

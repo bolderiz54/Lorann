@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -109,18 +108,8 @@ class BoardPanel extends JPanel implements Observer {
 
         for (int x = this.getCornerMinX(); x <= this.getCornerMaxX(); x++) {
             for (int y = this.getCornerMinY(); y <= this.getCornerMaxY(); y++) {
-                try {
-					this.drawSquareXY(graphics, x, y);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-                try {
-					this.drawPawnsXY(graphics, mapPawn, x, y);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                this.drawSquareXY(graphics, x, y);
+                this.drawPawnsXY(graphics, mapPawn, x, y);
             }
         }
     }
@@ -158,18 +147,6 @@ class BoardPanel extends JPanel implements Observer {
         this.getPawns().add(pawn);
     }
 
-    
-    public void removePawns() {
-    	pawns.clear();
-    }
-    
-    public void removePawn(IPawn pawn) {
-    	int index = pawns.indexOf(pawn);
-    	if (index >= 0) {
-    		pawns.remove(index);
-    	}
-    }
-    
     /**
      * Gets the image XY.
      *
@@ -182,9 +159,8 @@ class BoardPanel extends JPanel implements Observer {
      * @param heightLimit
      *            the height limit
      * @return the image XY
-     * @throws IOException 
      */
-    private Image getImageXY(final int x, final int y, final int widthLimit, final int heightLimit) throws IOException {
+    private Image getImageXY(final int x, final int y, final int widthLimit, final int heightLimit) {
         Image image;
         final int realX = this.calculateRealX(x);
         final int realY = this.calculateRealY(y);
@@ -357,9 +333,8 @@ class BoardPanel extends JPanel implements Observer {
      *            the x
      * @param y
      *            the y
-     * @throws IOException 
      */
-    private void drawSquareXY(final Graphics graphics, final int x, final int y) throws IOException {
+    private void drawSquareXY(final Graphics graphics, final int x, final int y) {
         Image image;
         image = this.getImageXY(x, y, this.getWidthLimit(), this.getHeightLimit());
         graphics.drawImage(image, this.getSquareSizeWidth() * (x - this.getCornerMinX()),
@@ -379,10 +354,9 @@ class BoardPanel extends JPanel implements Observer {
      *            the x
      * @param y
      *            the y
-     * @throws IOException 
      */
     private void drawPawnsXY(final Graphics graphics, final Map<String, ArrayList<IPawn>> mapPawn, final int x,
-            final int y) throws IOException {
+            final int y) {
         final List<IPawn> listPawn = mapPawn.get(this.createMapPawnKey(this.calculateRealX(x), this.calculateRealY(y)));
         if (listPawn != null) {
             for (final IPawn pawn : listPawn) {

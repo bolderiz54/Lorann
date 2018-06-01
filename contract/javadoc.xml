@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="javadoc">
-    <target name="javadoc">
-        <javadoc access="public" author="true" classpath="target/test-classes;C:\Users\Hugo-PC\git\lorann\showboard\target\classes;\showboard\target\test-classes;C:\Users\Hugo-PC\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Hugo-PC\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Hugo-PC\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar;C:\Users\Hugo-PC\.p2\pool\plugins\org.hamcrest.core_1.3.0.v201303031735.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="view,controller,model" source="1.8" sourcepath="src/main/java" splitindex="true" use="true" version="true"/>
-    </target>
-</project>
