@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
  * @version 1.1
  *
  */
-public class Sprite {
+public class Sprite implements ISprite {
 	
 	/**
 	 * path to the image

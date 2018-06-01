@@ -25,8 +25,8 @@ public class Player extends Being implements IPlayer {
 	/**
 	 * The images of the player
 	 */
-	private static String[] imagesPath = {"lorann_u", "lorann_ur", "lorann_r", "lorann_br",
-			"lorann_b", "lorann_bl", "lorann_l", "lorann_ul"};
+	private static String[] imagesPath = {"sprite/lorann_u", "sprite/lorann_ur", "sprite/lorann_r", "sprite/lorann_br",
+			"sprite/lorann_b", "sprite/lorann_bl", "sprite/lorann_l", "sprite/lorann_ul"};
 	
 	/**
 	 * Instantiate the player

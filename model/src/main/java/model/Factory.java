@@ -28,19 +28,19 @@ public class Factory {
 	 */
 	public Factory() {
 		player = new Player();
-		rook = new Monster("rook", new Rook());
-		bishop = new Monster("bishop", new Bishop());
-		wheel = new Monster("wheel", new Wheel());
-		stalker = new Monster("stalker", new Stalker());
+		rook = new Monster("sprite/rook", new Rook());
+		bishop = new Monster("sprite/bishop", new Bishop());
+		wheel = new Monster("sprite/wheel", new Wheel());
+		stalker = new Monster("sprite/stalker", new Stalker());
 		spell = null;
-		bone = new Entity("bone", Permeability.BLOCKING);
-		ground = new Entity("ground", Permeability.PENETRABLE);
-		purse = new Entity("purse", Permeability.COLLECTABLE);
-		gate_o = new Entity("gate_o", Permeability.PENETRABLE);
-		gate_c = new Entity("gate_c", Permeability.KILLING);
-		crystal_ball = new Entity("crystall_ball", Permeability.COLLECTABLE);
-		horizontal_bone = new Entity("horizontal_bone", Permeability.BLOCKING);
-		vertical_bone = new Entity ("vertical_bone", Permeability.BLOCKING);
+		bone = new Entity("sprite/bone", Permeability.BLOCKING);
+		ground = new Entity("sprite/ground", Permeability.PENETRABLE);
+		purse = new Entity("sprite/purse", Permeability.COLLECTABLE);
+		gate_o = new Entity("sprite/gate_o", Permeability.PENETRABLE);
+		gate_c = new Entity("sprite/gate_c", Permeability.KILLING);
+		crystal_ball = new Entity("sprite/crystall_ball", Permeability.COLLECTABLE);
+		horizontal_bone = new Entity("sprite/horizontal_bone", Permeability.BLOCKING);
+		vertical_bone = new Entity ("sprite/vertical_bone", Permeability.BLOCKING);
 		
 		
 	}

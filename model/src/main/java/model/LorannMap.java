@@ -9,7 +9,7 @@ import java.util.Observer;
  * @author Vincent Linck
  * @version 1.1
  */
-public class LorannMap extends Observable {
+public class LorannMap extends Observable implements ILorannMap {
 	
 	/**
 	 * The map that the game use
