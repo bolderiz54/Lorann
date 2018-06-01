@@ -12,8 +12,8 @@ import showboard.IPawn;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
+ * @author Jean-Aymeric DIET and Benjamin ZANARDO
+ * @version 1.1
  */
 public class ViewFacade implements IView, Runnable {
 	
