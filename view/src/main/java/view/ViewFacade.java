@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import model.IModel;
 import showboard.BoardFrame;
 import showboard.IPawn;
+import showboard.ISquare;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -64,7 +65,7 @@ public class ViewFacade implements IView, Runnable {
     	
     	for (int y = 0; y < this.model.getHeight(); y++) {
     		for (int x = 0; x < this.model.getWidth(); x++) {
-        		boardframe.addSquare(this.model.getOnMap(x, y), x, y);
+        		boardframe.addSquare((ISquare) this.model.getOnMap(x, y), x, y);
         	}
     	}
     	//boardframe.addPawn(IPawn pawn);
