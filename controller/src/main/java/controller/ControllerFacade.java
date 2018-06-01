@@ -64,9 +64,9 @@ public class ControllerFacade implements IController {
 			default:
 				break;
 			}
-			
+				
 			this.getModel().getLorannMap().setMobileHasChanged();
-			Thread.sleep(66);
+			Thread.sleep(100);
 		}
 	}
 

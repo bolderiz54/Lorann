@@ -44,7 +44,7 @@ public class Player extends Being implements IPlayer {
 	 */
 	@Override
 	public void move(int x, int y) {
-		this.setPosition(new Point(x, y));
+		this.setPosition(new Point(this.getX() + x, this.getY() + y));
 		
 		if(x > 0) {
 			if(y > 0) {
