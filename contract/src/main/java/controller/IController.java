@@ -13,8 +13,9 @@ public interface IController {
 	
 	/**
 	 * The method start is to start the game
+	 * @throws InterruptedException 
 	 */
-	public void start();
+	public void start() throws InterruptedException;
 	
 	/** 
 	 * The method getView get the view sent to the controller
