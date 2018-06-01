@@ -25,10 +25,12 @@ public class ControllerFacade implements IController {
   * @param model
   */
  	public ControllerFacade(IView view, IModel model) {
- 	
+ 		this.view = view;
+ 		this.model = view;
  	}
  	
- 	private Order getOrder() {
+ 	@SuppressWarnings("unused")
+	private Order getOrder() {
 		return order;
  		
  	}
