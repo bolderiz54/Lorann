@@ -224,7 +224,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public IEntity getOnMap(int x, int y) {
-		return this.getMap().getOnMap(x, y);
+		return this.getLorannMap().getOnMap(x, y);
 	}
 	
 	/**
@@ -235,7 +235,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void setOnMap(EntityType entity, int x, int y) {
-		this.getMap().setOnMap(this.factory.getEntity(entity), x, y);
+		this.getLorannMap().setOnMap(this.factory.getEntity(entity), x, y);
 	}
 
 	/**
@@ -255,9 +255,10 @@ public final class ModelFacade implements IModel {
 
 	@Override
 	public void removeSquare(int x, int y) {
-		this.getMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
+		this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void addObserver(Observer observer) {
 		this.getLorannMap().addObserver(observer);

@@ -9,6 +9,7 @@ import java.util.Observer;
  * @author Vincent Linck
  * @version 1.1
  */
+@SuppressWarnings("deprecation")
 public class LorannMap extends Observable {
 	
 	/**
