@@ -17,8 +17,31 @@ public class LorannMap extends Observable {
 	 */
 	private IEntity[][] map;
 	
+	/**
+	 * the width of the map
+	 */
+	private int width;
+	
+	/**
+	 * the height of the map
+	 */
+	private int height;
+	
+	/**
+	 * Instantiate the map
+	 * @param width
+	 * @param height
+	 */
 	public LorannMap(int width, int height) {
-		map = new IEntity[height][width];
+		this.width = width;
+		this.height = height;
+		map = new IEntity[this.height][this.width];
+		
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.height; x++) {
+				map[y][x] = null;
+			}
+		}
 	}
 	
 	/**

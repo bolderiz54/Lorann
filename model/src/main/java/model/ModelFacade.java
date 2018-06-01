@@ -96,6 +96,17 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public boolean loadLevel(int level) {
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.height; x++) {
+				if (x == 0 || x == this.width - 1 || y == 0 || y == this.height - 1) {
+					this.setOnMap(EntityType.ENT_BONE, x, y);
+				}
+				else {
+					this.setOnMap(EntityType.ENT_GROUND, x, y);
+				}
+			}
+		}
+		
 		return true;
 	}
 
@@ -108,19 +119,21 @@ public final class ModelFacade implements IModel {
 			for (int x = 0; x < width; x++) {
 				switch (this.loadedLevel[y][x]) {
 				case "bone_v" :
-				break;
+					break;
 				case "bone_h" :
-				break;
+					break;
 				case "bone" :
-				break;
+					break;
 				case "crystal" : 
-				break;
+					break;
 				case "gate_c" : 
-				break;
+					break;
 				case "gate_o" : 
-				break;
+					break;
 				case "purse" :
-				break;
+					break;
+				case "ground" :
+					break;
 				}
 			}
 		}	
@@ -131,7 +144,11 @@ public final class ModelFacade implements IModel {
      */
 	@Override
 	public void unloadLevel() {
-		
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				this.setOnMap(EntityType.ENT_GROUND, x, y);
+			}
+		}
 	}
 
 	@Override
@@ -154,7 +171,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void setWidth(int width) {
-		
+		this.width = width;
 	}
 
 	/**
@@ -179,8 +196,8 @@ public final class ModelFacade implements IModel {
 	 * get the player
 	 */
 	@Override
-	public Player getPlayer() {
-		return getPlayer();
+	public IPlayer getPlayer() {
+		return this.factory.getPlayer();
 	}
 
 	/**
@@ -190,7 +207,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public IMonster getMonster(int monsterNumber) {
-		return this.factory.getMonster(monsterNumber);
+		return this.factory.getMonster(monsterNumber % 4);
 	}
 
 	/**
@@ -207,7 +224,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public ISpell getSpell() {
-		return null;
+		return this.factory.getSpell();
 	}
 
 	/**
@@ -247,16 +264,20 @@ public final class ModelFacade implements IModel {
 		this.factory.destroySpell();
 	}
 
+	/**
+	 * remove a square from the map
+	 */
 	@Override
 	public void removeSquare(int x, int y) {
 		this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
 	}
 
+	/**
+	 * Add an observer to the map
+	 */
 	@Override
 	public void addObserver(Observer observer) {
 		this.getLorannMap().addObserver(observer);
-		
 	}
 
 }
-
