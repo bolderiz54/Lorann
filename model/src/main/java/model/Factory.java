@@ -28,19 +28,20 @@ public class Factory {
 	 */
 	public Factory() {
 		player = new Player();
-		rook = new Monster("sprite/rook", new Rook());
-		bishop = new Monster("sprite/bishop", new Bishop());
-		wheel = new Monster("sprite/wheel", new Wheel());
-		stalker = new Monster("sprite/stalker", new Stalker());
+		
+		rook = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\rook.png", new Rook());
+		bishop = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\bishop.png", new Bishop());
+		wheel = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\wheel.png", new Wheel());
+		stalker = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\stalker.png", new Stalker());
 		spell = null;
-		bone = new Entity("sprite/bone", Permeability.BLOCKING);
-		ground = new Entity("sprite/ground", Permeability.PENETRABLE);
-		purse = new Entity("sprite/purse", Permeability.COLLECTABLE);
-		gate_o = new Entity("sprite/gate_o", Permeability.PENETRABLE);
-		gate_c = new Entity("sprite/gate_c", Permeability.KILLING);
-		crystal_ball = new Entity("sprite/crystall_ball", Permeability.COLLECTABLE);
-		horizontal_bone = new Entity("sprite/horizontal_bone", Permeability.BLOCKING);
-		vertical_bone = new Entity ("sprite/vertical_bone", Permeability.BLOCKING);
+		bone = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\bone.png", Permeability.BLOCKING);
+		ground = new Entity("C:/Users/pcmga/git/Lorann/sprite/ground.png", Permeability.PENETRABLE);
+		purse = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\purse.png", Permeability.COLLECTABLE);
+		gate_o = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\gate_o.png", Permeability.PENETRABLE);
+		gate_c = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\gate_c.png", Permeability.KILLING);
+		crystal_ball = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\crystall_ball.png", Permeability.COLLECTABLE);
+		horizontal_bone = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\horizontal_bone.png", Permeability.BLOCKING);
+		vertical_bone = new Entity ("C:\\Users\\pcmga\\git\\Lorann\\sprite\\vertical_bone.png", Permeability.BLOCKING);
 		
 		
 	}

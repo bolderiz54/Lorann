@@ -11,7 +11,7 @@ import showboard.IPawn;
  * @version 1.0
  *
  */
-public class Mobile extends Entity implements IPawn {
+public class Mobile extends Entity implements IPawn, IMobile {
 
 	/**
 	 * the x (horizontal) position

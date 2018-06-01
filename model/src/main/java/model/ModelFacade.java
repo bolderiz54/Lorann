@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.util.Observer;
 
 /**
@@ -96,7 +97,7 @@ public final class ModelFacade implements IModel {
 	@Override
 	public boolean loadLevel(int level) {
 		for (int y = 0; y < this.height; y++) {
-			for (int x = 0; x < this.height; x++) {
+			for (int x = 0; x < this.width; x++) {
 				if (x == 0 || x == this.width - 1 || y == 0 || y == this.height - 1) {
 					this.setOnMap(EntityType.ENT_BONE, x, y);
 				}
@@ -105,6 +106,8 @@ public final class ModelFacade implements IModel {
 				}
 			}
 		}
+		
+		this.getPlayer().setPosition(new Point(5, 5));
 		
 		return true;
 	}

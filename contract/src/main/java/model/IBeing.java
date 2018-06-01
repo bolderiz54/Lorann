@@ -9,7 +9,7 @@ import java.awt.Point;
  * @version 1.0
  */
 
-public interface IBeing {
+public interface IBeing extends IMobile {
 	
 	/**
 	 * The method isAlive is a boolean to know if the entity is alive

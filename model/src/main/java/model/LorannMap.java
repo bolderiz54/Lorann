@@ -37,7 +37,7 @@ public class LorannMap extends Observable implements ILorannMap {
 		map = new IEntity[this.height][this.width];
 		
 		for (int y = 0; y < this.height; y++) {
-			for (int x = 0; x < this.height; x++) {
+			for (int x = 0; x < this.width; x++) {
 				map[y][x] = null;
 			}
 		}

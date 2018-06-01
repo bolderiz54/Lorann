@@ -39,7 +39,14 @@ public class ControllerFacade implements IController {
 	@Override
 	public void start() {
 		model.loadLevel(0);
+		model.getLorannMap().setMobileHasChanged();
 		view.addPawn((IPawn) this.model.getPlayer());
+		try {
+			Thread.sleep(66);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

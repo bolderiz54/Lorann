@@ -43,6 +43,7 @@ public class Interact implements KeyListener, IInteract{
 	 * if key pressed the keycode and keychar are stocked in a list
 	 */
 	public void keyPressed(KeyEvent event) {
+		System.out.println(event.getKeyChar());
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
 		if (index < 0) {
 			this.getKeyCodePressed().add(event.getKeyCode());
@@ -59,6 +60,7 @@ public class Interact implements KeyListener, IInteract{
 	 * when the key is released we remove the keycode and the keychar from the list
 	 */
 	public void keyReleased(KeyEvent event) {
+		System.out.println(event.getKeyChar());
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
 		if (index >= 0) {
 			this.getKeyCodePressed().remove(index);

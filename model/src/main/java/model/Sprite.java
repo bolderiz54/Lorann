@@ -38,7 +38,7 @@ public class Sprite implements ISprite {
 	 */
 	public void loadImage() {
 		try {
-			this.image = ImageIO.read(new File(this.imagePath));
+			this.image = ImageIO.read(new File(imagePath));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -50,6 +50,7 @@ public class Sprite implements ISprite {
 	 */
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+		this.loadImage();
 	}
 	
 	/**

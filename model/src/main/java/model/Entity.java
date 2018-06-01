@@ -30,7 +30,6 @@ public class Entity implements IEntity, ISquare {
 	 */
 	public Entity(String imagePath, Permeability permeability) {
 		this.sprite = new Sprite(imagePath);
-		this.getSprite().loadImage();
 		this.setPermeability(permeability);
 	}
 

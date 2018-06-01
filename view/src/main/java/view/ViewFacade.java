@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 import model.IModel;
 import showboard.BoardFrame;
@@ -34,8 +35,9 @@ public class ViewFacade implements IView, Runnable {
     public ViewFacade(IModel model) {
         boardframe = new BoardFrame("Lorann");
         this.model = model;
-        new Rectangle(0,0, this.model.getWidth(), this.model.getHeight());
+        view = new Rectangle(0,0, this.model.getWidth(), this.model.getHeight());
         interact = new Interact();
+        SwingUtilities.invokeLater(this);
     }
 
     /*
