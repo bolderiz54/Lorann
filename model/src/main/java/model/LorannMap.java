@@ -7,16 +7,17 @@ import java.util.Observer;
  * This class describe how to use a map
  * 
  * @author vince
- * @version 1.0
+ * @version 1.1
  */
-public class Map extends Observable {
+@SuppressWarnings("deprecation")
+public class LorannMap extends Observable {
 	
 	/**
 	 * The map that the game use
 	 */
 	private IEntity[][] map;
 	
-	public Map(int width, int height) {
+	public LorannMap(int width, int height) {
 		map = new IEntity[height][width];
 	}
 	
@@ -35,12 +36,6 @@ public class Map extends Observable {
 	public final void setMobileHasChanged() {
         this.setChanged();
         this.notifyObservers();
-    }
-    
-    @SuppressWarnings("deprecation")
-	@Override
-    public void addObserver(Observer observer) {
-    	super.addObserver(observer);
     }
 
 }

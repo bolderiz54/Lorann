@@ -32,7 +32,7 @@ public final class ModelFacade implements IModel {
 	/**
 	 * The map that the game use
 	 */
-	private Map map;
+	private LorannMap map;
 	
 	/**
 	 * the width of the map
@@ -63,7 +63,7 @@ public final class ModelFacade implements IModel {
         factory = new Factory();
         this.width = width;
         this.height = height;
-        map = new Map(this.width, this.height);
+        map = new LorannMap(this.width, this.height);
     }
 
     /**
@@ -144,7 +144,7 @@ public final class ModelFacade implements IModel {
 	 * @return all the entity in the map
 	 */
 	@Override
-	public Map getMap() {
+	public LorannMap getMap() {
 		return this.map;
 	}
 
