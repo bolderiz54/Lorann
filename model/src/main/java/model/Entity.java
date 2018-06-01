@@ -27,6 +27,7 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * Instatiat an object Entity with an image (path)
 	 * @param imagePath
+	 * @throws IOException 
 	 */
 	public Entity(String imagePath, Permeability permeability) {
 		this.sprite = new Sprite(imagePath);
@@ -40,7 +41,7 @@ public class Entity implements IEntity, ISquare {
 	 * @throws IOException 
 	 */
 	@Override
-	public Image getImage() throws IOException {
+	public Image getImage() {
 		return sprite.getImage();
 	}
 
@@ -50,7 +51,7 @@ public class Entity implements IEntity, ISquare {
 	 */
 	@Override
 	public Sprite getSprite() {
-		return sprite;
+		return this.sprite;
 	}
 
 	/**

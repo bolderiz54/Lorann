@@ -37,8 +37,12 @@ public class Sprite {
 	 * load the image thanks to the image path
 	 * @throws IOException 
 	 */
-	public void loadImage() throws IOException {
-		this.image = ImageIO.read(new File(this.imagePath));
+	public void loadImage() {
+		try {
+			this.image = ImageIO.read(new File(this.imagePath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

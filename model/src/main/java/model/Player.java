@@ -143,8 +143,12 @@ public class Player extends Being implements IPlayer {
 	}
 	
 	@Override
-	public Image getImage() throws IOException {
-		this.setImage();
+	public Image getImage() {
+		try {
+			this.setImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return this.getSprite().getImage();
 	}
 
