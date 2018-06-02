@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class Interact implements KeyListener, IInteract{
 	 */
 	private List<Integer> keyCodePressed;
 	private List<Character> keyCharPressed;
+	
+	public Interact() {
+		this.keyCodePressed = new ArrayList<Integer>();
+		this.keyCharPressed = new ArrayList<Character>();
+	}
 	
 	public boolean isKeyPressed(int keyCode) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), keyCode);
@@ -43,7 +49,6 @@ public class Interact implements KeyListener, IInteract{
 	 * if key pressed the keycode and keychar are stocked in a list
 	 */
 	public void keyPressed(KeyEvent event) {
-		System.out.println(event.getKeyChar());
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
 		if (index < 0) {
 			this.getKeyCodePressed().add(event.getKeyCode());
@@ -60,7 +65,6 @@ public class Interact implements KeyListener, IInteract{
 	 * when the key is released we remove the keycode and the keychar from the list
 	 */
 	public void keyReleased(KeyEvent event) {
-		System.out.println(event.getKeyChar());
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
 		if (index >= 0) {
 			this.getKeyCodePressed().remove(index);

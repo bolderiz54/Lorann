@@ -31,7 +31,7 @@ public class BoardFrame extends JFrame implements IBoard {
     private static final long serialVersionUID = -6563585351564617603L;
 
     /** The initial frame size. */
-    private static final int  defaultFrameSize = 700;
+    private static final int  defaultFrameSize = 640;
 
     /** The board panel. */
     private final BoardPanel  boardPanel;

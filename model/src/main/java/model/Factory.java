@@ -29,21 +29,19 @@ public class Factory {
 	public Factory() {
 		player = new Player();
 		
-		rook = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\rook.png", new Rook());
-		bishop = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\bishop.png", new Bishop());
-		wheel = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\wheel.png", new Wheel());
-		stalker = new Monster("C:\\Users\\pcmga\\git\\Lorann\\sprite\\stalker.png", new Stalker());
+		rook = new Monster("../sprite/rook.png", new Rook());
+		bishop = new Monster("../sprite/bishop.png", new Bishop());
+		wheel = new Monster("../sprite/wheel.png", new Wheel());
+		stalker = new Monster("../sprite/stalker.png", new Stalker());
 		spell = null;
-		bone = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\bone.png", Permeability.BLOCKING);
-		ground = new Entity("C:/Users/pcmga/git/Lorann/sprite/ground.png", Permeability.PENETRABLE);
-		purse = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\purse.png", Permeability.COLLECTABLE);
-		gate_o = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\gate_o.png", Permeability.PENETRABLE);
-		gate_c = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\gate_c.png", Permeability.KILLING);
-		crystal_ball = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\crystall_ball.png", Permeability.COLLECTABLE);
-		horizontal_bone = new Entity("C:\\Users\\pcmga\\git\\Lorann\\sprite\\horizontal_bone.png", Permeability.BLOCKING);
-		vertical_bone = new Entity ("C:\\Users\\pcmga\\git\\Lorann\\sprite\\vertical_bone.png", Permeability.BLOCKING);
-		
-		
+		bone = new Entity("../sprite/bone.png", Permeability.BLOCKING);
+		ground = new Entity("../sprite/ground.png", Permeability.PENETRABLE);
+		purse = new Entity("../sprite/purse.png", Permeability.COLLECTABLE);
+		gate_o = new Entity("../sprite/gate_o.png", Permeability.PENETRABLE);
+		gate_c = new Entity("../sprite/gate_c.png", Permeability.KILLING);
+		crystal_ball = new Entity("../sprite/crystal_ball.png", Permeability.COLLECTABLE);
+		horizontal_bone = new Entity("../sprite/horizontal_bone.png", Permeability.BLOCKING);
+		vertical_bone = new Entity ("../sprite/vertical_bone.png", Permeability.BLOCKING);
 	}
 	/**
 	 * get the type of the entity
@@ -79,15 +77,15 @@ public class Factory {
 	 * @return the monster
 	 */
 	public IMonster getMonster(int monsterNumber) {
-		switch (monsterNumber) {
+		switch (monsterNumber % 4) {
 		
-		case 1 : return this.rook;
+		case 0 : return this.rook;
 		
-		case 2 : return this.bishop;
+		case 1 : return this.bishop;
 		
-		case 3 : return this.wheel;
+		case 2 : return this.wheel;
 		
-		case 4 : return this.stalker;
+		case 3 : return this.stalker;
 		
 		default : return null;
 		}

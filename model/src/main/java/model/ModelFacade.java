@@ -107,6 +107,7 @@ public final class ModelFacade implements IModel {
 		}
 		
 		this.getPlayer().setPosition(new Point(5, 5));
+		this.getMonster(0).setPosition(new Point(10, 6));
 		
 		return true;
 	}
@@ -208,7 +209,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public IMonster getMonster(int monsterNumber) {
-		return this.factory.getMonster(monsterNumber % 4);
+		return this.factory.getMonster(monsterNumber);
 	}
 
 	/**

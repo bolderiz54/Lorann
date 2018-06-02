@@ -112,13 +112,11 @@ class BoardPanel extends JPanel implements Observer {
                 try {
 					this.drawSquareXY(graphics, x, y);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
                 try {
 					this.drawPawnsXY(graphics, mapPawn, x, y);
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             }
@@ -365,7 +363,6 @@ class BoardPanel extends JPanel implements Observer {
         graphics.drawImage(image, this.getSquareSizeWidth() * (x - this.getCornerMinX()),
                 this.getSquareSizeHeight() * (y - this.getCornerMinY()), this.getSquareSizeWidth(),
                 this.getSquareSizeHeight(), this);
-
     }
 
     /**
@@ -453,6 +450,7 @@ class BoardPanel extends JPanel implements Observer {
      * @return the square size width
      */
     private int getSquareSizeWidth() {
+    	System.out.println("panel width:"+this.getWidth()+"\nframe width:"+this.getDisplayFrame().width+"\n"+this.getWidth() / this.getDisplayFrame().width);
         return this.getWidth() / this.getDisplayFrame().width;
     }
 

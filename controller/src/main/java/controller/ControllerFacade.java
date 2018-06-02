@@ -17,7 +17,7 @@ public class ControllerFacade implements IController {
  private IModel model;
  private CollisionManager collisionManager;
  private Clock clock;
- private Order order;
+ private Order order = Order.ORD_NONE;
  private IInteract interact;
  private static final int keyLeft = 37;
  private static final int keyRight = 39;
@@ -43,7 +43,8 @@ public class ControllerFacade implements IController {
 	@Override
 	public void start() throws InterruptedException {
 		this.getModel().loadLevel(0);
-		view.addPawn((IPawn) this.getModel().getPlayer());
+		this.getView().addPawn((IPawn) this.getModel().getPlayer());
+		this.getView().addPawn((IPawn) this.getModel().getMonster(0));
 		
 		while(true) {
 			this.interpretInteraction();
@@ -60,6 +61,18 @@ public class ControllerFacade implements IController {
 				break;
 			case ORD_M_RIGHT:
 				this.getModel().getPlayer().move(1, 0);
+				break;
+			case ORD_M_UP_L:
+				this.getModel().getPlayer().move(-1, -1);
+				break;
+			case ORD_M_UP_R:
+				this.getModel().getPlayer().move(1, -1);
+				break;
+			case ORD_M_DOWN_L:
+				this.getModel().getPlayer().move(-1, 1);
+				break;
+			case ORD_M_DOWN_R:
+				this.getModel().getPlayer().move(1, 1);
 				break;
 			default:
 				break;
@@ -84,16 +97,35 @@ public class ControllerFacade implements IController {
 	
 	private void interpretInteraction() {
 		if (this.getView().getInteract().isKeyPressed(keyUp)) {
-			this.order = Order.ORD_M_UP;
+			if (this.getView().getInteract().isKeyPressed(keyLeft)) {
+				this.order = Order.ORD_M_UP_L;
+			}
+			else if (this.getView().getInteract().isKeyPressed(keyRight)) {
+				this.order = Order.ORD_M_UP_R;
+			}
+			else {
+				this.order = Order.ORD_M_UP;
+			}
 		}
 		else if (this.getView().getInteract().isKeyPressed(keyDown)) {
-			this.order = Order.ORD_M_DOWN;
+			if (this.getView().getInteract().isKeyPressed(keyLeft)) {
+				this.order = Order.ORD_M_DOWN_L;
+			}
+			else if (this.getView().getInteract().isKeyPressed(keyRight)) {
+				this.order = Order.ORD_M_DOWN_R;
+			}
+			else {
+				this.order = Order.ORD_M_DOWN;
+			}
 		}
 		else if (this.getView().getInteract().isKeyPressed(keyLeft)) {
 			this.order = Order.ORD_M_LEFT;
 		}
 		else if (this.getView().getInteract().isKeyPressed(keyRight)) {
 			this.order = Order.ORD_M_RIGHT;
+		}
+		else {
+			this.order = Order.ORD_NONE;
 		}
 	}
 

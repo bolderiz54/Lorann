@@ -10,6 +10,7 @@ public enum Order {
 	ORD_M_DOWN_L,
 	ORD_M_LEFT,
 	ORD_M_UP_L,
-	ORD_CAST_SPELL;
+	ORD_CAST_SPELL,
+	ORD_NONE;
 	
 }
