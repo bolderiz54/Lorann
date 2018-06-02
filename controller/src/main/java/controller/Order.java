@@ -1,5 +1,10 @@
 package controller;
 
+/**
+ * every case of move order
+ * @author Gauthier
+ *
+ */
 public enum Order {
 
 	ORD_M_UP,

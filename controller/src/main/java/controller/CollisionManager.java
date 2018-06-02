@@ -19,6 +19,9 @@ public class CollisionManager {
 		this.model = model;
 	}
 	
+	/*
+	 * this method allow us to create every case of collision
+	 */
 	public boolean wallCollision(IPlayer player, Order order) {
 		Point position = player.getPosition();
 		switch (order) {
@@ -74,7 +77,10 @@ public class CollisionManager {
 		}
 			
 	}
-
+	
+	/*
+	 * this method is used in order to know every case of collision with every entity 
+	 */
 	public void crossCollision(IPawn entity1, IPawn entity2) {
 		Point position1 = entity1.getPosition();
 		Point position2 = entity2.getPosition();

@@ -40,6 +40,9 @@ public class ControllerFacade implements IController {
  		
  	}
 
+ 	/**
+ 	 * method that allow us to move Lorann
+ 	 */
 	@Override
 	public void start() throws InterruptedException {
 		this.getModel().loadLevel(0);
@@ -95,6 +98,9 @@ public class ControllerFacade implements IController {
 		
 	}
 	
+	/**
+	 * method that associate the key pressed with a movement
+	 */
 	private void interpretInteraction() {
 		if (this.getView().getInteract().isKeyPressed(keyUp)) {
 			if (this.getView().getInteract().isKeyPressed(keyLeft)) {
