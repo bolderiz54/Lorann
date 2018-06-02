@@ -88,7 +88,7 @@ class BoardPanel extends JPanel implements Observer {
         this.pawns = new ArrayList<>();
         this.noImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics = this.noImage.createGraphics();
-        graphics.setColor(Color.darkGray);
+        graphics.setColor(Color.black);
         graphics.fillRect(0, 0, 2, 2);
     }
 
@@ -450,8 +450,8 @@ class BoardPanel extends JPanel implements Observer {
      * @return the square size width
      */
     private int getSquareSizeWidth() {
-    	System.out.println("panel width:"+this.getWidth()+"\nframe width:"+this.getDisplayFrame().width+"\n"+this.getWidth() / this.getDisplayFrame().width);
-        return this.getWidth() / this.getDisplayFrame().width;
+    	//System.out.println("panel width:"+this.getWidth()+"\nframe width:"+this.getDisplayFrame().width+"\n"+this.getWidth() / this.getDisplayFrame().width);
+    	return this.getWidth() / this.getDisplayFrame().width;
     }
 
     /**

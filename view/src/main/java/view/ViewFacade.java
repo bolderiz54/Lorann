@@ -66,7 +66,6 @@ public class ViewFacade implements IView, Runnable {
     }
     
     public final void run() {
-    	System.out.println(this.view.x + ", " + this.view.width + ", " + this.view.y + ", " + this.view.height);
     	boardframe.setDimension(new Dimension(this.model.getWidth(), this.model.getHeight()));
     	boardframe.setDisplayFrame(this.view);
     	boardframe.setSize(this.view.width * squareSize, this.view.height * squareSize);
