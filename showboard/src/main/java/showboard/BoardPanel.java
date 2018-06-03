@@ -157,7 +157,7 @@ class BoardPanel extends JPanel implements Observer {
     }
 
     /**
-     * Ramove all pawns of the frame
+     * Ramove all pawns of the frame 
      * 
      */
     public void removePawns() {

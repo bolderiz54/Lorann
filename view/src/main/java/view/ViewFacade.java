@@ -74,7 +74,7 @@ public class ViewFacade implements IView, Runnable {
     	this.boardframe.addPawn(pawn);
     }
     
-    /**
+    /** 
      * Collect the player's interactions
      */
     public IInteract getInteract() {

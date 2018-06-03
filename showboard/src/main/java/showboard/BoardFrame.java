@@ -75,7 +75,7 @@ public class BoardFrame extends JFrame implements IBoard {
     }
 
     /**
-     * Instantiates a new board frame.
+     * Instantiates a new board frame. 
      *
      * @param decorated
      *            the decorated
