@@ -32,7 +32,8 @@ public class ControllerFacade implements IController {
  	public ControllerFacade(IView view, IModel model) {
  		this.view = view;
  		this.model = model;
- 	}
+ 		this.collisionManager = new CollisionManager(this.getModel());
+ 		}
  	
  	@SuppressWarnings("unused")
 	private Order getOrder() {
@@ -41,7 +42,7 @@ public class ControllerFacade implements IController {
  	}
 
  	/**
- 	 * method that allow us to move Lorann
+ 	 * method that allow us to move Lorann with the collisions
  	 */
 	@Override
 	public void start() throws InterruptedException {
@@ -51,36 +52,36 @@ public class ControllerFacade implements IController {
 		
 		while(true) {
 			this.interpretInteraction();
-		
-			switch(this.order) {
-			case ORD_M_UP:
-				this.getModel().getPlayer().move(0, -1);
-				break;
-			case ORD_M_DOWN:
-				this.getModel().getPlayer().move(0, 1);
-				break;
-			case ORD_M_LEFT:
-				this.getModel().getPlayer().move(-1, 0);
-				break;
-			case ORD_M_RIGHT:
-				this.getModel().getPlayer().move(1, 0);
-				break;
-			case ORD_M_UP_L:
-				this.getModel().getPlayer().move(-1, -1);
-				break;
-			case ORD_M_UP_R:
-				this.getModel().getPlayer().move(1, -1);
-				break;
-			case ORD_M_DOWN_L:
-				this.getModel().getPlayer().move(-1, 1);
-				break;
-			case ORD_M_DOWN_R:
-				this.getModel().getPlayer().move(1, 1);
-				break;
-			default:
-				break;
+			if (this.collisionManager.wallCollision(this.getModel().getPlayer(), this.order)) {
+				switch(this.order) {
+				case ORD_M_UP:
+					this.getModel().getPlayer().move(0, -1);
+					break;
+				case ORD_M_DOWN:
+					this.getModel().getPlayer().move(0, 1);
+					break;
+				case ORD_M_LEFT:
+					this.getModel().getPlayer().move(-1, 0);
+					break;
+				case ORD_M_RIGHT:
+					this.getModel().getPlayer().move(1, 0);
+					break;
+				case ORD_M_UP_L:
+					this.getModel().getPlayer().move(-1, -1);
+					break;
+				case ORD_M_UP_R:
+					this.getModel().getPlayer().move(1, -1);
+					break;
+				case ORD_M_DOWN_L:
+					this.getModel().getPlayer().move(-1, 1);
+					break;
+				case ORD_M_DOWN_R:
+					this.getModel().getPlayer().move(1, 1);
+					break;
+				default:
+					break;
+				}
 			}
-				
 			this.getModel().getLorannMap().setMobileHasChanged();
 			Thread.sleep(100);
 		}
