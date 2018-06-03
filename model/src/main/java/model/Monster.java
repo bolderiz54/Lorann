@@ -93,5 +93,16 @@ public class Monster extends Being implements IMonster {
 	public void setDirection(Direction direction) {
 		this.direction = direction;
 	}
+	
+	@Override
+	public void reserruct() {
+		super.reserruct();
+		if (this.behavior.getClass().getName() == "model.AIDesignPatter.Bishop") {
+			this.setDirection(Direction.DIR_UP_LEFT);
+		}
+		else {
+			this.setDirection(Direction.DIR_UP);
+		}
+	}
 
 }

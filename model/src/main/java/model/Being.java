@@ -29,14 +29,12 @@ public abstract class Being extends Mobile implements IBeing {
 
 	@Override
 	public void die() {
-		alive=false;
-		
+		alive = false;
 	}
 
 	@Override
 	public void reserruct() {
-		alive=true;
-		
+		alive = true;
 	}
 
 }
