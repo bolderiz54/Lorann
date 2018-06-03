@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.Observer;
 
 /**
@@ -21,6 +22,11 @@ public final class ModelFacade implements IModel {
 	 * The level loaded from the database
 	 */
 	private String[][] loadedLevel;
+	
+	/**
+	 * The pawns in the loaded level from the database
+	 */
+	private ArrayList<LoadedElement> pawnsLoaded;
 	
 	/**
 	 * The map that the game use
@@ -58,7 +64,8 @@ public final class ModelFacade implements IModel {
         factory = new Factory();
         this.width = width;
         this.height = height;
-        map = (ILorannMap) new LorannMap(this.width, this.height);
+        this.map = (ILorannMap) new LorannMap(this.width, this.height);
+        this.pawnsLoaded = new ArrayList<LoadedElement>();
     }
 
     /**
@@ -95,22 +102,54 @@ public final class ModelFacade implements IModel {
 	 * @return true if the entity is alive
 	 */
 	public boolean loadLevel(int level) {
+		this.unloadLevel();
+		
+		this.loadedLevel = new String[this.getHeight()][this.getWidth()];
+		
+		for (int y = 0; y < this.height; y++) {
+			for (int x = 0; x < this.width; x++) {
+				this.loadedLevel[y][x] = "ground";
+			}
+		}
+		
 		for (int y = 0; y < this.height; y++) {
 			for (int x = 0; x < this.width; x++) {
 				if (x == 0 || x == this.width - 1 || y == 0 || y == this.height - 1) {
-					this.setOnMap(EntityType.ENT_BONE, x, y);
-				}
-				else {
-					this.setOnMap(EntityType.ENT_GROUND, x, y);
+					this.loadedLevel[y][x] = "bone";
 				}
 			}
 		}
 		
-		this.getPlayer().setPosition(new Point(5, 5));
-		this.getMonster(0).setPosition(new Point(10, 6));
-		this.getMonster(1).setPosition(new Point(11, 7));
-		this.getMonster(2).setPosition(new Point(12, 5));
-		this.getMonster(3).setPosition(new Point(14, 6));
+		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
+		this.pawnsLoaded.add(new LoadedElement("rook", 10, 6));
+		this.pawnsLoaded.add(new LoadedElement("bishop", 11, 7));
+		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
+		this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
+		
+		//add DB call
+		
+		//ArrayList<LoadedElement> AllElemnts = ...
+		
+		/*ArrayList<LoadedElement> AllElements = new ArrayList<LoadedElement>();
+		
+		for (LoadedElement element : AllElements) {
+			switch (element.name) {
+			case "lorann":
+			case "rook":
+			case "bishop":
+			case "wheel":
+			case "stalker":
+				this.pawnsLoaded.add(element);
+				break;
+			default:
+				if (element.position.x >= 0 && element.position.x < this.getWidth() &&
+						element.position.y >= 0 && element.position.y < this.getHeight()) {
+					this.loadedLevel[element.position.y][element.position.x] = element.name;
+				}
+			}
+		}*/
+		
+		this.resetLevel();
 		
 		return true;
 	}
@@ -120,28 +159,67 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void resetLevel() {
+		this.factory.getPlayer().die();
+		for (int i = 0; i < 4; i++) {
+			this.factory.getMonster(i).die();
+		}
+		
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				switch (this.loadedLevel[y][x]) {
 				case "bone_v" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_BONE_V), x, y);
 					break;
 				case "bone_h" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_BONE_H), x, y);
 					break;
 				case "bone" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_BONE), x, y);
 					break;
-				case "crystal" : 
+				case "crystal" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_CRYSTAL), x, y);
 					break;
-				case "gate_c" : 
+				case "gate_c" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GATE_C), x, y);
 					break;
-				case "gate_o" : 
+				case "gate_o" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GATE_O), x, y);
 					break;
 				case "purse" :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_PURSE), x, y);
 					break;
 				case "ground" :
+				default :
+					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
 					break;
 				}
 			}
-		}	
+		}
+		
+		for (LoadedElement element : this.pawnsLoaded) {
+			switch (element.name) {
+			case "lorann":
+				this.factory.getPlayer().setPosition(new Point(element.position));
+				this.factory.getPlayer().reserruct();
+				break;
+			case "rook":
+				this.factory.getMonster(0).setPosition(new Point(element.position));
+				this.factory.getMonster(0).reserruct();
+				break;
+			case "bishop":
+				this.factory.getMonster(1).setPosition(new Point(element.position));
+				this.factory.getMonster(1).reserruct();
+				break;
+			case "wheel":
+				this.factory.getMonster(2).setPosition(new Point(element.position));
+				this.factory.getMonster(2).reserruct();
+				break;
+			case "stalker":
+				this.factory.getMonster(3).setPosition(new Point(element.position));
+				this.factory.getMonster(3).reserruct();
+				break;
+			}
+		}
 	}
 
 	/**
@@ -149,11 +227,8 @@ public final class ModelFacade implements IModel {
      */
 	@Override
 	public void unloadLevel() {
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				this.setOnMap(EntityType.ENT_GROUND, x, y);
-			}
-		}
+		this.loadedLevel = null;
+		this.pawnsLoaded.clear();
 	}
 
 	@Override

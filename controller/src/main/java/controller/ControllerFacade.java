@@ -47,11 +47,15 @@ public class ControllerFacade implements IController {
 	@Override
 	public void start() throws InterruptedException {
 		this.getModel().loadLevel(0);
-		this.getView().addPawn((IPawn) this.getModel().getPlayer());
-		this.getView().addPawn((IPawn) this.getModel().getMonster(0));
-		this.getView().addPawn((IPawn) this.getModel().getMonster(1));
-		this.getView().addPawn((IPawn) this.getModel().getMonster(2));
-		this.getView().addPawn((IPawn) this.getModel().getMonster(3));
+		
+		if (this.getModel().getPlayer().isAlive()) {
+			this.getView().addPawn((IPawn) this.getModel().getPlayer());
+		}
+		for (int i = 0; i < 4; i++) {
+			if (this.getModel().getMonster(i).isAlive()) {
+				this.getView().addPawn((IPawn) this.getModel().getMonster(i));
+			}
+		}
 		
 		while(true) {
 			this.interpretInteraction();

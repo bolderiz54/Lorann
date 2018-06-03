@@ -53,7 +53,7 @@ public class LorannMap extends Observable implements ILorannMap {
 		if (x >= 0 && x < this.width && y >= 0 && y < this.height) {
 			return map[y][x];
 		}
-		return new Entity("../sprite/ground", Permeability.BLOCKING);
+		return new Entity("../sprite/ground.png", Permeability.BLOCKING);
 	}
 	
 	/**
