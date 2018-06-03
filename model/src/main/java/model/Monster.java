@@ -33,7 +33,7 @@ public class Monster extends Being implements IMonster {
 		
 		this.behavior = behavior;
 		
-		if (this.behavior.getClass().getName() == "Bishop") {
+		if (this.behavior.getClass().getName() == "model.AIDesignPatter.Bishop") {
 			this.setDirection(Direction.DIR_UP_LEFT);
 		}
 		else {

@@ -50,7 +50,10 @@ public class LorannMap extends Observable implements ILorannMap {
 	 * @return
 	 */
 	public IEntity getOnMap(int x, int y) {
-		return map[y][x];
+		if (x >= 0 && x < this.width && y >= 0 && y < this.height) {
+			return map[y][x];
+		}
+		return new Entity("../sprite/ground", Permeability.BLOCKING);
 	}
 	
 	/**
@@ -60,7 +63,9 @@ public class LorannMap extends Observable implements ILorannMap {
 	 * @param y
 	 */
 	public void setOnMap(IEntity entity, int x, int y) {
-		map[y][x] = entity;
+		if (x >= 0 && x < this.width && y >= 0 && y < this.height) {
+			map[y][x] = entity;
+		}
 	}
 	
 	/**

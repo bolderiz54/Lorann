@@ -49,6 +49,9 @@ public class ControllerFacade implements IController {
 		this.getModel().loadLevel(0);
 		this.getView().addPawn((IPawn) this.getModel().getPlayer());
 		this.getView().addPawn((IPawn) this.getModel().getMonster(0));
+		this.getView().addPawn((IPawn) this.getModel().getMonster(1));
+		this.getView().addPawn((IPawn) this.getModel().getMonster(2));
+		this.getView().addPawn((IPawn) this.getModel().getMonster(3));
 		
 		while(true) {
 			this.interpretInteraction();
@@ -82,6 +85,12 @@ public class ControllerFacade implements IController {
 					break;
 				}
 			}
+			
+			this.getModel().getMonster(0).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			this.getModel().getMonster(1).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			this.getModel().getMonster(2).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			this.getModel().getMonster(3).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			
 			this.getModel().getLorannMap().setMobileHasChanged();
 			Thread.sleep(100);
 		}

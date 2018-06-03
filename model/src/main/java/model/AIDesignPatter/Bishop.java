@@ -12,7 +12,7 @@ public class Bishop implements IAIMonster {
 
 	@Override
 	public void move(IPawn player, IModel model, Monster monster) {
-Point nextPosition;
+		Point nextPosition;
 		
 		for (int i = 0; i < 5; i++) {
 			if (i == 5) {
@@ -21,7 +21,6 @@ Point nextPosition;
 			}
 			
 			switch (monster.getDirection()) {
-			
 			case DIR_DOWN_RIGHT:
 				nextPosition = new Point(monster.getX() + 1, monster.getY() + 1);
 				break;
@@ -42,19 +41,55 @@ Point nextPosition;
 				monster.setPosition(nextPosition);
 				break;
 			}
+			else if (i == 0) {
+				switch (monster.getDirection()) {
+				case DIR_UP_RIGHT:
+					monster.setDirection(Direction.DIR_DOWN_RIGHT);
+					break;
+				case DIR_DOWN_RIGHT:
+					monster.setDirection(Direction.DIR_UP_RIGHT);
+					break;
+				case DIR_DOWN_LEFT:
+					monster.setDirection(Direction.DIR_UP_LEFT);
+					break;
+				case DIR_UP_LEFT:
+					monster.setDirection(Direction.DIR_DOWN_LEFT);
+					break;
+				default:
+					break;
+				}
+			}
+			else if (i == 1) {
+				switch (monster.getDirection()) {
+				case DIR_UP_RIGHT:
+					monster.setDirection(Direction.DIR_DOWN_LEFT);
+					break;
+				case DIR_DOWN_RIGHT:
+					monster.setDirection(Direction.DIR_UP_LEFT);
+					break;
+				case DIR_DOWN_LEFT:
+					monster.setDirection(Direction.DIR_UP_RIGHT);
+					break;
+				case DIR_UP_LEFT:
+					monster.setDirection(Direction.DIR_DOWN_RIGHT);
+					break;
+				default:
+					break;
+				}
+			}
 			else {
 				switch (monster.getDirection()) {
 				case DIR_UP_RIGHT:
 					monster.setDirection(Direction.DIR_DOWN_RIGHT);
 					break;
 				case DIR_DOWN_RIGHT:
-					monster.setDirection(Direction.DIR_DOWN_LEFT);
+					monster.setDirection(Direction.DIR_UP_RIGHT);
 					break;
 				case DIR_DOWN_LEFT:
 					monster.setDirection(Direction.DIR_UP_LEFT);
 					break;
 				case DIR_UP_LEFT:
-					monster.setDirection(Direction.DIR_UP_RIGHT);
+					monster.setDirection(Direction.DIR_DOWN_LEFT);
 					break;
 				default:
 					break;

@@ -108,6 +108,9 @@ public final class ModelFacade implements IModel {
 		
 		this.getPlayer().setPosition(new Point(5, 5));
 		this.getMonster(0).setPosition(new Point(10, 6));
+		this.getMonster(1).setPosition(new Point(11, 7));
+		this.getMonster(2).setPosition(new Point(12, 5));
+		this.getMonster(3).setPosition(new Point(14, 6));
 		
 		return true;
 	}
