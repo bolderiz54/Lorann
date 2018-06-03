@@ -49,22 +49,44 @@ public class ViewFacade implements IView, Runnable {
         JOptionPane.showMessageDialog(null, message);
     }
     
+    /**
+     * This method execute the removePawns method in boardframe object
+     */
     public void removePawns() {
     	this.boardframe.removePawns();
     }
     
+    /**
+     * This method execute the removePawn method in boardframe object
+     * @param pawn
+     * 			the pawn
+     */
     public void removePawn(IPawn pawn) {
     	this.boardframe.removePawn(pawn);
     }
     
+    /**
+     * This metthod execute the addPawn method in boardframe object
+     * @param pawn
+     * 			the pawn
+     */
     public void addPawn(IPawn pawn) {
     	this.boardframe.addPawn(pawn);
     }
     
+    /**
+     * Collect the player's interactions
+     */
     public IInteract getInteract() {
     	return interact;
     }
     
+    /**
+     * Defined frame's parameters :
+     * - map's dimension with setDimension
+     * - the game panel's dimension and his size with setDisplayFrame
+     * - The frame's size with setSize
+     */
     public final void run() {
     	boardframe.setDimension(new Dimension(this.model.getWidth(), this.model.getHeight()));
     	boardframe.setDisplayFrame(this.view);

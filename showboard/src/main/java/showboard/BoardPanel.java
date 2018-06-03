@@ -88,7 +88,7 @@ class BoardPanel extends JPanel implements Observer {
         this.pawns = new ArrayList<>();
         this.noImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         final Graphics2D graphics = this.noImage.createGraphics();
-        graphics.setColor(Color.black);
+        graphics.setColor(Color.GREEN);
         graphics.fillRect(0, 0, 2, 2);
     }
 
@@ -156,11 +156,19 @@ class BoardPanel extends JPanel implements Observer {
         this.getPawns().add(pawn);
     }
 
-    
+    /**
+     * Ramove all pawns of the frame
+     * 
+     */
     public void removePawns() {
     	pawns.clear();
     }
     
+    /**
+     * search in the list the pawn to remove 
+     * @param pawn
+     * 			the pawn
+     */
     public void removePawn(IPawn pawn) {
     	int index = pawns.indexOf(pawn);
     	if (index >= 0) {
