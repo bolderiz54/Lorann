@@ -42,7 +42,7 @@ public class ControllerFacade implements IController {
  	}
 
  	/**
- 	 * method that allow us to move Lorann
+ 	 * method that allow us to move Lorann with the collisions
  	 */
 	@Override
 	public void start() throws InterruptedException {
