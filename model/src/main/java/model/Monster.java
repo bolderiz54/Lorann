@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Point;
+
 import model.AIDesignPatter.IAIMonster;
 import showboard.IPawn;
 
@@ -45,6 +47,35 @@ public class Monster extends Being implements IMonster {
 	@Override
 	public void move(IPawn player, IModel model) {
 		this.behavior.move(player, model, this);
+		
+		/*switch(this.getDirection()) {
+		case DIR_UP_RIGHT:
+			this.setPosition(new Point(this.getX() + 1, this.getY() - 1));
+			break;
+		case DIR_RIGHT:
+			this.setPosition(new Point(this.getX() + 1, this.getY()));
+			break;
+		case DIR_DOWN_RIGHT:
+			this.setPosition(new Point(this.getX() + 1, this.getY() + 1));
+			break;
+		case DIR_DOWN:
+			this.setPosition(new Point(this.getX(), this.getY() + 1));
+			break;
+		case DIR_DOWN_LEFT:
+			this.setPosition(new Point(this.getX() - 1, this.getY() + 1));
+			break;
+		case DIR_LEFT:
+			this.setPosition(new Point(this.getX() - 1, this.getY()));
+			break;
+		case DIR_UP_LEFT:
+			this.setPosition(new Point(this.getX() - 1, this.getY() - 1));
+			break;
+		case DIR_UP:
+			this.setPosition(new Point(this.getX(), this.getY() - 1));
+			break;
+		case DIR_NONE:
+			break;
+		}*/
 	}
 
 	/**

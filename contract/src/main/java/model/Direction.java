@@ -16,6 +16,7 @@ public enum Direction {
 	DIR_DOWN,
 	DIR_DOWN_LEFT,
 	DIR_LEFT,
-	DIR_UP_LEFT;
+	DIR_UP_LEFT,
+	DIR_NONE;
 
 }
