@@ -23,6 +23,7 @@ public class ControllerFacade implements IController {
  private static final int keyUp = 38;
  private static final int keyDown = 40;
  private static final int spaceBar = 32;
+ private static boolean win = false;
  
  /**
   * This method get the view, the model and the collisionManager
@@ -63,7 +64,7 @@ public class ControllerFacade implements IController {
 		}
 		
 		
-		while(this.getModel().getPlayer().isAlive()) {
+		while(this.getModel().getPlayer().isAlive() && !win) {
 			cast = false;
 			
 			this.interpretInteraction();
@@ -149,7 +150,11 @@ public class ControllerFacade implements IController {
 			Thread.sleep(100);
 		}
 		
-		this.getView().displayMessage("Vous avez un score de "+this.getModel().getScore()+" points");
+		if (ControllerFacade.win) {
+			this.getView().displayMessage("Game Over\nYou win with a score of "+this.getModel().getScore()+" points !\nCongratulations !!");
+		} else {
+			this.getView().displayMessage("Game Over\nYou lose with a score of "+this.getModel().getScore()+" points.\nTry again.");
+		}
 	}
 
 	/**
@@ -208,6 +213,10 @@ public class ControllerFacade implements IController {
 		else {
 			this.order = Order.ORD_NONE;
 		}
+	}
+	
+	public static void setWin(boolean win) {
+		ControllerFacade.win = win;
 	}
 
 }

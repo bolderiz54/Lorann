@@ -133,6 +133,8 @@ public final class ModelFacade implements IModel {
 		}
 		
 		this.loadedLevel[6][10] = "purse";
+		this.loadedLevel[5][1] = "gate_c";
+		this.loadedLevel[7][18] = "crystal";
 		
 		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
 		this.pawnsLoaded.add(new LoadedElement("rook", 10, 6));

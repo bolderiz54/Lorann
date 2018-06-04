@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import javax.swing.text.html.parser.Entity;
 
+import model.EntityType;
 import model.IBeing;
 import model.IEntity;
 import model.IModel;
@@ -11,6 +12,7 @@ import model.IPlayer;
 import model.ISpell;
 import model.Permeability;
 import showboard.IPawn;
+import showboard.ISquare;
 import view.IView;
 
 public class CollisionManager {
@@ -70,8 +72,26 @@ public class CollisionManager {
 		case BLOCKING:
 			return false;
 		case PENETRABLE:
+			if (entity == this.model.getEntity(EntityType.ENT_GATE_O)) {
+				ControllerFacade.setWin(true);
+				this.model.addScore(500);
+			}
 			return true;
 		case COLLECTABLE:
+			if (entity == this.model.getEntity(EntityType.ENT_CRYSTAL)) {
+				for (int y = 0, x = 0; y < this.model.getHeight(); y++) {
+					for (x = 0; x < this.model.getWidth(); x++) {
+						if (this.model.getOnMap(x, y) == this.model.getEntity(EntityType.ENT_GATE_C)) {
+							this.model.setOnMap(EntityType.ENT_GATE_O, x, y);
+							this.view.addSquare((ISquare) this.model.getEntity(EntityType.ENT_GATE_O), x, y);
+							break;
+						}
+					}
+					if (this.model.getOnMap(x, y) == this.model.getEntity(EntityType.ENT_GATE_O)) {
+						break;
+					}
+				}
+			}
 			this.model.removeSquare(position.x, position.y);
 			this.view.removeSquare(position.x, position.y);
 			this.model.addScore(250);
