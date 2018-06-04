@@ -20,7 +20,7 @@ public class Spell extends Mobile implements ISpell {
 	public Spell() {
 		super(imagesPath[0], Permeability.SPELLING);
 		this.setPosition(new Point(0, 0));
-		this.setDirection(direction.DIR_UP);
+		this.setDirection(Direction.DIR_UP);
 	}
 	
 	/**

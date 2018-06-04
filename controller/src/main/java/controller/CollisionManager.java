@@ -60,7 +60,6 @@ public class CollisionManager {
 		IEntity entity = model.getOnMap(position.x, position.y);
 		Permeability permeability = entity.getPermeability();
 		switch (permeability) {
-		
 		case BLOCKING:
 			return false;
 		case PENETRABLE:

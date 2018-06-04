@@ -58,7 +58,7 @@ public class ControllerFacade implements IController {
 			}
 		}
 		
-		while(true) {
+		while(this.getModel().getPlayer().isAlive()) {
 			this.interpretInteraction();
 			if (this.collisionManager.wallCollision(this.getModel().getPlayer(), this.order)) {
 				switch(this.order) {
