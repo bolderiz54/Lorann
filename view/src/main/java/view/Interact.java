@@ -8,15 +8,12 @@ import java.util.List;
 
 /**
  * This class allows to interact with the player
- * 
+ * We're creating the lists that will receive the keychar and keycode of the key pressed
  * @author Gauthier
  * @version 1.0
  */
 public class Interact implements KeyListener, IInteract{
 	
-	/**
-	 * List of the key pressed
-	 */
 	private List<Integer> keyCodePressed;
 	private List<Character> keyCharPressed;
 	
@@ -25,6 +22,10 @@ public class Interact implements KeyListener, IInteract{
 		this.keyCharPressed = new ArrayList<Character>();
 	}
 	
+	/**
+	 * This method return if there's a key pressed or not
+	 * @param keycode
+	 */
 	public boolean isKeyPressed(int keyCode) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), keyCode);
 		if (index >= 0) {
@@ -35,6 +36,10 @@ public class Interact implements KeyListener, IInteract{
 		}
 	}
 	
+	/**
+	 * This method return if there's a key pressed or not
+	 * @param keychar
+	 */
 	public boolean isKeyPressed(char keyChar) {
 		int index = Collections.binarySearch(this.getKeyCharPressed(), keyChar);
 		if (index >= 0) {
