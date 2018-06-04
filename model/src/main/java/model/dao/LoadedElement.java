@@ -1,13 +1,15 @@
-package model;
+package model.dao;
 
 import java.awt.Point;
+
+import model.ILoadedElement;
 
 /**
  * <h1> This class is used by the model to remember the element loaded from the databased </h1>
  * @author Vincent Linck
  * @version 1.0
  */
-public class LoadedElement {
+public class LoadedElement implements ILoadedElement {
 	
 	/**
 	 * name of the element
@@ -38,6 +40,26 @@ public class LoadedElement {
 	public LoadedElement(String name, int x, int y) {
 		this.name = name;
 		this.position = new Point(x, y);
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public Point getPosition() {
+		return this.position;
+	}
+
+	@Override
+	public void setPosition(Point position) {
+		this.position = position;
 	}
 
 }

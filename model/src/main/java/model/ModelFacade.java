@@ -4,6 +4,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import model.dao.LoadedElement;
+
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
  *
@@ -26,7 +28,7 @@ public final class ModelFacade implements IModel {
 	/**
 	 * The pawns in the loaded level from the database
 	 */
-	private ArrayList<LoadedElement> pawnsLoaded;
+	private ArrayList<ILoadedElement> pawnsLoaded;
 	
 	/**
 	 * The map that the game use
@@ -65,7 +67,7 @@ public final class ModelFacade implements IModel {
         this.width = width;
         this.height = height;
         this.map = (ILorannMap) new LorannMap(this.width, this.height);
-        this.pawnsLoaded = new ArrayList<LoadedElement>();
+        this.pawnsLoaded = new ArrayList<ILoadedElement>();
     }
 
     /**
@@ -128,12 +130,12 @@ public final class ModelFacade implements IModel {
 		
 		//add DB call
 		
-		//ArrayList<LoadedElement> AllElemnts = ...
+		//ArrayList<ILoadedElement> AllElemnts = ...
 		
-		/*ArrayList<LoadedElement> AllElements = new ArrayList<LoadedElement>();
+		/*ArrayList<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
 		
-		for (LoadedElement element : AllElements) {
-			switch (element.name) {
+		for (ILoadedElement element : AllElements) {
+			switch (element.getName()) {
 			case "lorann":
 			case "rook":
 			case "bishop":
@@ -142,9 +144,9 @@ public final class ModelFacade implements IModel {
 				this.pawnsLoaded.add(element);
 				break;
 			default:
-				if (element.position.x >= 0 && element.position.x < this.getWidth() &&
-						element.position.y >= 0 && element.position.y < this.getHeight()) {
-					this.loadedLevel[element.position.y][element.position.x] = element.name;
+				if (element.getPosition().x >= 0 && element.getPosition().x < this.getWidth() &&
+						element.getPosition().y >= 0 && element.getPosition().y < this.getHeight()) {
+					this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
 				}
 			}
 		}*/
@@ -196,26 +198,26 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
-		for (LoadedElement element : this.pawnsLoaded) {
-			switch (element.name) {
+		for (ILoadedElement element : this.pawnsLoaded) {
+			switch (element.getName()) {
 			case "lorann":
-				this.factory.getPlayer().setPosition(new Point(element.position));
+				this.factory.getPlayer().setPosition(new Point(element.getPosition()));
 				this.factory.getPlayer().reserruct();
 				break;
 			case "rook":
-				this.factory.getMonster(0).setPosition(new Point(element.position));
+				this.factory.getMonster(0).setPosition(new Point(element.getPosition()));
 				this.factory.getMonster(0).reserruct();
 				break;
 			case "bishop":
-				this.factory.getMonster(1).setPosition(new Point(element.position));
+				this.factory.getMonster(1).setPosition(new Point(element.getPosition()));
 				this.factory.getMonster(1).reserruct();
 				break;
 			case "wheel":
-				this.factory.getMonster(2).setPosition(new Point(element.position));
+				this.factory.getMonster(2).setPosition(new Point(element.getPosition()));
 				this.factory.getMonster(2).reserruct();
 				break;
 			case "stalker":
-				this.factory.getMonster(3).setPosition(new Point(element.position));
+				this.factory.getMonster(3).setPosition(new Point(element.getPosition()));
 				this.factory.getMonster(3).reserruct();
 				break;
 			}
