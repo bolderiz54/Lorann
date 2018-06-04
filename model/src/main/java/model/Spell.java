@@ -130,5 +130,9 @@ public class Spell extends Mobile implements ISpell {
 	public void setDirection(Direction direction) {
 		this.direction = direction;
 	}
+	
+	public Direction getDirection() {
+		return this.direction;
+	}
 
 }

@@ -124,7 +124,15 @@ public class ControllerFacade implements IController {
 					}
 				}
 				if (this.getModel().isSpellExist()) {
-					this.getModel().getSpell().move();
+					if (this.collisionManager.wallCollision(this.getModel().getSpell())) {
+						this.getModel().getSpell().move();
+					}
+					else {
+						this.getModel().getSpell().reverse();
+						if (this.collisionManager.wallCollision(this.getModel().getSpell())) {
+							this.getModel().getSpell().move();
+						}
+					}
 					this.collisionManager.crossCollision((IPawn) this.getModel().getSpell(), (IPawn) this.getModel().getPlayer());
 					for (int i = 0; i < 4 && this.getModel().isSpellExist(); i++) {
 						if (this.getModel().getMonster(i).isAlive()) {

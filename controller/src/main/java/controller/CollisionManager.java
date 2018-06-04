@@ -8,6 +8,7 @@ import model.IBeing;
 import model.IEntity;
 import model.IModel;
 import model.IPlayer;
+import model.ISpell;
 import model.Permeability;
 import showboard.IPawn;
 import view.IView;
@@ -22,7 +23,7 @@ public class CollisionManager {
 		this.view = view;
 	}
 	
-	/*
+	/**
 	 * this method allow us to create every case of collision
 	 */
 	public boolean wallCollision(IPlayer player, Order order) {
@@ -77,10 +78,57 @@ public class CollisionManager {
 		default:
 			return false;
 		}
-			
 	}
 	
-	/*
+	/**
+	 * this method allow us to create every case of collision
+	 */
+	public boolean wallCollision(ISpell spell) {
+		Point position = spell.getPosition();
+		switch (spell.getDirection()) {
+		case DIR_UP:
+			position.y -= 1;
+			break;
+		case DIR_UP_RIGHT:
+			position.y -= 1;
+			position.x += 1;
+			break;
+		case DIR_RIGHT:
+			position.x += 1;
+			break;
+		case DIR_DOWN_RIGHT:
+			position.y += 1;
+			position.x += 1;
+			break;
+		case DIR_DOWN:
+			position.y += 1;
+			break;
+		case DIR_DOWN_LEFT:
+			position.y +=1;
+			position.x -=1;
+			break;
+		case DIR_LEFT:
+			position.x -= 1;
+			break;
+		case DIR_UP_LEFT:
+			position.y -= 1;
+			position.x -= 1;
+			break;
+		default:
+			break;
+		}
+		
+		IEntity entity = model.getOnMap(position.x, position.y);
+		Permeability permeability = entity.getPermeability();
+		if (permeability == Permeability.PENETRABLE) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
 	 * this method is used in order to know every case of collision with every entity 
 	 */
 	public void crossCollision(IPawn entity1, IPawn entity2) {

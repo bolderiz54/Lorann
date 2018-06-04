@@ -52,4 +52,10 @@ public interface ISpell {
      */
     void setDirection(Direction direction);
     
+    /**
+     * It return the direction of the spell
+     * @return Direction
+     */
+    Direction getDirection();
+    
 }
