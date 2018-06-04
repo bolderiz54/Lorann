@@ -1,8 +1,11 @@
 package main;
 
+import java.awt.Point;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import controller.ControllerFacade;
+import model.ILoadedElement;
 import model.ModelFacade;
 import model.dao.DAO;
 import view.ViewFacade;
@@ -23,17 +26,27 @@ public abstract class Main {
      * @throws InterruptedException 
      */
     public static void main(final String[] args) throws InterruptedException {
-    	/*final ModelFacade model = new ModelFacade(20, 12);
+    	final ModelFacade model = new ModelFacade(20, 12);
     	final ViewFacade view = new ViewFacade(model);
         final ControllerFacade controller = new ControllerFacade(view, model);
 
-        controller.start();*/
-    	
-    	try {
-			DAO.loadLevel(1);
+        controller.start();
+    	/*ArrayList<ILoadedElement> l = new ArrayList<ILoadedElement>();
+    	Point p = new Point(0, 0);
+		try {
+			p = DAO.test();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+    	System.out.println(p.x+","+p.y);
+    	try {
+			l = DAO.loadLevel(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	for (ILoadedElement element : l) {
+    		System.out.println(element.getName()+","+element.getPosition().x+","+element.getPosition().y);
+    	}*/
     }
 
 }

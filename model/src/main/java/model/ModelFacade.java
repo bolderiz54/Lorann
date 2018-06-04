@@ -1,9 +1,11 @@
 package model;
 
 import java.awt.Point;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import model.dao.DAO;
 import model.dao.LoadedElement;
 
 /**
@@ -68,6 +70,12 @@ public final class ModelFacade implements IModel {
         this.height = height;
         this.map = (ILorannMap) new LorannMap(this.width, this.height);
         this.pawnsLoaded = new ArrayList<ILoadedElement>();
+        
+        for (int y = 0; y < this.getHeight(); y++) {
+        	for (int x = 0; x < this.getHeight(); x++) {
+            	this.setOnMap(EntityType.ENT_GROUND, x, y);
+            }
+        }
     }
 
     /**
@@ -114,6 +122,8 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
+		/*
+		
 		for (int y = 0; y < this.height; y++) {
 			for (int x = 0; x < this.width; x++) {
 				if (x == 0 || x == this.width - 1 || y == 0 || y == this.height - 1) {
@@ -128,9 +138,15 @@ public final class ModelFacade implements IModel {
 		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
 		this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
-		//add DB call
+		*/
 		
-		/*ArrayList<ILoadedElement> AllElemnts = DAO.loadLevel(level);
+		ArrayList<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
+		try {
+			AllElements = DAO.loadLevel(level);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 		for (ILoadedElement element : AllElements) {
 			switch (element.getName()) {
@@ -139,15 +155,18 @@ public final class ModelFacade implements IModel {
 			case "bishop":
 			case "wheel":
 			case "stalker":
-				this.pawnsLoaded.add(element);
+				//this.pawnsLoaded.add(element);
 				break;
 			default:
 				if (element.getPosition().x >= 0 && element.getPosition().x < this.getWidth() &&
 						element.getPosition().y >= 0 && element.getPosition().y < this.getHeight()) {
-					this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
+					//this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
 				}
+				break;
 			}
-		}*/
+		}
+		
+		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
 		
 		this.resetLevel();
 		
@@ -168,55 +187,58 @@ public final class ModelFacade implements IModel {
 			for (int x = 0; x < width; x++) {
 				switch (this.loadedLevel[y][x]) {
 				case "bone_v" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_BONE_V), x, y);
+					this.setOnMap(EntityType.ENT_BONE_V, x, y);
 					break;
 				case "bone_h" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_BONE_H), x, y);
+					this.setOnMap(EntityType.ENT_BONE_H, x, y);
 					break;
 				case "bone" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_BONE), x, y);
+					this.setOnMap(EntityType.ENT_BONE, x, y);
 					break;
 				case "crystal" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_CRYSTAL), x, y);
+					this.setOnMap(EntityType.ENT_CRYSTAL, x, y);
 					break;
 				case "gate_c" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GATE_C), x, y);
+					this.setOnMap(EntityType.ENT_GATE_C, x, y);
 					break;
 				case "gate_o" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GATE_O), x, y);
+					this.setOnMap(EntityType.ENT_GATE_O, x, y);
 					break;
 				case "purse" :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_PURSE), x, y);
+					this.setOnMap(EntityType.ENT_PURSE, x, y);
 					break;
 				case "ground" :
 				default :
-					this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
+					this.setOnMap(EntityType.ENT_GROUND, x, y);
 					break;
 				}
 			}
 		}
 		
 		for (ILoadedElement element : this.pawnsLoaded) {
+			
 			switch (element.getName()) {
 			case "lorann":
-				this.factory.getPlayer().setPosition(new Point(element.getPosition()));
-				this.factory.getPlayer().reserruct();
+				this.getPlayer().setPosition(new Point(element.getPosition()));
+				this.getPlayer().reserruct();
 				break;
 			case "rook":
-				this.factory.getMonster(0).setPosition(new Point(element.getPosition()));
-				this.factory.getMonster(0).reserruct();
+				this.getMonster(0).setPosition(new Point(element.getPosition()));
+				this.getMonster(0).reserruct();
 				break;
 			case "bishop":
-				this.factory.getMonster(1).setPosition(new Point(element.getPosition()));
-				this.factory.getMonster(1).reserruct();
+				this.getMonster(1).setPosition(new Point(element.getPosition()));
+				this.getMonster(1).reserruct();
 				break;
 			case "wheel":
-				this.factory.getMonster(2).setPosition(new Point(element.getPosition()));
-				this.factory.getMonster(2).reserruct();
+				this.getMonster(2).setPosition(new Point(element.getPosition()));
+				this.getMonster(2).reserruct();
 				break;
 			case "stalker":
-				this.factory.getMonster(3).setPosition(new Point(element.getPosition()));
-				this.factory.getMonster(3).reserruct();
+				this.getMonster(3).setPosition(new Point(element.getPosition()));
+				this.getMonster(3).reserruct();
+				break;
+			default:
 				break;
 			}
 		}
