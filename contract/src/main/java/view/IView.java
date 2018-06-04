@@ -1,6 +1,7 @@
 package view;
 
 import showboard.IPawn;
+import showboard.ISquare;
 
 /**
  * <h1>The Interface IView.</h1>
@@ -26,6 +27,18 @@ public interface IView {
     * @param pawn
     */
    public void addPawn(IPawn pawn);
+   
+   /**
+    * add a square
+    * @param square
+    */
+   public void addSquare(ISquare square, int x, int y);
+   
+   /**
+    * add a square
+    * @param square
+    */
+   public void removeSquare(int x, int y);
 
    /**
     * Display a message

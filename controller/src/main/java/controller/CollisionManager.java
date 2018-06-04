@@ -72,8 +72,9 @@ public class CollisionManager {
 		case PENETRABLE:
 			return true;
 		case COLLECTABLE:
-			model.removeSquare(position.x, position.y);
-			model.addScore(250);
+			this.model.removeSquare(position.x, position.y);
+			this.view.removeSquare(position.x, position.y);
+			this.model.addScore(250);
 			return true;
 		case KILLING:
 			player.die();
@@ -155,6 +156,7 @@ public class CollisionManager {
 					this.view.removePawn((IPawn) monster);
 					this.view.removePawn((IPawn) entity2);
 					model.destroySpell();
+					this.model.addScore(200);
 					break;
 				}
 				break;
@@ -181,6 +183,7 @@ public class CollisionManager {
 					this.view.removePawn((IPawn) monster);
 					this.view.removePawn((IPawn) entity1);
 					model.destroySpell();
+					this.model.addScore(200);
 					break;
 				case "model.Player":
 					this.view.removePawn((IPawn) entity1);

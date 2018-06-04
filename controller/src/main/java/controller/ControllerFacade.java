@@ -61,6 +61,8 @@ public class ControllerFacade implements IController {
 				this.getView().addPawn((IPawn) this.getModel().getMonster(i));
 			}
 		}
+		
+		
 		while(this.getModel().getPlayer().isAlive()) {
 			cast = false;
 			
@@ -146,6 +148,8 @@ public class ControllerFacade implements IController {
 			this.getModel().getLorannMap().setMobileHasChanged();
 			Thread.sleep(100);
 		}
+		
+		this.getView().displayMessage("Vous avez un score de "+this.getModel().getScore()+" points");
 	}
 
 	/**

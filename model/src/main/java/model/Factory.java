@@ -43,6 +43,7 @@ public class Factory {
 		horizontal_bone = new Entity("../sprite/horizontal_bone.png", Permeability.BLOCKING);
 		vertical_bone = new Entity ("../sprite/vertical_bone.png", Permeability.BLOCKING);
 	}
+	
 	/**
 	 * get the type of the entity
 	 * @param entityType

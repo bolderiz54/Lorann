@@ -122,7 +122,7 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
-		/*
+		//
 		
 		for (int y = 0; y < this.height; y++) {
 			for (int x = 0; x < this.width; x++) {
@@ -132,13 +132,15 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
+		this.loadedLevel[6][10] = "purse";
+		
 		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
 		this.pawnsLoaded.add(new LoadedElement("rook", 10, 6));
-		this.pawnsLoaded.add(new LoadedElement("bishop", 11, 7));
+		//this.pawnsLoaded.add(new LoadedElement("bishop", 11, 7));
 		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
-		this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
+		//this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
-		*/
+		/*
 		
 		ArrayList<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
 		try {
@@ -167,6 +169,8 @@ public final class ModelFacade implements IModel {
 		}
 		
 		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
+		
+		*/
 		
 		this.resetLevel();
 		
@@ -311,6 +315,11 @@ public final class ModelFacade implements IModel {
 	public IMonster getMonster(int monsterNumber) {
 		return this.factory.getMonster(monsterNumber);
 	}
+	
+	@Override
+	public IEntity getEntity(EntityType entityType) {
+		return this.factory.getEntity(entityType);
+	}
 
 	/**
 	 * The method check if the spell exist or not 
@@ -371,7 +380,7 @@ public final class ModelFacade implements IModel {
 	 */
 	@Override
 	public void removeSquare(int x, int y) {
-		this.getLorannMap().setOnMap(this.factory.getEntity(EntityType.ENT_GROUND), x, y);
+		this.setOnMap(EntityType.ENT_GROUND, x, y);
 	}
 
 	/**

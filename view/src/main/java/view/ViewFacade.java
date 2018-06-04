@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
+import model.EntityType;
 import model.IModel;
 import showboard.BoardFrame;
 import showboard.IPawn;
@@ -73,6 +74,16 @@ public class ViewFacade implements IView, Runnable {
     public void addPawn(IPawn pawn) {
     	this.boardframe.addPawn(pawn);
     }
+
+	@Override
+	public void addSquare(ISquare square, int x, int y) {
+		this.boardframe.addSquare(square, x, y);
+	}
+
+	@Override
+	public void removeSquare(int x, int y) {
+		this.addSquare((ISquare) this.model.getEntity(EntityType.ENT_GROUND), x, y);
+	}
     
     /** 
      * Collect the player's interactions
@@ -110,6 +121,5 @@ public class ViewFacade implements IView, Runnable {
     	boardframe.requestFocus();
     	boardframe.setVisible(true);
     }
-
-
+	
 }

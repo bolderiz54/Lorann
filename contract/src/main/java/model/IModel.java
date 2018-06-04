@@ -70,6 +70,13 @@ public interface IModel extends IScore {
    public IMonster getMonster(int monsterNumber);
    
    /**
+	 * get the type of the entity
+	 * @param entityType
+	 * @return the entity
+	 */
+   public IEntity getEntity(EntityType entityType);
+   
+   /**
     * The method check if the spell exist or not 
     * @return true if the spell exist
     */
