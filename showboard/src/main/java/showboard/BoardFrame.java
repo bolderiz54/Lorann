@@ -94,24 +94,24 @@ public class BoardFrame extends JFrame implements IBoard {
     }
 
     
-    /*
+    /**
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#addPawn(fr.exia.showboard.IPawn)
+     * @param pawn
+     * 			the pawn
      */
     @Override
     public final void addPawn(final IPawn pawn) {
         this.getBoardPanel().addPawn(pawn);
     }
 
-    /*
-     * 
-     */
     public void removePawns() {
     	this.getBoardPanel().removePawns();
     }
     
-    /*
-     *  This mzthod 
+    /**
+     *  @param pawn
+     *  		the pawn  
      */
     public void removePawn(IPawn pawn) {
     	this.getBoardPanel().removePawn(pawn);
