@@ -18,7 +18,6 @@ public class ControllerFacade implements IController {
  private CollisionManager collisionManager;
  private Clock clock;
  private Order order = Order.ORD_NONE;
- private IInteract interact;
  private static final int keyLeft = 37;
  private static final int keyRight = 39;
  private static final int keyUp = 38;
@@ -52,7 +51,7 @@ public class ControllerFacade implements IController {
 	public void start() throws InterruptedException {
 		boolean cast = false;
 		
-		this.getModel().loadLevel(0);
+		this.getModel().loadLevel(1);
 		
 		if (this.getModel().getPlayer().isAlive()) {
 			this.getView().addPawn((IPawn) this.getModel().getPlayer());
