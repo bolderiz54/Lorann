@@ -26,7 +26,7 @@ public class ControllerFacade implements IController {
  private static final int spaceBar = 32;
  
  /**
-  * PUT HERE THE COMMENT
+  * This method get the view, the model and the collisionManager
   * @param view
   * @param model
   */
@@ -44,6 +44,9 @@ public class ControllerFacade implements IController {
 
  	/**
  	 * method that allow us to move Lorann with the collisions
+ 	 * we're doing a test in order to know if the monster or the player is alive or not
+ 	 * then we're using our wallCollision method in order to move the player in every case of key pressed
+ 	 * after that, we're using crossCollision in order to manage the collision between player monster and spell
  	 */
 	@Override
 	public void start() throws InterruptedException {
@@ -59,7 +62,6 @@ public class ControllerFacade implements IController {
 				this.getView().addPawn((IPawn) this.getModel().getMonster(i));
 			}
 		}
-		
 		while(this.getModel().getPlayer().isAlive()) {
 			cast = false;
 			
@@ -147,12 +149,18 @@ public class ControllerFacade implements IController {
 		}
 	}
 
+	/**
+	 * This method get the view
+	 */
 	@Override
 	public IView getView() {
 		return view;
 		
 	}
-
+	
+	/**
+	 * this method get the model
+	 */
 	@Override
 	public IModel getModel() {
 		return model;
@@ -160,7 +168,7 @@ public class ControllerFacade implements IController {
 	}
 	
 	/**
-	 * method that associate the key pressed with a movement
+	 * This method associate a key pressed with an order that is in our enumeration order
 	 */
 	private void interpretInteraction() {
 		if (this.getView().getInteract().isKeyPressed(spaceBar)) {

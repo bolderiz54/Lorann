@@ -80,12 +80,18 @@ public class ViewFacade implements IView, Runnable {
     public IInteract getInteract() {
     	return interact;
     }
-    
+
     /**
      * Defined frame's parameters :
      * - map's dimension with setDimension
-     * - the game panel's dimension and his size with setDisplayFrame
+     * - the game panel's position and his size with setDisplayFrame
      * - The frame's size with setSize
+     * 
+     * Search in a board for set an entity to a square for each coordinate
+     * 
+     * Send the key pressed to interact thanks to keyListener when the frame has the focus
+     * setFocusable allows the frame to be focusable
+     * requestFocus give the focus on the component
      */
     public final void run() {
     	boardframe.setDimension(new Dimension(this.model.getWidth(), this.model.getHeight()));
