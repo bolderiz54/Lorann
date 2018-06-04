@@ -122,9 +122,9 @@ public final class ModelFacade implements IModel {
 		
 		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
 		this.pawnsLoaded.add(new LoadedElement("rook", 10, 6));
-		this.pawnsLoaded.add(new LoadedElement("bishop", 11, 7));
+		//this.pawnsLoaded.add(new LoadedElement("bishop", 11, 7));
 		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
-		this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
+		//this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
 		//add DB call
 		

@@ -10,13 +10,16 @@ import model.IModel;
 import model.IPlayer;
 import model.Permeability;
 import showboard.IPawn;
+import view.IView;
 
 public class CollisionManager {
 	
 	private IModel model;
+	private IView view;
 	
-	public CollisionManager(IModel model) {
+	public CollisionManager(IModel model, IView view) {
 		this.model = model;
+		this.view = view;
 	}
 	
 	/*
@@ -83,42 +86,50 @@ public class CollisionManager {
 	public void crossCollision(IPawn entity1, IPawn entity2) {
 		Point position1 = entity1.getPosition();
 		Point position2 = entity2.getPosition();
-		if (position1 == position2) {
-			switch (Entity.class.getName()) {
-			case "Monster":
-				switch (Entity.class.getName()) {
-				case "Player":
+		if (position1.x == position2.x && position1.y == position2.y) {
+			switch (entity1.getClass().getName()) {
+			case "model.Monster":
+				switch (entity2.getClass().getName()) {
+				case "model.Player":
 					IBeing player = (IBeing) entity2;
 					player.die();
+					this.view.removePawn((IPawn) player);
 					break;
-				case "Spell":
+				case "model.Spell":
 					IBeing monster = (IBeing) entity1;
 					monster.die();
+					this.view.removePawn((IPawn) monster);
+					this.view.removePawn((IPawn) entity2);
 					model.destroySpell();
 					break;
 				}
 				break;
 				
-			case "Player":
-				switch (Entity.class.getName()) {
-				case "Monster":
+			case "model.Player":
+				switch (entity2.getClass().getName()) {
+				case "model.Monster":
 					IBeing player = (IBeing) entity1;
 					player.die();
+					this.view.removePawn((IPawn) player);
 					break;
-				case "Spell":
+				case "model.Spell":
+					this.view.removePawn((IPawn) entity2);
 					model.destroySpell();
 					break;
 				}
 				break;
 				
-			case "Spell":
-				switch (Entity.class.getName()) {
-				case "Monster":
+			case "model.Spell":
+				switch (entity2.getClass().getName()) {
+				case "model.Monster":
 					IBeing monster = (IBeing) entity2;
 					monster.die();
+					this.view.removePawn((IPawn) monster);
+					this.view.removePawn((IPawn) entity1);
 					model.destroySpell();
 					break;
-				case "Player":
+				case "model.Player":
+					this.view.removePawn((IPawn) entity1);
 					model.destroySpell();
 					break;
 				}
