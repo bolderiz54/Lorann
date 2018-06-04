@@ -106,7 +106,6 @@ public class Factory {
 	public void generateSpell() {
 		if(!isSpellExist()) {
 			spell = new Spell(this.getPlayer().getDirection(), this.getPlayer().getPosition());
-			this.getSpell().reverse();
 		}
 		
 	}

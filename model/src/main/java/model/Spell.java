@@ -31,6 +31,8 @@ public class Spell extends Mobile implements ISpell {
 		super(imagesPath[0], Permeability.SPELLING);
 		this.setPosition(new Point(position));
 		this.setDirection(direction);
+		this.reverse();
+		this.repelled = false;
 	}
 
 	/**
@@ -113,6 +115,8 @@ public class Spell extends Mobile implements ISpell {
 		default:
 			break;
 		}
+		
+		this.repelled = true;
 	}
 	
 	/**

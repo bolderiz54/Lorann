@@ -91,6 +91,9 @@ public class ControllerFacade implements IController {
 						this.getModel().generateSpell();
 						this.getView().addPawn((IPawn) this.getModel().getSpell());
 					}
+					else if (!this.getModel().getSpell().isRepelled()) {
+						this.getModel().getSpell().reverse();
+					}
 					break;
 				default:
 					break;
