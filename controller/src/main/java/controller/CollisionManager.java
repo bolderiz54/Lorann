@@ -83,7 +83,7 @@ public class CollisionManager {
 					for (x = 0; x < this.model.getWidth(); x++) {
 						if (this.model.getOnMap(x, y) == this.model.getEntity(EntityType.ENT_GATE_C)) {
 							this.model.setOnMap(EntityType.ENT_GATE_O, x, y);
-							this.view.addSquare((ISquare) this.model.getEntity(EntityType.ENT_GATE_O), x, y);
+							this.view.update();
 							break;
 						}
 					}
@@ -93,7 +93,7 @@ public class CollisionManager {
 				}
 			}
 			this.model.removeSquare(position.x, position.y);
-			this.view.removeSquare(position.x, position.y);
+			this.view.update();
 			this.model.addScore(250);
 			return true;
 		case KILLING:

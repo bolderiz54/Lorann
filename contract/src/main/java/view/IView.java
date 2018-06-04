@@ -27,18 +27,6 @@ public interface IView {
     * @param pawn
     */
    public void addPawn(IPawn pawn);
-   
-   /**
-    * add a square
-    * @param square
-    */
-   public void addSquare(ISquare square, int x, int y);
-   
-   /**
-    * add a square
-    * @param square
-    */
-   public void removeSquare(int x, int y);
 
    /**
     * Display a message
@@ -51,5 +39,10 @@ public interface IView {
     * @return
     */
    public IInteract getInteract();
+   
+   /**
+    * update the observer
+    */
+   public void update();
     
 }

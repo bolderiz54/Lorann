@@ -122,7 +122,7 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
-		//
+		/**/
 		
 		for (int y = 0; y < this.height; y++) {
 			for (int x = 0; x < this.width; x++) {
@@ -142,7 +142,7 @@ public final class ModelFacade implements IModel {
 		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
 		//this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
-		/*
+		/**//*
 		
 		ArrayList<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
 		try {
@@ -159,18 +159,16 @@ public final class ModelFacade implements IModel {
 			case "bishop":
 			case "wheel":
 			case "stalker":
-				//this.pawnsLoaded.add(element);
+				this.pawnsLoaded.add(element);
 				break;
 			default:
 				if (element.getPosition().x >= 0 && element.getPosition().x < this.getWidth() &&
 						element.getPosition().y >= 0 && element.getPosition().y < this.getHeight()) {
-					//this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
+					this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
 				}
 				break;
 			}
 		}
-		
-		this.pawnsLoaded.add(new LoadedElement("lorann", 5, 5));
 		
 		*/
 		

@@ -74,16 +74,6 @@ public class ViewFacade implements IView, Runnable {
     public void addPawn(IPawn pawn) {
     	this.boardframe.addPawn(pawn);
     }
-
-	@Override
-	public void addSquare(ISquare square, int x, int y) {
-		this.boardframe.addSquare(square, x, y);
-	}
-
-	@Override
-	public void removeSquare(int x, int y) {
-		this.addSquare((ISquare) this.model.getEntity(EntityType.ENT_GROUND), x, y);
-	}
     
     /** 
      * Collect the player's interactions
@@ -120,6 +110,14 @@ public class ViewFacade implements IView, Runnable {
     	boardframe.setFocusable(true);
     	boardframe.requestFocus();
     	boardframe.setVisible(true);
+    }
+    
+    public void update() {
+    	for (int y = 0; y < this.model.getHeight(); y++) {
+    		for (int x = 0; x < this.model.getWidth(); x++) {
+        		boardframe.addSquare((ISquare) this.model.getOnMap(x, y), x, y);
+        	}
+    	}
     }
 	
 }
