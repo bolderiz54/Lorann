@@ -23,6 +23,7 @@ public class ControllerFacade implements IController {
  private static final int keyRight = 39;
  private static final int keyUp = 38;
  private static final int keyDown = 40;
+ private static final int spaceBar = 32;
  
  /**
   * PUT HERE THE COMMENT
@@ -85,6 +86,12 @@ public class ControllerFacade implements IController {
 				case ORD_M_DOWN_R:
 					this.getModel().getPlayer().move(1, 1);
 					break;
+				case ORD_CAST_SPELL:
+					if (this.getModel().isSpellExist()) {
+						this.getModel().generateSpell();
+						this.getView().addPawn((IPawn) this.getModel().getSpell());
+					}
+					break;
 				default:
 					break;
 				}
@@ -94,6 +101,9 @@ public class ControllerFacade implements IController {
 			this.getModel().getMonster(1).move((IPawn) this.getModel().getPlayer(), this.getModel());
 			this.getModel().getMonster(2).move((IPawn) this.getModel().getPlayer(), this.getModel());
 			this.getModel().getMonster(3).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			if (this.getModel().isSpellExist()) {
+				this.getModel().getSpell().move();
+			}
 			
 			this.getModel().getLorannMap().setMobileHasChanged();
 			Thread.sleep(100);
@@ -143,6 +153,9 @@ public class ControllerFacade implements IController {
 		}
 		else if (this.getView().getInteract().isKeyPressed(keyRight)) {
 			this.order = Order.ORD_M_RIGHT;
+		}
+		else if (this.getView().getInteract().isKeyPressed(spaceBar)) {
+			this.order = Order.ORD_CAST_SPELL;
 		}
 		else {
 			this.order = Order.ORD_NONE;
