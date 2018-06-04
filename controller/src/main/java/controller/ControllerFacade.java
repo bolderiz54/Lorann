@@ -33,7 +33,7 @@ public class ControllerFacade implements IController {
  	public ControllerFacade(IView view, IModel model) {
  		this.view = view;
  		this.model = model;
- 		this.collisionManager = new CollisionManager(this.getModel());
+ 		this.collisionManager = new CollisionManager(this.getModel(), this.getView());
  		}
  	
  	@SuppressWarnings("unused")
@@ -47,6 +47,8 @@ public class ControllerFacade implements IController {
  	 */
 	@Override
 	public void start() throws InterruptedException {
+		boolean cast = false;
+		
 		this.getModel().loadLevel(0);
 		
 		if (this.getModel().getPlayer().isAlive()) {
@@ -59,7 +61,10 @@ public class ControllerFacade implements IController {
 		}
 		
 		while(this.getModel().getPlayer().isAlive()) {
+			cast = false;
+			
 			this.interpretInteraction();
+			
 			if (this.collisionManager.wallCollision(this.getModel().getPlayer(), this.order)) {
 				switch(this.order) {
 				case ORD_M_UP:
@@ -90,6 +95,7 @@ public class ControllerFacade implements IController {
 					if (!this.getModel().isSpellExist()) {
 						this.getModel().generateSpell();
 						this.getView().addPawn((IPawn) this.getModel().getSpell());
+						cast = true;
 					}
 					else if (!this.getModel().getSpell().isRepelled()) {
 						this.getModel().getSpell().reverse();
@@ -99,13 +105,41 @@ public class ControllerFacade implements IController {
 					break;
 				}
 			}
+			for (int i = 0; i < 4; i++) {
+				if (this.getModel().getMonster(i).isAlive()) {
+					this.collisionManager.crossCollision((IPawn) this.getModel().getPlayer(), (IPawn) this.getModel().getMonster(i));
+					this.getModel().getMonster(i).move((IPawn) this.getModel().getPlayer(), this.getModel());
+					this.collisionManager.crossCollision((IPawn) this.getModel().getPlayer(), (IPawn) this.getModel().getMonster(i));
+				}
+			}
 			
-			this.getModel().getMonster(0).move((IPawn) this.getModel().getPlayer(), this.getModel());
-			this.getModel().getMonster(1).move((IPawn) this.getModel().getPlayer(), this.getModel());
-			this.getModel().getMonster(2).move((IPawn) this.getModel().getPlayer(), this.getModel());
-			this.getModel().getMonster(3).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			
 			if (this.getModel().isSpellExist()) {
-				this.getModel().getSpell().move();
+				if (!cast) {
+					this.collisionManager.crossCollision((IPawn) this.getModel().getSpell(), (IPawn) this.getModel().getPlayer());
+				}
+				for (int i = 0; i < 4 && this.getModel().isSpellExist(); i++) {
+					if (this.getModel().getMonster(i).isAlive()) {
+						this.collisionManager.crossCollision((IPawn) this.getModel().getSpell(), (IPawn) this.getModel().getMonster(i));
+					}
+				}
+				if (this.getModel().isSpellExist()) {
+					if (this.collisionManager.wallCollision(this.getModel().getSpell())) {
+						this.getModel().getSpell().move();
+					}
+					else {
+						this.getModel().getSpell().reverse();
+						if (this.collisionManager.wallCollision(this.getModel().getSpell())) {
+							this.getModel().getSpell().move();
+						}
+					}
+					this.collisionManager.crossCollision((IPawn) this.getModel().getSpell(), (IPawn) this.getModel().getPlayer());
+					for (int i = 0; i < 4 && this.getModel().isSpellExist(); i++) {
+						if (this.getModel().getMonster(i).isAlive()) {
+							this.collisionManager.crossCollision((IPawn) this.getModel().getSpell(), (IPawn) this.getModel().getMonster(i));
+						}
+					}
+				}
 			}
 			
 			this.getModel().getLorannMap().setMobileHasChanged();
