@@ -87,7 +87,7 @@ public class ControllerFacade implements IController {
 					this.getModel().getPlayer().move(1, 1);
 					break;
 				case ORD_CAST_SPELL:
-					if (this.getModel().isSpellExist()) {
+					if (!this.getModel().isSpellExist()) {
 						this.getModel().generateSpell();
 						this.getView().addPawn((IPawn) this.getModel().getSpell());
 					}
@@ -126,7 +126,10 @@ public class ControllerFacade implements IController {
 	 * method that associate the key pressed with a movement
 	 */
 	private void interpretInteraction() {
-		if (this.getView().getInteract().isKeyPressed(keyUp)) {
+		if (this.getView().getInteract().isKeyPressed(spaceBar)) {
+			this.order = Order.ORD_CAST_SPELL;
+		}
+		else if (this.getView().getInteract().isKeyPressed(keyUp)) {
 			if (this.getView().getInteract().isKeyPressed(keyLeft)) {
 				this.order = Order.ORD_M_UP_L;
 			}
@@ -153,9 +156,6 @@ public class ControllerFacade implements IController {
 		}
 		else if (this.getView().getInteract().isKeyPressed(keyRight)) {
 			this.order = Order.ORD_M_RIGHT;
-		}
-		else if (this.getView().getInteract().isKeyPressed(spaceBar)) {
-			this.order = Order.ORD_CAST_SPELL;
 		}
 		else {
 			this.order = Order.ORD_NONE;

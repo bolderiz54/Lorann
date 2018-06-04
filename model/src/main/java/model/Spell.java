@@ -11,7 +11,8 @@ public class Spell extends Mobile implements ISpell {
 
 	private int animationStep = 0;
 	private boolean repelled = false;
-	private static String imagesPath[] = {"../sprite/spell_1", "../sprite/spell_2", "../sprite/spell_3", "../sprite/spell_4", "../sprite/spell_5"};
+	private static String imagesPath[] = {"../sprite/spell_1.png", "../sprite/spell_2.png",
+			"../sprite/spell_3.png", "../sprite/spell_4.png", "../sprite/spell_5.png"};
 	private Direction direction;
 
 	/**
@@ -28,7 +29,7 @@ public class Spell extends Mobile implements ISpell {
 	 */
 	public Spell(Direction direction, Point position) {
 		super(imagesPath[0], Permeability.SPELLING);
-		this.setPosition(position);
+		this.setPosition(new Point(position));
 		this.setDirection(direction);
 	}
 
