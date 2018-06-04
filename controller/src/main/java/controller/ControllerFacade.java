@@ -99,11 +99,16 @@ public class ControllerFacade implements IController {
 					break;
 				}
 			}
-			
+			for (int i = 0 ; i<4 ; i++) {
+				this.collisionManager.crossCollision((IPawn) this.getModel().getPlayer(), (IPawn) this.getModel().getMonster(i));
+			}
 			this.getModel().getMonster(0).move((IPawn) this.getModel().getPlayer(), this.getModel());
 			this.getModel().getMonster(1).move((IPawn) this.getModel().getPlayer(), this.getModel());
 			this.getModel().getMonster(2).move((IPawn) this.getModel().getPlayer(), this.getModel());
 			this.getModel().getMonster(3).move((IPawn) this.getModel().getPlayer(), this.getModel());
+			for (int i = 0 ; i<4 ; i++) {
+				this.collisionManager.crossCollision((IPawn) this.getModel().getPlayer(), (IPawn) this.getModel().getMonster(i));
+			}
 			if (this.getModel().isSpellExist()) {
 				this.getModel().getSpell().move();
 			}
