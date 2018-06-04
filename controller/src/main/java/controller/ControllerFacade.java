@@ -151,9 +151,9 @@ public class ControllerFacade implements IController {
 		}
 		
 		if (ControllerFacade.win) {
-			this.getView().displayMessage("Game Over\nYou win with a score of "+this.getModel().getScore()+" points !\nCongratulations !!");
+			this.getView().displayMessage("GAME OVER\nYou win with a score of "+this.getModel().getScore()+" points !\nCongratulations !!");
 		} else {
-			this.getView().displayMessage("Game Over\nYou lose with a score of "+this.getModel().getScore()+" points.\nTry again.");
+			this.getView().displayMessage("GAME OVER\nYou lose with a score of "+this.getModel().getScore()+" points.\nTry again.");
 		}
 	}
 
