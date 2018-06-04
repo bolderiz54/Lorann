@@ -46,4 +46,10 @@ public interface ISpell {
      */
     Point getPosition();
 	
+    /**
+     * It sets the direction of the spell
+     * @param direction
+     */
+    void setDirection(Direction direction);
+    
 }
