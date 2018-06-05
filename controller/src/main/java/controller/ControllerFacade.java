@@ -29,7 +29,9 @@ public class ControllerFacade implements IController {
  /**
   * This method get the view, the model and the collisionManager
   * @param view
+  * View
   * @param model
+  * Model
   */
  	public ControllerFacade(IView view, IModel model) {
  		this.view = view;
@@ -226,6 +228,7 @@ public class ControllerFacade implements IController {
 	/**
 	 * set if we win
 	 * @param win
+	 * Test for win
 	 */
 	public static void setWin(boolean win) {
 		ControllerFacade.win = win;

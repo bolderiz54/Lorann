@@ -22,6 +22,7 @@ public class Clock {
 	/**
 	 *this method instantiate the object Clock but this time with a custom ticksPerSecond 
 	 * @param ticksPerSecond
+	 * ticksPerSecond
 	 */
 	public Clock(int ticksPerSecond) {
 		this.ticksPerSecond=ticksPerSecond;
@@ -31,6 +32,7 @@ public class Clock {
 	/**
 	 * Sleep is a method that is used between 2 frames
 	 * @throws InterruptedException 
+	 * InterruptedException 
 	 */
 	public void sleep() throws InterruptedException {
 		Thread.sleep(tickDuration);

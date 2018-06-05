@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/Windows/git/Lorann/showboard/target/classes;C:/Users/Windows/git/Lorann/contract/target/classes;C:/Users/Windows/git/Lorann/controller/target/classes;C:/Users/Windows/git/Lorann/model/target/classes;C:/Users/Windows/git/Lorann/view/target/classes;C:/Users/Windows/git/Lorann/main/target/classes;C:/Users/Windows/.m2/repository/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar'
+-encoding
+'Cp1252'
+-protected
+-sourcepath
+'C:/Users/Windows/git/Lorann/showboard/src/main/java;C:/Users/Windows/git/Lorann/showboard/target/generated-sources/annotations;C:/Users/Windows/git/Lorann/contract/src/main/java;C:/Users/Windows/git/Lorann/contract/target/generated-sources/annotations;C:/Users/Windows/git/Lorann/controller/src/main/java;C:/Users/Windows/git/Lorann/controller/target/generated-sources/annotations;C:/Users/Windows/git/Lorann/model/src/main/java;C:/Users/Windows/git/Lorann/model/target/generated-sources/annotations;C:/Users/Windows/git/Lorann/view/src/main/java;C:/Users/Windows/git/Lorann/view/target/generated-sources/annotations;C:/Users/Windows/git/Lorann/main/src/main/java;C:/Users/Windows/git/Lorann/main/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2018. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Windows/git/Lorann/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'lorann 0.0.1-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' 'C:/Users/Windows/git/Lorann/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'lorann 0.0.1-SNAPSHOT API'

@@ -29,7 +29,9 @@ public class CollisionManager {
 	 * This method allow us to create every case of wall collision
 	 * With every order we're increasing or decreasing the value of x or y of our player in order to manage the wall collision
 	 * @param player
+	 * Player
 	 * @param order
+	 * Order
 	 */
 	public boolean wallCollision(IPlayer player, Order order) {
 		Point position = player.getPosition();
@@ -108,6 +110,7 @@ public class CollisionManager {
 	 * This method allow us to create every case of collision but this time for the spell
 	 * Then we're doing a test in order to return if the spell can penetrate or not something
 	 * @param spell
+	 * Spell
 	 */
 	public boolean wallCollision(ISpell spell) {
 		Point position = spell.getPosition();
@@ -157,6 +160,10 @@ public class CollisionManager {
 	/**
 	 * This method is used in order to know every case of collision with every entity (Monster, Spell, Player)
 	 * Here we're comparing the position of an entity 1 with an entity 2
+	 * @param entity1
+	 * entity1
+	 * @param entity2
+	 * entity2
 	 */
 	public void crossCollision(IPawn entity1, IPawn entity2) {
 		Point position1 = entity1.getPosition();
