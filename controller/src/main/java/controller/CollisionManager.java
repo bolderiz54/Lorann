@@ -1,9 +1,6 @@
 package controller;
 
 import java.awt.Point;
-
-import javax.swing.text.html.parser.Entity;
-
 import model.EntityType;
 import model.IBeing;
 import model.IEntity;
@@ -12,7 +9,6 @@ import model.IPlayer;
 import model.ISpell;
 import model.Permeability;
 import showboard.IPawn;
-import showboard.ISquare;
 import view.IView;
 
 public class CollisionManager {

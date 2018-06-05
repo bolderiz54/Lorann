@@ -5,6 +5,7 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.ILoadedElement;
 
@@ -22,30 +23,30 @@ public class DAO extends AbstractDAO {
 	 * @return the positions and the element according to the paramLevel
 	 * @throws SQLException
 	 */
-	 public static ArrayList<ILoadedElement> loadLevel(final int paramLevel) throws SQLException {
-		 final CallableStatement callStatement = prepareCall(sql);
-		 ArrayList<ILoadedElement> level = new ArrayList<ILoadedElement>();
-	     callStatement.setInt(1, paramLevel);
-	     if (callStatement.execute()) {
-	    	 final ResultSet result = callStatement.getResultSet();
-	    	 while (result.next()) {
-	    		 level.add(new LoadedElement(result.getString("Element"), new Point(result.getInt("X"), result.getInt("Y"))));
-	    	 }
-	    	 result.close();
-	     }
-	     return level;
-	 }
-	 
-	 public static Point test() throws SQLException {
-		 final CallableStatement callStatement = prepareCall("call test()");
-		 Point level = new Point(0, 0);
-	     if (callStatement.execute()) {
-	    	 final ResultSet result = callStatement.getResultSet();
-	    	 while (result.next()) {
-	    		 level = new Point(result.getInt(1), result.getInt(2));
-	    	 }
-	    	 result.close();
-	     }
-	     return level;
-	 }
+	public static List<ILoadedElement> loadLevel(final int paramLevel) throws SQLException {
+		final CallableStatement callStatement = prepareCall(sql);
+		ArrayList<ILoadedElement> level = new ArrayList<ILoadedElement>();
+	    callStatement.setInt(1, paramLevel);
+	    if (callStatement.execute()) {
+	    	final ResultSet result = callStatement.getResultSet();
+	    	for (boolean isResultLeft = result.first(); isResultLeft; isResultLeft = result.next()) {
+	    		level.add(new LoadedElement(result.getString("Element"), new Point(result.getInt("X"), result.getInt("Y"))));
+	    	}
+	    	result.close();
+	    }
+	    return level;
+	}
+	
+	public static Point test() throws SQLException {
+		final CallableStatement callStatement = prepareCall("call test()");
+		Point level = new Point(0, 0);
+	    if (callStatement.execute()) {
+	    	final ResultSet result = callStatement.getResultSet();
+	    	if (result.first()) {
+	    		level = new Point(result.getInt(1), result.getInt(2));
+	    	}
+	    	result.close();
+	    }
+	    return level;
+	}
 }

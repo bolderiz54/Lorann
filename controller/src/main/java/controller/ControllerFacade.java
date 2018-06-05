@@ -1,5 +1,6 @@
 package controller;
 
+import model.EntityType;
 import model.IModel;
 import showboard.IPawn;
 import view.IInteract;
@@ -52,7 +53,7 @@ public class ControllerFacade implements IController {
 	public void start() throws InterruptedException {
 		boolean cast = false;
 		
-		this.getModel().loadLevel(1);
+		this.getModel().loadLevel(3);
 		
 		if (this.getModel().getPlayer().isAlive()) {
 			this.getView().addPawn((IPawn) this.getModel().getPlayer());
@@ -63,6 +64,8 @@ public class ControllerFacade implements IController {
 			}
 		}
 		
+		System.out.println(this.getModel().getEntity(EntityType.ENT_PURSE).getSprite().getImage());
+		System.out.println(this.getModel().getOnMap(10, 6).getSprite().getImage());
 		
 		while(this.getModel().getPlayer().isAlive() && !win) {
 			cast = false;

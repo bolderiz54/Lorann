@@ -3,6 +3,7 @@ package model;
 import java.awt.Point;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observer;
 
 import model.dao.DAO;
@@ -112,6 +113,8 @@ public final class ModelFacade implements IModel {
 	 * @return true if the entity is alive
 	 */
 	public boolean loadLevel(int level) {
+		List<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
+		
 		this.unloadLevel();
 		
 		this.loadedLevel = new String[this.getHeight()][this.getWidth()];
@@ -122,7 +125,7 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
-		/**/
+		/*
 		
 		for (int y = 0; y < this.height; y++) {
 			for (int x = 0; x < this.width; x++) {
@@ -142,9 +145,8 @@ public final class ModelFacade implements IModel {
 		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
 		//this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
-		/**//*
+		*//**/
 		
-		ArrayList<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
 		try {
 			AllElements = DAO.loadLevel(level);
 		} catch (SQLException e) {
@@ -169,8 +171,6 @@ public final class ModelFacade implements IModel {
 				break;
 			}
 		}
-		
-		*/
 		
 		this.resetLevel();
 		

@@ -1,13 +1,7 @@
 package main;
 
-import java.awt.Point;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import controller.ControllerFacade;
-import model.ILoadedElement;
 import model.ModelFacade;
-import model.dao.DAO;
 import view.ViewFacade;
 
 /**
@@ -31,22 +25,7 @@ public abstract class Main {
         final ControllerFacade controller = new ControllerFacade(view, model);
 
         controller.start();
-    	/*ArrayList<ILoadedElement> l = new ArrayList<ILoadedElement>();
-    	Point p = new Point(0, 0);
-		try {
-			p = DAO.test();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	System.out.println(p.x+","+p.y);
-    	try {
-			l = DAO.loadLevel(1);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	for (ILoadedElement element : l) {
-    		System.out.println(element.getName()+","+element.getPosition().x+","+element.getPosition().y);
-    	}*/
+    	
     }
 
 }
