@@ -7,51 +7,100 @@ import view.IInteract;
 import view.IView;
 
 /**
- * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
+ * <h1>The Class ControllerFacade</h1>
+ * It provides a facade of the Controller component.
  *
  * @author gauthier
  * @version 1.0
  */
 public class ControllerFacade implements IController {
 
- private IView view;
- private IModel model;
- private CollisionManager collisionManager;
- private Clock clock;
- private Order order = Order.ORD_NONE;
- private static final int keyLeft = 37;
- private static final int keyRight = 39;
- private static final int keyUp = 38;
- private static final int keyDown = 40;
- private static final int spaceBar = 32;
- private static boolean win = false;
+	/**
+	 * The reference to the view
+	 */
+	private IView view;
+	
+	/**
+	 * The reference to the model
+	 */
+	private IModel model;
+	
+	/**
+	 * The object collisionManager
+	 */
+	private CollisionManager collisionManager;
+	
+	/**
+	 * The object clock
+	 */
+	private Clock clock;
+	
+	/**
+	 * The enum order
+	 */
+	private Order order = Order.ORD_NONE;
+	
+	/**
+	 * The key code for the left key
+	 */
+	private static final int keyLeft = 37;
+	
+	/**
+	 * The key code for the right key
+	 */
+	private static final int keyRight = 39;
+	
+	/**
+	 * The key code for the up key
+	 */
+	private static final int keyUp = 38;
+	
+	/**
+	 * The key code for the down key
+	 */
+	private static final int keyDown = 40;
+	
+	/**
+	 * The key code for the space bar
+	 */
+	private static final int spaceBar = 32;
+	
+	/**
+	 * A boolean to tell if the player has won or not
+	 */
+	private static boolean win = false;
  
- /**
-  * This method get the view, the model and the collisionManager
-  * @param view
-  * View
-  * @param model
-  * Model
-  */
- 	public ControllerFacade(IView view, IModel model) {
+	/**
+	 * This method get the view, the model and the collisionManager
+	 * @param view
+	 * 			The reference to the view
+	 * @param model
+	 * 			The reference to the model
+	 */
+	public ControllerFacade(IView view, IModel model) {
  		this.view = view;
  		this.model = model;
  		this.collisionManager = new CollisionManager(this.getModel(), this.getView());
  		this.clock = new Clock(10);
  		}
  	
- 	@SuppressWarnings("unused")
+	/**
+	 * Get the order
+	 * @return Order
+	 * 			The order request by the player
+	 */
+	@SuppressWarnings("unused")
 	private Order getOrder() {
 		return order;
- 		
- 	}
+	}
 
- 	/**
- 	 * method that allow us to move Lorann with the collisions
- 	 * we're doing a test in order to know if the monster or the player is alive or not
- 	 * then we're using our wallCollision method in order to move the player in every case of key pressed
- 	 * after that, we're using crossCollision in order to manage the collision between player monster and spell
- 	 */
+	/**
+	 * method that allow us to move Lorann with the collisions
+	 * we're doing a test in order to know if the monster or the player is alive or not
+	 * then we're using our wallCollision method in order to move the player in every case of key pressed
+	 * after that, we're using crossCollision in order to manage the collision between player monster and spell
+	 * @throws InterruptedException
+	 */
 	@Override
 	public void start() throws InterruptedException {
 		boolean cast = false;
@@ -169,6 +218,8 @@ public class ControllerFacade implements IController {
 
 	/**
 	 * This method get the view
+	 * @return IView
+	 * 			The referred view
 	 */
 	@Override
 	public IView getView() {
@@ -178,6 +229,8 @@ public class ControllerFacade implements IController {
 	
 	/**
 	 * this method get the model
+	 * @return IModel
+	 * 			The referred model
 	 */
 	@Override
 	public IModel getModel() {
@@ -226,9 +279,9 @@ public class ControllerFacade implements IController {
 	}
 	
 	/**
-	 * set if we win
+	 * Set if the player win
 	 * @param win
-	 * Test for win
+	 * 			True to make the player win
 	 */
 	public static void setWin(boolean win) {
 		ControllerFacade.win = win;

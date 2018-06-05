@@ -12,14 +12,29 @@ import showboard.IPawn;
 import view.IView;
 
 /**
+ * <h1>The class CollisionManager</h1>
  * @author gauthier
  * @version 1.0
  */
 public class CollisionManager {
 	
+	/**
+	 * The reference to the model
+	 */
 	private IModel model;
+	
+	/**
+	 * The reference to the view
+	 */
 	private IView view;
 	
+	/**
+	 * This method instantiate the class CollisionManager
+	 * @param model
+	 * 			The model to refer
+	 * @param view
+	 * 			The view to refer
+	 */
 	public CollisionManager(IModel model, IView view) {
 		this.model = model;
 		this.view = view;
@@ -29,9 +44,11 @@ public class CollisionManager {
 	 * This method allow us to create every case of wall collision
 	 * With every order we're increasing or decreasing the value of x or y of our player in order to manage the wall collision
 	 * @param player
-	 * Player
+	 * 			The player
 	 * @param order
-	 * Order
+	 * 			The order to verify
+	 * @return boolean
+	 * 			True if the player can go where he wants to go
 	 */
 	public boolean wallCollision(IPlayer player, Order order) {
 		Point position = player.getPosition();
@@ -110,7 +127,9 @@ public class CollisionManager {
 	 * This method allow us to create every case of collision but this time for the spell
 	 * Then we're doing a test in order to return if the spell can penetrate or not something
 	 * @param spell
-	 * Spell
+	 * 			The spell
+	 * @return boolean
+	 * 			True if the spell can go where it wants to go
 	 */
 	public boolean wallCollision(ISpell spell) {
 		Point position = spell.getPosition();
@@ -161,9 +180,9 @@ public class CollisionManager {
 	 * This method is used in order to know every case of collision with every entity (Monster, Spell, Player)
 	 * Here we're comparing the position of an entity 1 with an entity 2
 	 * @param entity1
-	 * entity1
+	 * 			The first entity
 	 * @param entity2
-	 * entity2
+	 * 			The second entity
 	 */
 	public void crossCollision(IPawn entity1, IPawn entity2) {
 		Point position1 = entity1.getPosition();
