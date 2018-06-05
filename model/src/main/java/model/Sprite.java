@@ -60,6 +60,10 @@ public class Sprite implements ISprite {
 	public Image getImage() {
 		return image;
 	}
+	
+	public String getImagePath() {
+		return this.imagePath;
+	}
 
 }
 

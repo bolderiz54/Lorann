@@ -64,9 +64,6 @@ public class ControllerFacade implements IController {
 			}
 		}
 		
-		System.out.println(this.getModel().getEntity(EntityType.ENT_PURSE).getSprite().getImage());
-		System.out.println(this.getModel().getOnMap(10, 6).getSprite().getImage());
-		
 		while(this.getModel().getPlayer().isAlive() && !win) {
 			cast = false;
 			
@@ -149,6 +146,12 @@ public class ControllerFacade implements IController {
 				}
 			}
 			
+			/*for (int y = 0; y < this.getModel().getHeight(); y++) {
+				for (int x = 0; x < this.getModel().getHeight(); x++) {
+					System.out.print(this.getModel().getOnMap(x, y).getSprite().getImagePath()+", ");
+				}
+				System.out.println("");
+			}*/
 			this.getModel().getLorannMap().setMobileHasChanged();
 			Thread.sleep(100);
 		}

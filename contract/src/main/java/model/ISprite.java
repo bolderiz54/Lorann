@@ -15,6 +15,8 @@ public interface ISprite {
 	 */
 	public void setImagePath(String imagePath);
 	
+	public String getImagePath();
+	
 	/**
 	 * get the image
 	 * @return

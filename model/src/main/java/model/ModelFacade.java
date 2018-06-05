@@ -1,6 +1,11 @@
 package model;
 
 import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,6 +130,36 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
+		BufferedReader buffer;
+		String line, subString, entityName;
+		int index, entityX = 0, entityY = 0;
+		try {
+			Runtime r = Runtime.getRuntime();
+			Process p = r.exec("../.exe");
+			p.waitFor();
+			buffer = new BufferedReader(new InputStreamReader(new FileInputStream("../lorannMap.csv")));
+			line = buffer.readLine();
+			while (line != null) {
+				entityX = 0;
+				entityY = 0;
+				index = line.indexOf(";");
+				entityName = line.substring(0, index);
+				line = line.substring(index + 1);
+				index = line.indexOf(";");
+				entityX = Integer.parseInt(line.substring(0, index));
+				entityY = Integer.parseInt(line.substring(index + 1));
+				AllElements.add(new LoadedElement(entityName, entityX, entityY));
+				System.out.println(entityName+","+entityX+","+entityY);
+				line = buffer.readLine();
+			}
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		} catch (InterruptedException e3) {
+			e3.printStackTrace();
+		}
+		
 		/*
 		
 		for (int y = 0; y < this.height; y++) {
@@ -145,14 +180,22 @@ public final class ModelFacade implements IModel {
 		this.pawnsLoaded.add(new LoadedElement("wheel", 12, 5));
 		//this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
-		*//**/
+		*/
+		/*
 		
 		try {
 			AllElements = DAO.loadLevel(level);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("error");
+			return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("error");
 			return false;
 		}
+		
+		*/
 		
 		for (ILoadedElement element : AllElements) {
 			switch (element.getName()) {
@@ -167,6 +210,7 @@ public final class ModelFacade implements IModel {
 				if (element.getPosition().x >= 0 && element.getPosition().x < this.getWidth() &&
 						element.getPosition().y >= 0 && element.getPosition().y < this.getHeight()) {
 					this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
+					//System.out.println(element.getName()+","+element.getPosition().x+","+element.getPosition().y);
 				}
 				break;
 			}

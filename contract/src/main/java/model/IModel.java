@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.util.Observer;
 
 /**
@@ -14,6 +15,7 @@ public interface IModel extends IScore {
  * 
  * @param level (int)
  * @return true if the entity is alive
+ * @throws IOException 
  */
    public boolean loadLevel(int level);
    

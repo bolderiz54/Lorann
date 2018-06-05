@@ -30,7 +30,8 @@ public class ViewFacade implements IView, Runnable {
 	private IModel model;
 	
 	private IInteract interact;
-    /**
+    
+	/**
      * Instantiates a new view facade.
      */
     public ViewFacade(IModel model) {
