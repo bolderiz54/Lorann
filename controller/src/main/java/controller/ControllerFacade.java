@@ -223,6 +223,10 @@ public class ControllerFacade implements IController {
 		}
 	}
 	
+	/**
+	 * set if we win
+	 * @param win
+	 */
 	public static void setWin(boolean win) {
 		ControllerFacade.win = win;
 	}
