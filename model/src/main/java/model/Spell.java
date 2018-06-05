@@ -3,9 +3,9 @@ package model;
 import java.awt.Point;
 
 /**
- * 
+ * <h1>The class Spell</h1>
  * @author Hugo
- *
+ * @version 1.0
  */
 public class Spell extends Mobile implements ISpell {
 
@@ -26,6 +26,10 @@ public class Spell extends Mobile implements ISpell {
 	
 	/**
 	 * This method instantiates a new spell
+	 * @param direction
+	 * 			The direction of the spell
+	 * @param position
+	 * 			The position of the spell
 	 */
 	public Spell(Direction direction, Point position) {
 		super(imagesPath[0], Permeability.SPELLING);
@@ -35,9 +39,6 @@ public class Spell extends Mobile implements ISpell {
 		this.repelled = false;
 	}
 
-	/**
-	 * this method move and change the images of the Fireball
-	 */
 	@Override
 	public void move() {
 		switch (direction) {
@@ -82,9 +83,6 @@ public class Spell extends Mobile implements ISpell {
 	
 	}
 
-	/**
-	 * This method reverse the direction of the spell
-	 */
 	@Override
 	public void reverse() {
 		switch (direction) {
@@ -119,9 +117,6 @@ public class Spell extends Mobile implements ISpell {
 		this.repelled = true;
 	}
 	
-	/**
-	 * this method return a boolean to watch if the spell is repel or not
-	 */
 	@Override
 	public boolean isRepelled() {
 		return repelled;

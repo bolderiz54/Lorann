@@ -12,7 +12,7 @@ import java.util.List;
 public interface IInteract {
 
 	/**
-	 * Test key pressed or not with a boolean
+	 * Test if key is pressed or not with a boolean
 	 * @param keyCode
 	 * 			The code of the key to test
 	 * @return boolean
@@ -21,7 +21,7 @@ public interface IInteract {
 	public boolean isKeyPressed(int keyCode);
 	
 	/**
-	 * Test key pressed or not with a boolean
+	 * Test if key is pressed or not with a boolean
 	 * @param keyChar
 	 * 			The character of the key to test
 	 * @return boolean

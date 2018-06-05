@@ -8,6 +8,12 @@ import model.Monster;
 import model.Permeability;
 import showboard.IPawn;
 
+/**
+ * <h1>The class Bishop</h1>
+ * This class is a behavior from IAIMonster for monsters
+ * @author Vincent Linck
+ * @version 1.0
+ */
 public class Bishop implements IAIMonster {
 
 	@Override

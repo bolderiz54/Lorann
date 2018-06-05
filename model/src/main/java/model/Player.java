@@ -31,6 +31,7 @@ public class Player extends Being implements IPlayer {
 	/**
 	 * Instantiate the player
 	 * @param imagePath
+	 * 			The path to the image
 	 */
 	public Player() {
 		super(imagesPath[0], Permeability.PENETRABLE);
@@ -38,10 +39,6 @@ public class Player extends Being implements IPlayer {
 		this.animationDirection = Direction.DIR_UP;
 	}
 	
-	/**
-	 * This method allows the player to move
-	 * @throws IOException 
-	 */
 	@Override
 	public void move(int x, int y) {
 		this.setPosition(new Point(this.getX() + x, this.getY() + y));
@@ -86,23 +83,20 @@ public class Player extends Being implements IPlayer {
 		}
 	}
 
-	/**
-	 * getDirection
-	 * @return Direction
-	 */
 	@Override
 	public Direction getDirection() {
 		return this.direction;
 	}
 
-	/**
-	 * set the direction
-	 */
 	@Override
 	public void setDirection(Direction direction) {
 		this.direction = direction;
 	}
 	
+	/**
+	 * This method allow the player to change its image according to its direction or its animation pattern
+	 * @throws IOException
+	 */
 	private void setImage() throws IOException {
 		switch (this.animationDirection) {
 		case DIR_UP:
@@ -136,6 +130,8 @@ public class Player extends Being implements IPlayer {
 		case DIR_UP_LEFT:
 			this.getSprite().setImagePath(Player.imagesPath[7]);
 			this.animationDirection = Direction.DIR_UP;
+			break;
+		default:
 			break;
 		}
 		

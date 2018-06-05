@@ -20,12 +20,12 @@ import model.dao.LoadedElement;
  * @author Hugo
  * @version 1.0
  */
+@SuppressWarnings({ "unused", "deprecation" })
 public final class ModelFacade implements IModel {
 	
 	/**
 	 * The number of the level which will be loaded
 	 */
-	@SuppressWarnings("unused")
 	private int levelNumber = 1;
 	
 	/**
@@ -66,8 +66,10 @@ public final class ModelFacade implements IModel {
     /**
      * Instantiates a new model facade.
      * 
-     * @param map's width
-     * @param map's height
+     * @param width
+     * 			The map's width
+     * @param height
+     * 			The map's height
      */
     public ModelFacade(final int width, final int height) {
         score = new Score();
@@ -84,38 +86,28 @@ public final class ModelFacade implements IModel {
         }
     }
 
-    /**
-	 * get the score
-	 * @return the score
-	 */
 	@Override
 	public int getScore() {
 		return this.score.getScore();
 	}
 
-	/**
-	 * calculate and add the score
-	 * @param points
-	 */
 	@Override
 	public void addScore(int points) {
 		this.score.addScore(points);
 		
 	}
 
-	/**
-	 * set the score 
-	 * @param points
-	 */
 	@Override
 	public void setScore(int points) {
 		this.score.setScore(points);
 	}
 
 	/**
-	 * 
-	 * @param level (int)
-	 * @return true if the entity is alive
+	 * Load the level thank to the database
+	 * @param level
+	 * 			The number of the level
+	 * @return boolean
+	 * 			True if the load happened correctly
 	 */
 	public boolean loadLevel(int level) {
 		List<ILoadedElement> AllElements = new ArrayList<ILoadedElement>();
@@ -156,10 +148,13 @@ public final class ModelFacade implements IModel {
 			}
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
+			return false;
 		} catch (IOException e2) {
 			e2.printStackTrace();
+			return false;
 		} catch (InterruptedException e3) {
 			e3.printStackTrace();
+			return false;
 		}
 		
 		*/
@@ -308,55 +303,31 @@ public final class ModelFacade implements IModel {
 		return this.map;
 	}
 
-	/**
-	 * get the Width of the map
-     * @return the size of the width (int)
-	 */
 	@Override
 	public int getWidth() {
 		return width;
 	}
 
-	/**
-	 * set the width
-	 * @param width
-	 */
 	@Override
 	public void setWidth(int width) {
 		this.width = width;
 	}
 
-	/**
-	 * get the height
-	 * @return the size of the height (int)
-	 */
 	@Override
 	public int getHeight() {
 		return height;
 	}
 
-	/**
-	 * set the height
-	 * @param height
-	 */
 	@Override
 	public void setHeight(int height) {
 		this.height = height;
 	}
 
-	/**
-	 * get the player
-	 */
 	@Override
 	public IPlayer getPlayer() {
 		return this.factory.getPlayer();
 	}
 
-	/**
-	 * This is to get a Monster
-     * @param monsterNumber
-     * @return the number of the monster
-	 */
 	@Override
 	public IMonster getMonster(int monsterNumber) {
 		return this.factory.getMonster(monsterNumber);
@@ -367,71 +338,41 @@ public final class ModelFacade implements IModel {
 		return this.factory.getEntity(entityType);
 	}
 
-	/**
-	 * The method check if the spell exist or not 
-     * @return true if the spell exist
-	 */
 	@Override
 	public boolean isSpellExist() {
 		return this.factory.isSpellExist();
 	}
 
-	/**
-	 * get the spell
-	 */
 	@Override
 	public ISpell getSpell() {
 		return this.factory.getSpell();
 	}
 
-	/**
-	 * get an Entity
-     * @param x  The movements of the Entity
-     * @param y The movements of the Entity
-     * @return  an entity at the right coordinates
-	 */
 	@Override
 	public IEntity getOnMap(int x, int y) {
 		return this.getLorannMap().getOnMap(x, y);
 	}
 	
-	/**
-	 * set an Entity on the map
-	 * @param entity
-	 * @param x
-	 * @param y
-	 */
 	@Override
 	public void setOnMap(EntityType entity, int x, int y) {
 		this.getLorannMap().setOnMap(this.factory.getEntity(entity), x, y);
 	}
 
-	/**
-	 * generate the spell
-	 */
 	@Override
 	public void generateSpell() {
 		this.factory.generateSpell();
 	}
-	/**
-	 * destroy the spell
-	 */
+
 	@Override
 	public void destroySpell() {
 		this.factory.destroySpell();
 	}
 
-	/**
-	 * remove a square from the map
-	 */
 	@Override
 	public void removeSquare(int x, int y) {
 		this.setOnMap(EntityType.ENT_GROUND, x, y);
 	}
 
-	/**
-	 * Add an observer to the map
-	 */
 	@Override
 	public void addObserver(Observer observer) {
 		this.getLorannMap().addObserver(observer);

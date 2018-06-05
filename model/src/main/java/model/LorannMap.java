@@ -4,11 +4,13 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
+ * <h1>The class LorannMap</h1>
  * This class describe how to use a map
  * 
  * @author Vincent Linck
  * @version 1.1
  */
+@SuppressWarnings("deprecation")
 public class LorannMap extends Observable implements ILorannMap {
 	
 	/**
@@ -29,7 +31,9 @@ public class LorannMap extends Observable implements ILorannMap {
 	/**
 	 * Instantiate the map
 	 * @param width
+	 * 			The width of the map
 	 * @param height
+	 * 			The height of the map
 	 */
 	public LorannMap(int width, int height) {
 		this.width = width;
@@ -46,8 +50,11 @@ public class LorannMap extends Observable implements ILorannMap {
 	/**
 	 * Get an entity on the map
 	 * @param x
+	 * 			The x position of the map
 	 * @param y
-	 * @return
+	 * 			The y position of the map
+	 * @return IEntity
+	 * 			The entity
 	 */
 	public IEntity getOnMap(int x, int y) {
 		if (x >= 0 && x < this.width && y >= 0 && y < this.height) {
@@ -59,8 +66,11 @@ public class LorannMap extends Observable implements ILorannMap {
 	/**
 	 * Set an entity on the map
 	 * @param entity
+	 * 			The entity
 	 * @param x
+	 * 			The x position of the entity
 	 * @param y
+	 * 			The y position of the entity
 	 */
 	public void setOnMap(IEntity entity, int x, int y) {
 		if (x >= 0 && x < this.width && y >= 0 && y < this.height) {

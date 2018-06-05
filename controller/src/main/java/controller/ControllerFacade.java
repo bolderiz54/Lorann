@@ -1,9 +1,7 @@
 package controller;
 
-import model.EntityType;
 import model.IModel;
 import showboard.IPawn;
-import view.IInteract;
 import view.IView;
 
 /**

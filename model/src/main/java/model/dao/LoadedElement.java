@@ -5,7 +5,8 @@ import java.awt.Point;
 import model.ILoadedElement;
 
 /**
- * <h1> This class is used by the model to remember the element loaded from the databased </h1>
+ * <h1>The class LoadedElement</h1>
+ * This class is used by the model to remember the element loaded from the database
  * @author Vincent Linck
  * @version 1.0
  */
@@ -24,7 +25,9 @@ public class LoadedElement implements ILoadedElement {
 	/**
 	 * Instantiate a new element
 	 * @param elementName
+	 * 			The name of the element
 	 * @param position
+	 * 			The position of the element
 	 */
 	public LoadedElement(String name, Point position) {
 		this.name = name;
@@ -34,8 +37,11 @@ public class LoadedElement implements ILoadedElement {
 	/**
 	 * Instantiate a new element
 	 * @param elementName
+	 * 			The name of the element
 	 * @param x
+	 * 			The x position of the element
 	 * @param y
+	 * 			The y position of the element
 	 */
 	public LoadedElement(String name, int x, int y) {
 		this.name = name;

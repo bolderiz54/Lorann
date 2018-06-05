@@ -1,13 +1,11 @@
 package model;
 
-import java.awt.Point;
-
 import model.AIDesignPatter.IAIMonster;
 import showboard.IPawn;
 
 /**
- * <h1> This class describe the structure of a monster <h1>
- * 
+ * <h1>The class Monster<h1>
+ * This class describe the structure of a monster
  * @author Vincent Linck
  * @version 1.0
  */
@@ -26,7 +24,9 @@ public class Monster extends Being implements IMonster {
 	/**
 	 * Instantiate a monster with a custom image and a custom behavior
 	 * @param imagePath
-	 * @param behaviour
+	 * 			The path to the image
+	 * @param behavior
+	 * 			The behavior that the monster has
 	 */
 	public Monster(String imagePath, IAIMonster behavior) {
 		super(imagePath, Permeability.KILLING);
@@ -41,9 +41,6 @@ public class Monster extends Being implements IMonster {
 		}
 	}
 	
-	/**
-	 * It allows the monster to move regard of his behavior
-	 */
 	@Override
 	public void move(IPawn player, IModel model) {
 		this.behavior.move(player, model, this);
@@ -51,7 +48,8 @@ public class Monster extends Being implements IMonster {
 
 	/**
 	 * get the direction
-	 * @return
+	 * @return Direction
+	 * 			The direction of the monster
 	 */
 	public Direction getDirection() {
 		return direction;
@@ -60,6 +58,7 @@ public class Monster extends Being implements IMonster {
 	/**
 	 * set the direction
 	 * @param direction
+	 * 			The direction of the monster
 	 */
 	public void setDirection(Direction direction) {
 		this.direction = direction;

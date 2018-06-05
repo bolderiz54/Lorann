@@ -26,6 +26,7 @@ public class Mobile extends Entity implements IPawn, IMobile {
 	/**
 	 * instantiate a mobile entity
 	 * @param imagePath
+	 * 			The path to the image
 	 */
 	public Mobile(String imagePath, Permeability permeability) {
 		super(imagePath, permeability);
@@ -34,6 +35,7 @@ public class Mobile extends Entity implements IPawn, IMobile {
 	/**
 	 * set the x position
 	 * @param x
+	 * 			The x position of the mobile
 	 */
 	public void setX(int x) {
 		this.x = x;
@@ -42,6 +44,7 @@ public class Mobile extends Entity implements IPawn, IMobile {
 	/**
 	 * set the y position
 	 * @param y
+	 * 			The y position of the mobile
 	 */
 	public void setY(int y) {
 		this.y = y;
@@ -50,6 +53,7 @@ public class Mobile extends Entity implements IPawn, IMobile {
 	/**
 	 * set the x and the y positions
 	 * @param position
+	 * 			The position of the mobile
 	 */
 	public void setPosition(Point position) {
 		this.x = position.x;

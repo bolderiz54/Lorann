@@ -1,13 +1,11 @@
 package model;
 
 import java.awt.Image;
-import java.io.IOException;
-
 import showboard.ISquare;
 
 /**
- * <h1> This class contains the methods to give life to an entity </h1>
- * 
+ * <h1>The class Entity</h1>
+ * This class contains the methods to give life to an entity
  * @author Vincent Linck
  * @version 1.0
  *
@@ -25,8 +23,11 @@ public class Entity implements IEntity, ISquare {
 	private Permeability permeability;
 	
 	/**
-	 * Instatiat an object Entity with an image (path)
+	 * Instantiate an object Entity with an image (path)
 	 * @param imagePath
+	 * 			The path to the image
+	 * @param permeability
+	 * 			The permeability to the image
 	 */
 	public Entity(String imagePath, Permeability permeability) {
 		this.sprite = new Sprite(imagePath);
@@ -36,6 +37,7 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * get the image
 	 * @return Image
+	 * 			The image of the entity
 	 */
 	@Override
 	public Image getImage() {
@@ -45,6 +47,7 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * get the sprite
 	 * @return Sprite
+	 * 			The sprite of the entity
 	 */
 	@Override
 	public ISprite getSprite() {
@@ -54,6 +57,7 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * get the permeability
 	 * @return Permeability
+	 * 			The permeability of the entity
 	 */
 	@Override
 	public Permeability getPermeability() {
@@ -63,6 +67,7 @@ public class Entity implements IEntity, ISquare {
 	/**
 	 * set the permeability
 	 * @param permeability
+	 * 			The permeability of the entity
 	 */
 	protected void setPermeability(Permeability permeability) {
 		this.permeability = permeability;

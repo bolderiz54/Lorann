@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * <h1>The class Interact</h1>
  * This class allows to interact with the player
  * We're creating the lists that will receive the keychar and keycode of the key pressed
  * @author Gauthier
@@ -21,11 +22,7 @@ public class Interact implements KeyListener, IInteract{
 		this.keyCodePressed = new ArrayList<Integer>();
 		this.keyCharPressed = new ArrayList<Character>();
 	}
-	
-	/**
-	 * This method return if there's a key pressed or not
-	 * @param keycode
-	 */
+
 	public boolean isKeyPressed(int keyCode) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), keyCode);
 		if (index >= 0) {
@@ -36,10 +33,6 @@ public class Interact implements KeyListener, IInteract{
 		}
 	}
 	
-	/**
-	 * This method return if there's a key pressed or not
-	 * @param keychar
-	 */
 	public boolean isKeyPressed(char keyChar) {
 		int index = Collections.binarySearch(this.getKeyCharPressed(), keyChar);
 		if (index >= 0) {
@@ -51,7 +44,9 @@ public class Interact implements KeyListener, IInteract{
 	}
 	
 	/**
-	 * if key pressed the keycode and keychar are stocked in a list
+	 * if a key is pressed the keycode and keychar are stocked in a list
+	 * @param event
+	 * 			The event from the keyboard
 	 */
 	public void keyPressed(KeyEvent event) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
@@ -68,6 +63,8 @@ public class Interact implements KeyListener, IInteract{
 	
 	/**
 	 * when the key is released we remove the keycode and the keychar from the list
+	 * @param event
+	 * 			The event from the keyboard
 	 */
 	public void keyReleased(KeyEvent event) {
 		int index = Collections.binarySearch(this.getKeyCodePressed(), event.getKeyCode());
@@ -80,8 +77,12 @@ public class Interact implements KeyListener, IInteract{
 		}
 	}
 	
+	/**
+	 * when a key is pressed and released in the same tick
+	 * @param event
+	 * 			The event from the keyboard
+	 */
 	public void keyTyped(KeyEvent event) {
-
 	}
 	
 	public List<Integer> getKeyCodePressed(){

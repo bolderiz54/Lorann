@@ -3,7 +3,8 @@ package model;
 import model.AIDesignPatter.*;
 
 /**
- * The class Factory instantiate 
+ * <h1>The class Factory</h1>
+ * It instantiates all the entities and the beings
  * @author Hugo
  *
  */
@@ -23,8 +24,9 @@ public class Factory {
 	private Entity crystal_ball;
 	private Entity horizontal_bone;
 	private Entity vertical_bone;
+	
 	/**
-	 * instantiate some monsters, a player and the Entity
+	 * instantiate the monsters, the player and the Entities
 	 */
 	public Factory() {
 		player = new Player();
@@ -47,7 +49,9 @@ public class Factory {
 	/**
 	 * get the type of the entity
 	 * @param entityType
-	 * @return the entity
+	 * 			The type of the entity
+	 * @return IEntity
+	 * 			The entity
 	 */
 	public IEntity getEntity(EntityType entityType) {
 		switch (entityType) {
@@ -75,7 +79,9 @@ public class Factory {
 	/**
 	 * get the monster according to the right monster
 	 * @param monsterNumber
-	 * @return the monster
+	 * 			The id of the monster (0-3)
+	 * @return IMonster
+	 * 			the monster
 	 */
 	public IMonster getMonster(int monsterNumber) {
 		switch (monsterNumber % 4) {
@@ -95,7 +101,8 @@ public class Factory {
 	
 	/**
 	 * get the player 
-	 * @return the player
+	 * @return IPlayer
+	 * 			The player
 	 */
 	public IPlayer getPlayer() {
 		return player;
@@ -113,7 +120,8 @@ public class Factory {
 	
 	/**
 	 * check if the spell exist
-	 * @return true or false
+	 * @return boolean
+	 * 			true or false according to if the spell exist
 	 */
 	public boolean isSpellExist() {
 		if(this.spell == null) {
@@ -126,7 +134,8 @@ public class Factory {
 	
 	/**
 	 * get the spell
-	 * @return the spell
+	 * @return ISpell
+	 * 			The spell
 	 */
 	public ISpell getSpell() {
 		return this.spell;

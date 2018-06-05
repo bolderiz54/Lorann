@@ -14,9 +14,9 @@ import showboard.IPawn;
 import showboard.ISquare;
 
 /**
- * <h1>The Class ViewFacade provides a facade of the View component.</h1>
- *
- * @author Jean-Aymeric DIET and Benjamin ZANARDO
+ * <h1>The class ViewFacade</h1>
+ * The Class ViewFacade provides a facade of the View component.
+ * @author Benjamin ZANARDO
  * @version 1.1
  */
 public class ViewFacade implements IView, Runnable {
@@ -33,6 +33,8 @@ public class ViewFacade implements IView, Runnable {
     
 	/**
      * Instantiates a new view facade.
+     * @param model
+     * 			The model to refer
      */
     public ViewFacade(IModel model) {
         boardframe = new BoardFrame("Lorann");
@@ -61,16 +63,16 @@ public class ViewFacade implements IView, Runnable {
     /**
      * This method execute the removePawn method in boardframe object
      * @param pawn
-     * 			the pawn
+     * 			the pawn to remove
      */
     public void removePawn(IPawn pawn) {
     	this.boardframe.removePawn(pawn);
     }
     
     /**
-     * This metthod execute the addPawn method in boardframe object
+     * This method execute the addPawn method in boardframe object
      * @param pawn
-     * 			the pawn
+     * 			the pawn to ass
      */
     public void addPawn(IPawn pawn) {
     	this.boardframe.addPawn(pawn);
@@ -78,6 +80,8 @@ public class ViewFacade implements IView, Runnable {
     
     /** 
      * Collect the player's interactions
+     * @return IInteract
+     * 			The interact object
      */
     public IInteract getInteract() {
     	return interact;
@@ -113,6 +117,9 @@ public class ViewFacade implements IView, Runnable {
     	boardframe.setVisible(true);
     }
     
+    /**
+     * resend all the squares from the map to the boardframe
+     */
     public void update() {
     	for (int y = 0; y < this.model.getHeight(); y++) {
     		for (int x = 0; x < this.model.getWidth(); x++) {
