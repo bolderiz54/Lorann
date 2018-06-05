@@ -19,11 +19,15 @@ public interface IController {
 	
 	/** 
 	 * The method getView get the view sent to the controller
+	 * @return IView
+	 * The view that the controller has
 	 */
 	public IView getView();
 	
 	/** 
 	 * The method getModel get the model sent to the controller
+	 * @return IModel
+	 * The model that the controller has
 	 */
 	public IModel getModel();
 

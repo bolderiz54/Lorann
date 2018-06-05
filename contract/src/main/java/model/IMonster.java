@@ -16,29 +16,34 @@ public interface IMonster extends IBeing {
 	/**
 	 * The method move allow the monsters to move
 	 * @param player
+	 * 			The pawn of the player
 	 * @param model
+	 * 			The model
 	 */
 	public void move(IPawn player, IModel model);
 	
 	/**
 	 *
      * Gets the x position.
-     *
-     * @return the x
+     * 
+     * @return int
+     * 			the x position
      */
     public int getX();
 
     /**
      * Gets the y position.
      *
-     * @return the y
+     * @return int
+     * 			the y position
      */
     public int getY();
 
     /**
      * Gets the position Point(int x, int y).
      *
-     * @return the position
+     * @return Point
+     * 			the position
      * @see Point
      */
     public Point getPosition();

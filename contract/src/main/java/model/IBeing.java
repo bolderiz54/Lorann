@@ -1,7 +1,5 @@
 package model;
 
-import java.awt.Point;
-
 /**
  * <h1>The Interface IBeing.</h1>
  * 
@@ -13,7 +11,8 @@ public interface IBeing extends IMobile {
 	
 	/**
 	 * The method isAlive is a boolean to know if the entity is alive
-	 * @return true or false
+	 * @return boolean
+	 * 			true or false
 	 */
 	public boolean isAlive();
 	/**

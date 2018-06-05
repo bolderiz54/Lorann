@@ -9,100 +9,122 @@ import java.util.Observer;
  * @author Hugo
  * @version 1.1
  */
+@SuppressWarnings("deprecation")
 public interface IModel extends IScore {
 
 /**
- * 
- * @param level (int)
- * @return true if the entity is alive
+ * Load the level from the database according to the level number
+ * @param level
+ * 			The number of the level we want to load
+ * @return boolean
+ * 			true if the entity is alive
  * @throws IOException 
  */
    public boolean loadLevel(int level);
    
    /**
-    * Reset the level
+    * Reset the map to the loaded level
     */
    public void resetLevel();
    
    /**
-    * Unload the level
+    * Unload the loaded level
     */
    public void unloadLevel();
    
    /**
-    * get the map
-    * @return all the entity in the map
+    * Get the map
+    * @return ILorannMap
+    * 			all the entity in the map
     */
    public ILorannMap getLorannMap();
    
    /**
-    * get the Width of the map
-    * @return the size of the width (int)
+    * Get the width of the map
+    * @return int
+    * 			the width of the map
     */
    public int getWidth();
    
    /**
-    * set the width
-    * @param Width
+    * Set the width
+    * @param width
+    * 			the width of the map
     */
    public void setWidth(int width);
    
    /**
-    * get the height of the map
-    * @return the size of the height
+    * Get the height of the map
+    * @return int
+    * 			the size of the height
     */
    public int getHeight();
   
    /**
-    * set the height of the map
+    * Set the height of the map
     * @param height
+    * 			the size of the height
     */
    public void setHeight(int height);
    
    /**
     * get the player
+    * @return IPlayer
+    * 			the character that the player control
     */
    public IPlayer getPlayer();
    
    /**
-    *  This is to get a Monster
+    * This is to get a Monster
     * @param monsterNumber
-    * @return the number of the monster
+    * 			The id of the monster (0-3)
+    * @return IMonster
+    * 			The monster
     */
    public IMonster getMonster(int monsterNumber);
    
    /**
 	 * get the type of the entity
 	 * @param entityType
+	 * 			The type of the entity
 	 * @return the entity
+	 * 			The entity
 	 */
    public IEntity getEntity(EntityType entityType);
    
    /**
     * The method check if the spell exist or not 
-    * @return true if the spell exist
+    * @return boolean
+    * 			true if the spell exist
     */
    public boolean isSpellExist();
    
    /**
     * The method get the spell
-    * @return
+    * @return ISpell
+    * 			The spell
     */
    public ISpell getSpell();
    
    /**
-    *  get an Entity
-    * @param x  The movements of the Entity
-    * @param y The movements of the Entity
-    * @return  an entity at the right coordinates
+    * get an Entity
+    * @param x
+    * 			The x position of the Entity
+    * @param y
+    * 			The y position of the Entity
+    * @return IEntity
+    * 			the entity at the coordinates
     */
    public IEntity getOnMap(int x, int y);
    
    /**
     * set an Entity on the map
     * @param entity
+    * 			The type of the entity
     * @param x
+    * 			The x position of the Entity
     * @param y
+    * 			The y position of the Entity
     */
    public void setOnMap(EntityType entity, int x, int y);
    
@@ -119,13 +141,16 @@ public interface IModel extends IScore {
    /**
     * remove an entity from the map
     * @param x
+    * 			The x position of the Entity
     * @param y
+    * 			The y position of the Entity
     */
    public void removeSquare(int x, int y);
    
    /**
     * Add an observer to the map
     * @param observer
+    * 			The observer
     */
    public void addObserver(Observer observer);
    

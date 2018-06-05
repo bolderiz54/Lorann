@@ -3,7 +3,7 @@ package model;
 import java.awt.Point;
 
 /**
- * The interface ISpell
+ * <h1>The interface ISpell</h1>
  * @author Hugo
  *
  */
@@ -21,40 +21,47 @@ public interface ISpell {
 	
 	/**
 	 * this method show if the spell was called by the player
+	 * @return boolean
+	 * 			True if the spell has been repelled
 	 */
 	public boolean isRepelled();
 	
 	/**
      * Gets the x position.
      *
-     * @return the x
+     * @return int
+     * 			The x position
      */
     int getX();
 
     /**
      * Gets the y position.
      *
-     * @return the y
+     * @return int
+     * 			The y position
      */
     int getY();
 
     /**
      * Gets the position Point(int x, int y).
      *
-     * @return the position
+     * @return Point
+     * 			The position
      * @see Point
      */
     Point getPosition();
 	
     /**
-     * It sets the direction of the spell
+     * It set the direction of the spell
      * @param direction
+     * 			The direction of the spell
      */
     void setDirection(Direction direction);
     
     /**
      * It return the direction of the spell
      * @return Direction
+     * 			The direction of the spell
      */
     Direction getDirection();
     

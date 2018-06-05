@@ -12,18 +12,21 @@ public interface IMobile {
 	/**
 	 * set the x position
 	 * @param x
+	 * 			the x position of the mobile
 	 */
 	public void setX(int x);
 	
 	/**
 	 * set the y position
 	 * @param y
+	 * 			the y position of the mobile
 	 */
 	public void setY(int y);
 	
 	/**
 	 * set the x and the y positions
 	 * @param position
+	 * 			The position of the mobile
 	 */
 	public void setPosition(Point position);
 	

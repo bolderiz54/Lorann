@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * <h1>The enumeration EntityType</h1>
+ * @author vince
+ *
+ */
 public enum EntityType {
 
 	ENT_GROUND,

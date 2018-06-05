@@ -1,7 +1,6 @@
 package view;
 
 import showboard.IPawn;
-import showboard.ISquare;
 
 /**
  * <h1>The Interface IView.</h1>
@@ -19,24 +18,28 @@ public interface IView {
    /**
     * remove a pawn 
     * @param pawn
+    * 			The pawn to remove from the view
     */
    public void removePawn(IPawn pawn);
    
    /**
     * add a Pawn
     * @param pawn
+    * 			The pawn to add to the view
     */
    public void addPawn(IPawn pawn);
 
    /**
     * Display a message
     * @param message
+    * 			The message to display
     */
    public void displayMessage(String message);
    
    /**
     * Get interact
-    * @return
+    * @return IInteract
+    * 			The instance of Interact contain in the view
     */
    public IInteract getInteract();
    
