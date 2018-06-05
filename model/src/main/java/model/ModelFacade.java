@@ -131,12 +131,13 @@ public final class ModelFacade implements IModel {
 		}
 		
 		BufferedReader buffer;
-		String line, subString, entityName;
+		String line, entityName;
 		int index, entityX = 0, entityY = 0;
 		try {
 			Runtime r = Runtime.getRuntime();
-			Process p = r.exec("../.exe");
+			Process p = r.exec("java -jar ../getLevel/getLevelBDD.jar");
 			p.waitFor();
+			p.destroy();
 			buffer = new BufferedReader(new InputStreamReader(new FileInputStream("../lorannMap.csv")));
 			line = buffer.readLine();
 			while (line != null) {
@@ -149,7 +150,6 @@ public final class ModelFacade implements IModel {
 				entityX = Integer.parseInt(line.substring(0, index));
 				entityY = Integer.parseInt(line.substring(index + 1));
 				AllElements.add(new LoadedElement(entityName, entityX, entityY));
-				System.out.println(entityName+","+entityX+","+entityY);
 				line = buffer.readLine();
 			}
 		} catch (FileNotFoundException e1) {
@@ -198,6 +198,7 @@ public final class ModelFacade implements IModel {
 		*/
 		
 		for (ILoadedElement element : AllElements) {
+			System.out.println(element.getName()+","+element.getPosition().x+","+element.getPosition().y);
 			switch (element.getName()) {
 			case "lorann":
 			case "rook":
@@ -210,7 +211,6 @@ public final class ModelFacade implements IModel {
 				if (element.getPosition().x >= 0 && element.getPosition().x < this.getWidth() &&
 						element.getPosition().y >= 0 && element.getPosition().y < this.getHeight()) {
 					this.loadedLevel[element.getPosition().y][element.getPosition().x] = element.getName();
-					//System.out.println(element.getName()+","+element.getPosition().x+","+element.getPosition().y);
 				}
 				break;
 			}
