@@ -51,6 +51,7 @@ import javax.swing.JPanel;
  * @see Observer
  * @see Observable
  */
+@SuppressWarnings("deprecation")
 class BoardPanel extends JPanel implements Observer {
 
     /** The Constant serialVersionUID. */
@@ -126,8 +127,9 @@ class BoardPanel extends JPanel implements Observer {
     /*
      * (non-Javadoc)
      * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+     * 
      */
-    @Override
+	@Override
     public final void update(final Observable observable, final Object object) {
         this.repaint();
     }
@@ -157,7 +159,7 @@ class BoardPanel extends JPanel implements Observer {
     }
 
     /**
-     * Ramove all pawns of the frame 
+     * Remove all pawns of the frame 
      * 
      */
     public void removePawns() {

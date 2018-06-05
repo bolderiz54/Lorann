@@ -5,8 +5,8 @@ import java.awt.Point;
 import java.io.IOException;
 
 /**
- * <h1> This class describe the structure of the player </h1>
- * 
+ * <h1>The class Player</h1>
+ * This class describe the structure of the player
  * @author Vincent Linck
  * @version 1.0
  */

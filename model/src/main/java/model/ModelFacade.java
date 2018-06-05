@@ -15,8 +15,8 @@ import model.dao.DAO;
 import model.dao.LoadedElement;
 
 /**
- * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
- *
+ * <h1>The Class ModelFacade</h1>
+ * It provides a facade of the Model component.
  * @author Hugo
  * @version 1.0
  */

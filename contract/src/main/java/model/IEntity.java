@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * <h1>The interface IEntity</h1>
+ * It describe how an entity must be use
+ * @author Vincent Linck
+ * @version 1.0
+ */
 public interface IEntity {
 	
 	/**

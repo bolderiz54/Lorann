@@ -3,11 +3,8 @@ package view;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyListener;
-
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-
-import model.EntityType;
 import model.IModel;
 import showboard.BoardFrame;
 import showboard.IPawn;
