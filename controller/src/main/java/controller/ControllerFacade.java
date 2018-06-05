@@ -54,6 +54,7 @@ public class ControllerFacade implements IController {
 		boolean cast = false;
 		
 		this.getModel().loadLevel(3);
+		this.getView().update();
 		
 		if (this.getModel().getPlayer().isAlive()) {
 			this.getView().addPawn((IPawn) this.getModel().getPlayer());

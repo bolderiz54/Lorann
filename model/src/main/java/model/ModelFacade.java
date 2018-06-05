@@ -130,6 +130,8 @@ public final class ModelFacade implements IModel {
 			}
 		}
 		
+		/*
+		
 		BufferedReader buffer;
 		String line, entityName;
 		int index, entityX = 0, entityY = 0;
@@ -160,6 +162,7 @@ public final class ModelFacade implements IModel {
 			e3.printStackTrace();
 		}
 		
+		*/
 		/*
 		
 		for (int y = 0; y < this.height; y++) {
@@ -181,7 +184,7 @@ public final class ModelFacade implements IModel {
 		//this.pawnsLoaded.add(new LoadedElement("stalker", 19, 10));
 		
 		*/
-		/*
+		/**/
 		
 		try {
 			AllElements = DAO.loadLevel(level);
@@ -195,10 +198,9 @@ public final class ModelFacade implements IModel {
 			return false;
 		}
 		
-		*/
+		/**/
 		
 		for (ILoadedElement element : AllElements) {
-			System.out.println(element.getName()+","+element.getPosition().x+","+element.getPosition().y);
 			switch (element.getName()) {
 			case "lorann":
 			case "rook":
