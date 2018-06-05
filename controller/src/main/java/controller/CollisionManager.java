@@ -11,6 +11,10 @@ import model.Permeability;
 import showboard.IPawn;
 import view.IView;
 
+/**
+ * @author gauthier
+ * @version 1.0
+ */
 public class CollisionManager {
 	
 	private IModel model;

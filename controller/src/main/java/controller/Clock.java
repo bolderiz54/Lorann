@@ -1,5 +1,9 @@
 package controller;
 
+/**
+ * @author gauthier
+ * @version 1.0
+ */
 public class Clock {
 
 	/**
