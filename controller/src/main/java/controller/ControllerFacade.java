@@ -35,6 +35,7 @@ public class ControllerFacade implements IController {
  		this.view = view;
  		this.model = model;
  		this.collisionManager = new CollisionManager(this.getModel(), this.getView());
+ 		this.clock = new Clock(10);
  		}
  	
  	@SuppressWarnings("unused")
@@ -53,7 +54,7 @@ public class ControllerFacade implements IController {
 	public void start() throws InterruptedException {
 		boolean cast = false;
 		
-		this.getModel().loadLevel(3);
+		this.getModel().loadLevel(2);
 		this.getView().update();
 		
 		if (this.getModel().getPlayer().isAlive()) {
@@ -154,7 +155,7 @@ public class ControllerFacade implements IController {
 				System.out.println("");
 			}*/
 			this.getModel().getLorannMap().setMobileHasChanged();
-			Thread.sleep(100);
+			this.clock.sleep();
 		}
 		
 		if (ControllerFacade.win) {
