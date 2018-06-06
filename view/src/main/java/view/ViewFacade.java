@@ -100,13 +100,6 @@ public class ViewFacade implements IView, Runnable {
     	boardframe.setDimension(new Dimension(this.model.getWidth(), this.model.getHeight()));
     	boardframe.setDisplayFrame(this.view);
     	boardframe.setSize(this.view.width * squareSize, this.view.height * squareSize);
-    	
-    	for (int y = 0; y < this.model.getHeight(); y++) {
-    		for (int x = 0; x < this.model.getWidth(); x++) {
-        		boardframe.addSquare((ISquare) this.model.getOnMap(x, y), x, y);
-        	}
-    	}
-    	
     	boardframe.addKeyListener((KeyListener) interact);
     	this.model.addObserver(this.boardframe.getObserver());
     	boardframe.setFocusable(true);

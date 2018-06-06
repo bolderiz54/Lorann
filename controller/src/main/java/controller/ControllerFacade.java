@@ -103,7 +103,7 @@ public class ControllerFacade implements IController {
 	public void start() throws InterruptedException {
 		boolean cast = false;
 		
-		this.getModel().loadLevel(2);
+		this.getModel().loadLevel(3);
 		this.getView().update();
 		
 		if (this.getModel().getPlayer().isAlive()) {
