@@ -33,7 +33,10 @@ public class SpellTest {
 
 	@Test
 	public void testGetDirection() {
-		fail("Not yet implemented");
+		final Direction expected = Direction.DIR_LEFT;
+		final Spell spell = new Spell();
+		spell.setDirection(Direction.DIR_LEFT);
+		assertEquals(expected, spell.getDirection());
 	}
 
 }
