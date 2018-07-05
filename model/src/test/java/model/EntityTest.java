@@ -2,10 +2,12 @@ package model;
 
 import static org.junit.Assert.*;
 
+import java.awt.Image;
+
 import org.junit.Test;
 
 public class EntityTest {
-
+	
 	@Test
 	public void testGetPermeability() {
 		final Permeability expected = Permeability.BLOCKING;
