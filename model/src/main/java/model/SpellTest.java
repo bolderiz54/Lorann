@@ -12,7 +12,6 @@ public class SpellTest {
 	public void testMove() {
 		final int expectedX = 12;
 		final int expectedY = 8;
-		final Direction expectedDir = Direction.DIR_DOWN_LEFT;
 		final Spell spell = new Spell(Direction.DIR_DOWN_LEFT, new Point(11,9));
 		spell.move();
 		assertEquals(expectedX, spell.getPosition().x);
@@ -21,14 +20,18 @@ public class SpellTest {
 
 	@Test
 	public void testReverse() {
-		final Direction expectedDir = Direction.DIR_RIGHT;
-		final Spell spell = new Spell(Direction.DIR_LEFT, new Point(11,9));
-		assertEquals(expectedDir, spell.reverse());
+		final Direction expectedDir = Direction.DIR_DOWN;
+		final Spell spell = new Spell();
+		spell.reverse();
+		assertEquals(expectedDir, spell.getDirection());
 	}
 
 	@Test
 	public void testIsRepelled() {
-		fail("Not yet implemented");
+		final boolean expected = true;
+		final Spell spell = new Spell();
+		spell.reverse();
+		assertEquals(expected, spell.isRepelled());
 	}
 
 	@Test
