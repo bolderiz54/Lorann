@@ -7,7 +7,7 @@ package model;
  * @version 1.0
  *
  */
-public abstract class Being extends Mobile implements IBeing {
+public class Being extends Mobile implements IBeing {
 	
 	/**
 	 * True or false if the being is alive or not
