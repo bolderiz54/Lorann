@@ -10,23 +10,11 @@ public class InteractTest {
 	public void testIsKeyPressedChar() {
 		Interact interact = new Interact();
 		assertFalse(interact.isKeyPressed('a'));
-		
-		
 	}
-/*
+	
 	@Test
-	public void testKeyPressed() {
-		fail("Not yet implemented");
+	public void testIsKeyPressedCode() {
+		Interact interact = new Interact();
+		assertFalse(interact.isKeyPressed(1));
 	}
-
-	@Test
-	public void testKeyReleased() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKeyTyped() {
-		fail("Not yet implemented");
-	}
-*/
 }
