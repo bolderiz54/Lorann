@@ -12,9 +12,7 @@ import model.ModelFacade;
 
 
 public class ViewFacadeTest {
-	
-	
-	
+
 	Rectangle view;
 	
 	@Test
@@ -35,8 +33,4 @@ public class ViewFacadeTest {
 		
 	}
 	
-
-
-	
-
 }
