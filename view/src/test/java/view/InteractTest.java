@@ -14,18 +14,31 @@ import static org.junit.Assert.*;
  * Tests GameFrame class
  */
 public class InteractTest {
+	
+	
 
     Interact t;
     ControllerMock c;
 
-    @Before
+   /* @Before
     public void setUp() throws Exception {
         c = new ControllerMock();
         t = new Interact();
         t.setController(c);
-    }
+    } */
+    @Test 
+    public void testIsKeyPressedChar() {
+		Interact interact = new Interact();
+		assertFalse(interact.isKeyPressed('a'));
+	}
+    
+    @Test 
+    public void testIsKeyPressedCode() {
+		Interact interact = new Interact();
+		assertFalse(interact.isKeyPressed(1));
+	}
 
-    @Test
+ /*   @Test
     public void testKeyPressedShouldUpCharacterUp() throws Exception {
         KeyEvent e = new KeyEvent(new ComponentMock(), 0, 0, 0, 0);
         e.setKeyCode(KeyEvent.VK_UP);
@@ -63,5 +76,5 @@ public class InteractTest {
         assertEquals(2, c.geti());
     }
 
-
+*/
 }
