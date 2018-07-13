@@ -1,10 +1,9 @@
 package view;
 
-import view.Order;
 import org.junit.Before;
 import org.junit.Test;
 import view.mock.ComponentMock;
-import view.mock.ControllerMock;
+
 
 import java.awt.event.KeyEvent;
 
@@ -17,10 +16,10 @@ public class InteractTest {
 	
 	
 
-    Interact t;
-    ControllerMock c;
+    //Interact t;
+   
 
-   /* @Before
+/*    @Before
     public void setUp() throws Exception {
         c = new ControllerMock();
         t = new Interact();
@@ -38,7 +37,7 @@ public class InteractTest {
 		assertFalse(interact.isKeyPressed(1));
 	}
 
- /*   @Test
+/*  @Test
     public void testKeyPressedShouldUpCharacterUp() throws Exception {
         KeyEvent e = new KeyEvent(new ComponentMock(), 0, 0, 0, 0);
         e.setKeyCode(KeyEvent.VK_UP);
